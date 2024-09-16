@@ -66,10 +66,12 @@
               ./modules/nixos.nix
               ./modules/pkgs.nix
               ./modules/fzf.nix
+              ./modules/gh.nix
+              ./modules/git
               ./modules/tmux
               ./modules/neovim
-	      ./modules/shell.nix
-	      ./modules/ssh
+              ./modules/shell.nix
+              ./modules/ssh
               nix-index-database.hmModules.nix-index
             ];
           };
