@@ -64,13 +64,16 @@
             imports = [
               ./modules/home.nix
               ./modules/nixos.nix
+              ./modules/pkgs.nix
               ./modules/fzf.nix
+              ./modules/tmux
               ./modules/neovim
+	      ./modules/shell.nix
+	      ./modules/ssh
               nix-index-database.hmModules.nix-index
             ];
           };
         }
-        # ./nixvim.nix   # not working just yet
       ];
     };
   };
