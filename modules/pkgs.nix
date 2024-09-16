@@ -15,17 +15,21 @@
     eza
     fd
     hackrf
-    # geckodriver  # should be linked per project. useful, but prefer curling.
+    # geckodriver  # prefer curl 
     gh
     gnumake
     gqrx
+    httpie
     hyperfine
+    imagemagick
     jq
+    lazygit
     nerdfonts
     nh
     nix-direnv
     nmap
     nodejs
+    poppler
     python313
     ripgrep
     sioyek
@@ -35,10 +39,10 @@
     unzip
     vesktop
     wget
+    xclip
     yazi
     zathura
     zig
-    zoxide
 
     # treesitter, lsps, formatters, and stuff :)
     bash-language-server
