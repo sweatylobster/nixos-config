@@ -42,10 +42,6 @@
       firefox
   ];
 
-  # Remap caps-lock to escape.
-  services.xserver.xkb.options = "caps:escape";
-
-
   # Enable autologin for the primary user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "cowmaster";

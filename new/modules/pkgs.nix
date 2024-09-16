@@ -50,7 +50,7 @@
     ruff
     rust-analyzer
     shellcheck
-    shellfmt
+    shfmt
     stylua
     tree-sitter
     zig

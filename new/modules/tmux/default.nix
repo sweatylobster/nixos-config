@@ -12,6 +12,6 @@
       tmux-thumbs
       sensible
     ];
-    extraConfig = builtins.readFile ./tmux.conf
+    extraConfig = builtins.readFile ./tmux.conf;
   };
 }

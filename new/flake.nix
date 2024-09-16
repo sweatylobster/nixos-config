@@ -54,8 +54,8 @@
       system = "x86_64-linux";
       modules = [
         { nixpkgs.overlays = overlays; }
+	./machines/melissa
         home-manager.nixosModules.home-manager
-        ./configuration.nix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
