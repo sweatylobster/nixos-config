@@ -16,7 +16,6 @@
 
       lg = "lazygit";
 
-      # who needs ls, anyway?
       ls = "eza";
       ll = "eza --long --header --git --icons=always --all";
       tree = "eza --tree";
@@ -26,16 +25,15 @@
       t = "tmux";
     };
 
-    # initExtra = builtins.readFile ./config.zsh;
-    initExtra = ''
-      function y() {
-        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-        yazi "$@" --cwd-file="$tmp"
-        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-          cd -- "$cwd"
-        fi
-        rm -f -- "$tmp"
-      }
-    '';
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "jeffreytse/zsh-vi-mode"; }
+        { name = "junegunn/fzf-git.sh"; }
+      ];
+    };
+
+    initExtra = builtins.readFile ./config.zsh;
+
   };
 }
