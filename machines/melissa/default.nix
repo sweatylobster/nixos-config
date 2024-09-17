@@ -42,7 +42,7 @@
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
       alacritty
-      firefox
+      # firefox
   ];
 
   # Enable autologin for the primary user.
