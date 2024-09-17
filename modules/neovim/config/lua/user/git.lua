@@ -1,14 +1,14 @@
 vim.g.fugitive_legacy_commands = 0
 
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { 
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, {
   noremap = true,
   silent = true,
   desc = "Open Git",
 })
 
-vim.keymap.set("n", "<leader>gms", function () 
+vim.keymap.set("n", "<leader>gms", function()
   vim.cmd.Git("sync")
-end, { 
+end, {
   noremap = true,
   silent = true,
   desc = "Git sync",
@@ -20,11 +20,10 @@ require("gitsigns").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>gp", function () 
+vim.keymap.set("n", "<leader>gp", function()
   vim.cmd.Gitsigns("preview_hunk")
-end, { 
+end, {
   noremap = true,
   silent = true,
   desc = "Git preview hunk",
 })
-

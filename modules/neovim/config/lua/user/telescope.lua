@@ -1,14 +1,14 @@
-local telescope = require('telescope')
-local actions = require('telescope.actions')
+local telescope = require("telescope")
+local actions = require("telescope.actions")
 
-local select_one_or_multi = function (prompt_bufnr)
-  local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+local select_one_or_multi = function(prompt_bufnr)
+  local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
   local multi = picker:get_multi_selection()
   if not vim.tbl_isempty(multi) then
     require("telescope.actions").close(prompt_bufnr)
     for _, j in pairs(multi) do
       if j.path ~= nil then
-	vim.cmd(string.format("%s %s", "edit", j.path))
+        vim.cmd(string.format("%s %s", "edit", j.path))
       end
     end
   else
@@ -51,10 +51,9 @@ telescope.setup({
 
 -- telescope.load_extension("zoxide")
 
-local opts = { noremap = true, silent = true, }
+local opts = { noremap = true, silent = true }
 
 local builtin = require("telescope.builtin")
-
 
 -- Open Telescope :) -- maybe not the right place
 vim.keymap.set("n", "<leader>t", ":Telescope <CR>", opts)

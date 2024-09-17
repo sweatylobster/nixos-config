@@ -5,10 +5,10 @@ require("ibl").setup({
 })
 
 -- require('treesj').setup()
-local treesj = require('treesj')
+local treesj = require("treesj")
 treesj.setup()
 
-vim.keymap.set('n', '<leader>gS', treesj.toggle, {
+vim.keymap.set("n", "<leader>gS", treesj.toggle, {
   noremap = true,
   silent = true,
   desc = "Toggle [s]plit/join",

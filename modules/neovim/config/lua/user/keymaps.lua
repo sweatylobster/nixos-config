@@ -30,7 +30,6 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprev<CR>", opts)
 keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
-
 -- REGISTERS
 --
 
@@ -41,13 +40,12 @@ keymap("n", "<leader>p", '"_dp', opts)
 keymap("n", "<leader>py", ':let @" = expand("%:p")<CR>')
 
 -- yank to clipboard.
-keymap({"n", "v"}, "<leader>y", '"+y', opts)
-keymap({"n", "v"}, "<leader>Y", '"+Y', opts)
+keymap({ "n", "v" }, "<leader>y", '"+y', opts)
+keymap({ "n", "v" }, "<leader>Y", '"+Y', opts)
 
 -- delete to blackhole.
-keymap({"n", "v"}, "<leader>d", '"_d', opts)
-keymap({"n", "v"}, "<leader>D", '"_D', opts)
-
+keymap({ "n", "v" }, "<leader>d", '"_d', opts)
+keymap({ "n", "v" }, "<leader>D", '"_D', opts)
 
 -- POSITIONING
 --
@@ -77,10 +75,10 @@ keymap("n", "[<Space>", "m`O<Esc>``", opts)
 --
 
 -- replace the word under the cursor for the whole buffer.
-keymap("n", "<leader>rw", ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', opts)
+keymap("n", "<leader>rw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
 -- give buffer executable permissions.
-keymap("n", "<leader>x", '<cmd>!chmod +x %<CR>', opts)
+keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
 -- INSERT MODE
 --
