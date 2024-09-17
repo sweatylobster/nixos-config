@@ -16,7 +16,6 @@
     fd
     hackrf
     # geckodriver  # prefer curl 
-    gh
     gnumake
     gqrx
     httpie
