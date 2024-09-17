@@ -38,6 +38,7 @@ in
       telescope-github-nvim
       auto-hlsearch-nvim
       vim-tmux-navigator
+      oil-nvim
 
       # coding
       nvim-lspconfig
