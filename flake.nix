@@ -54,7 +54,7 @@
       system = "x86_64-linux";
       modules = [
         { nixpkgs.overlays = overlays; }
-	./machines/melissa
+		./machines/melissa
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

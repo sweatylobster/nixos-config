@@ -33,6 +33,7 @@
     ripgrep
     sioyek
     starship
+    steam
     texliveFull
     tldr
     unzip
