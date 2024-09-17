@@ -5,14 +5,15 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    history = {};
+    history = { };
 
     shellAliases = {
 
-      # indecisive
-      e = "nvim";
       n = "nvim";
-      v = "nvim";
+      # Might have to rethink using these all the time.
+      nsf = "nvim +'Telescope find_files'";
+      nsg = "nvim +'Telescope live_grep'";
+      ngf = "nvim +'Telescope git_files'";
 
       lg = "lazygit";
 
