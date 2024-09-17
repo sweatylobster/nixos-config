@@ -68,6 +68,7 @@
                 ./modules/gh.nix
                 ./modules/git
                 ./modules/alacritty.nix
+                ./modules/editorconfig.nix
                 ./modules/kitty.nix
                 ./modules/tmux
                 ./modules/neovim
