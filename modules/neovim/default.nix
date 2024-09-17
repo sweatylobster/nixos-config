@@ -45,7 +45,7 @@ in
       vim-tmux-navigator
       cloak-nvim
 
-	  # personal basics
+      # personal basics
       oil-nvim
       flash-nvim
       vim-easy-align
@@ -57,6 +57,7 @@ in
       cmp-path
       cmp-cmdline
       cmp-calc
+      cmp-treesitter
       nvim-autopairs
       nvim-ts-autotag
       cmp-nvim-lsp
