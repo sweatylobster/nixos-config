@@ -68,6 +68,8 @@
               ./modules/fzf.nix
               ./modules/gh.nix
               ./modules/git
+              ./modules/alacritty.nix
+              ./modules/kitty.nix
               ./modules/tmux
               ./modules/neovim
               ./modules/shell.nix
