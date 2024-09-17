@@ -25,7 +25,7 @@
       bun.disabled = true;
       c.disabled = true;
       cmake.disabled = true;
-      conda.disabled = true;  # NOTE
+      conda.disabled = true; # NOTE
       container.disabled = true;
       crystal.disabled = true;
       daml.disabled = true;
@@ -60,7 +60,7 @@
       perl.disabled = true;
       php.disabled = true;
       purescript.disabled = true;
-      python.disabled = true;  # NOTE
+      python.disabled = true; # NOTE
       ruby.disabled = true;
       rust.disabled = true;
       scala.disabled = true;

@@ -15,7 +15,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = ["FiraMono"]; })
+    (nerdfonts.override { fonts = [ "FiraMono" ]; })
   ];
 
   fonts.fontDir.enable = true;
@@ -41,8 +41,8 @@
 
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
-      alacritty
-      # firefox
+    alacritty
+    # firefox
   ];
 
   # Enable autologin for the primary user.
