@@ -65,6 +65,7 @@
                 ./modules/nixos.nix
                 ./modules/pkgs.nix
                 ./modules/fzf.nix
+                ./modules/firefox.nix
                 ./modules/gh.nix
                 ./modules/git
                 ./modules/alacritty.nix

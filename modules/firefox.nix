@@ -21,7 +21,7 @@
       };
 
       # https://nur.nix-community.org/repos/rycee/
-      extensions = with pkgs.nur.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         darkreader
         ublock-origin
         # behind-the-overlay-revival
@@ -54,41 +54,41 @@
             # icons = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-os.svg";  # NOTE: Try this after building
             definedAliases = [ "@no" ];
           };
-          "NixOS Wiki" {
-          urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
-          iconUpdateURL = "https://nixos.wiki/favicon.png";
-          updateInterval = 1000 * 60 * 60 * 24; # daily
-          definedAliases = [ "@nw" ];
+          "NixOS Wiki" = {
+            urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            updateInterval = 1000 * 60 * 60 * 24; # daily
+            definedAliases = [ "@nw" ];
+          };
+          "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
-        "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+        default = "Google";
       };
-      default = "Google";
-    };
 
-    bookmarks = [
-      {
-        toolbar = true;
-        bookmarks = [
-          {
-            name = "NixOS configs";
-            bookmarks = [
-              {
-                name = "HirschBerge's firefox.nix";
-                url = "https://github.com/HirschBerge/Public-dots/blob/main/nixos/common/configs/firefox.nix";
-              }
-              {
-                name = "HirschBerge's gaming.nix";
-                url = "https://github.com/HirschBerge/Public-dots/blob/main/nixos/yoitsu/configs/gaming.nix";
-              }
-              {
-                name = "caarlos0 dotfiles";
-                url = "https://github.com/caarlos0/dotfiles";
-              }
-            ];
-          }
-        ];
-      }
-    ];
+      bookmarks = [
+        {
+          toolbar = true;
+          bookmarks = [
+            {
+              name = "NixOS configs";
+              bookmarks = [
+                {
+                  name = "HirschBerge's firefox.nix";
+                  url = "https://github.com/HirschBerge/Public-dots/blob/main/nixos/common/configs/firefox.nix";
+                }
+                {
+                  name = "HirschBerge's gaming.nix";
+                  url = "https://github.com/HirschBerge/Public-dots/blob/main/nixos/yoitsu/configs/gaming.nix";
+                }
+                {
+                  name = "caarlos0 dotfiles";
+                  url = "https://github.com/caarlos0/dotfiles";
+                }
+              ];
+            }
+          ];
+        }
+      ];
+    };
   };
-};
 }
