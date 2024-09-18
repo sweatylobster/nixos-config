@@ -28,6 +28,8 @@ telescope.setup({
         ["<C-l>"] = actions.move_to_bottom,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<C-q>"] = actions.send_selected_to_qflist,
+        ["<C-a>"] = actions.smart_add_to_qflist, -- can chain with `actions.open_qflist()`
       },
     },
     prompt_prefix = "   ",
