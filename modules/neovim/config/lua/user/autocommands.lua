@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
     vim.o.number = false
     vim.o.relativenumber = false
     vim.cmd("startinsert")
+    vim.cmd("setlocal nospell")
   end,
 })
 
@@ -30,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Open help window in a vertical split to the right.
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = vim.api.nvim_create_augroup("help_window_right", {}),
+  group = augroup("help_window_right", {}),
   pattern = { "*.txt" },
   callback = function()
     if vim.o.filetype == "help" then
