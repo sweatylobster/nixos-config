@@ -60,6 +60,14 @@
             updateInterval = 1000 * 60 * 60 * 24; # daily
             definedAliases = [ "@nw" ];
           };
+          "Home Manager Options" = {
+            urls = [{
+              template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05";
+            }];
+            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            updateInterval = 1000 * 60 * 60 * 24; # daily
+            definedAliases = [ "@ho" ];
+          };
           "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
         default = "Google";
