@@ -1,7 +1,7 @@
 { ... }: {
 
   imports = [
-    ./zsh
+    # ./zsh
     ./fish
     ./bat.nix
     ./direnv.nix

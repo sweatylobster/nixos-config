@@ -59,7 +59,7 @@
     isNormalUser = true;
     description = "cowmaster";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     # Not allowed to use keyFiles w/o --impure using flake
     # TODO: Use one and only one ssh key!
     openssh.authorizedKeys.keys = [
@@ -110,6 +110,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   services.openssh = {
     enable = true;
