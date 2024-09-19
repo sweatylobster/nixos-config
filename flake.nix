@@ -58,7 +58,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bkp";
+            home-manager.backupFileExtension = "hm-backup";
             home-manager.users.cowmaster = {
               imports = [
                 ./modules/home.nix
@@ -75,6 +75,7 @@
                 ./modules/neovim
                 ./modules/shell.nix
                 ./modules/ssh
+                ./modules/fish
                 nix-index-database.hmModules.nix-index
               ];
             };
