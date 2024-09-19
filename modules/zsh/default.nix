@@ -5,7 +5,11 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    history = { };
+    history.size = 10000;
+    history.save = 10000;
+    history.expireDuplicatesFirst = true;
+    history.ignoreDups = true;
+    history.ignoreSpace = true; # leading space in commands
 
     shellAliases = {
 
@@ -26,15 +30,74 @@
       t = "tmux";
     };
 
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "jeffreytse/zsh-vi-mode"; }
-        { name = "junegunn/fzf-git.sh"; }
-      ];
-    };
+    # zplug = {
+    #   enable = true;
+    #   plugins = [
+    #     { name = "jeffreytse/zsh-vi-mode"; }
+    #     { name = "junegunn/fzf-git.sh"; }
+    #   ];
+    # };
 
-    initExtra = builtins.readFile ./config.zsh;
+    plugins = [
+      {
+        name = "fzf-git";
+        file = "fzf-git.sh";
+        src = pkgs.fetchFromGitHub {
+          owner = "junegunn";
+          repo = "fzf-git.sh";
+          rev = "6a5d4a923b86908abd9545c8646ae5dd44dff607";
+          sha256 = "sha256-Hn28aoXBKE63hNbKfIKdXqhjVf8meBdoE2no5iv0fBQ=";
+        };
+      }
+      {
+        name = "vi-mode";
+        src = "${pkgs.zsh-vi-mode}/share/zsh-vi-mode";
+      }
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub
+          {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.5.0";
+            sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+          };
+      }
+    ];
+
+    initExtra = ''
+
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+
+      # better-vi-mode creates so many problems
+      function zvm_after_init() {
+        for mode in viins vicmd visual; do
+          for o in files branches tags remotes hashes stashes lreflogs each_ref; do
+            eval "zvm_bindkey ''${mode} '^g^''${o[1]}' fzf-git-$o-widget"
+            eval "zvm_bindkey ''${mode} '^g''${o[1]}' fzf-git-$o-widget"
+          done
+        done
+        eval "source <(fzf --zsh)"
+        eval "source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode"
+      }
+
+      # Dispatchers for common extensions
+      alias -s .pdf sioyek
+
+      # Edit the current command line in $EDITOR
+      autoload -U edit-command-line
+      zle -N edit-command-line
+
+    '';
+    # builtins.readFile ./config.zsh;
 
   };
 }
