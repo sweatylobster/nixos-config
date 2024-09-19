@@ -2,6 +2,7 @@
 
   imports = [
     ./zsh
+    ./fish
     ./bat.nix
     ./direnv.nix
     ./starship.nix
