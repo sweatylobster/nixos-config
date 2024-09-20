@@ -4,12 +4,12 @@
   };
   services = { nix-daemon = { enable = true; }; };
   nix.package = pkgs.nix;
-  nix.settings.trusted-users = [ "root" "max" ];
+  nix.settings.trusted-users = [ "root" "cowmaster" ];
   system.stateVersion = 5;  # TODO: what is this, mitchell?
 
-  users.users.max = {
-    name = "max";
-    home = "/Users/max";
+  users.users.cowmaster = {
+    name = "cowmaster";
+    home = "/Users/cowmaster";
   };
 
   homebrew = {
