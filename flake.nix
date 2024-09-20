@@ -95,10 +95,10 @@
             home-manager.users.cowmaster = {
               imports = [
                 ./modules/home.nix
-                ./modules/nixos.nix
+                ./modules/darwin
                 ./modules/pkgs.nix
                 ./modules/fzf.nix
-                ./modules/firefox.nix
+                # ./modules/firefox.nix  # not yet, i have so many bookmarks!
                 ./modules/gh.nix
                 ./modules/git
                 ./modules/alacritty.nix
@@ -108,8 +108,9 @@
                 ./modules/neovim
                 ./modules/shell.nix
                 ./modules/sioyek.nix
-                ./modules/ssh
+                # ./modules/ssh  # also not yet -- need to move around keys.
                 ./modules/fish
+                # ./modules/hammerspoon  # not set up yet
                 nix-index-database.hmModules.nix-index
               ];
             };
