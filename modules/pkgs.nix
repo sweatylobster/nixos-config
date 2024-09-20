@@ -17,10 +17,10 @@
     entr
     eza
     fd
-    hackrf
     # geckodriver  # prefer curl
     gnumake
     gqrx
+    hackrf
     httpie
     hyperfine
     imagemagick
