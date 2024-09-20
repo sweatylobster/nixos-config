@@ -82,12 +82,12 @@
         ];
       };
 
-      nixosConfigurations.bonbon = nixpkgs.lib.darwinSystem {
+      darwinConfigurations.bonbon = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           { nixpkgs.overlays = overlays; }
           ./machines/bonbon
-          home-manager.nixosModules.home-manager
+          home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
