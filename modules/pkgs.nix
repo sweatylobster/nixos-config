@@ -34,7 +34,6 @@
     poppler
     python313
     ripgrep
-    sioyek
     starship
     steam
     texliveFull

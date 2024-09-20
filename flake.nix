@@ -72,6 +72,7 @@
                 ./modules/tmux
                 ./modules/neovim
                 ./modules/shell.nix
+                ./modules/sioyek.nix
                 ./modules/ssh
                 ./modules/fish
                 nix-index-database.hmModules.nix-index
@@ -106,6 +107,7 @@
                 ./modules/tmux
                 ./modules/neovim
                 ./modules/shell.nix
+                ./modules/sioyek.nix
                 ./modules/ssh
                 ./modules/fish
                 nix-index-database.hmModules.nix-index
