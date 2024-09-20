@@ -1,10 +1,10 @@
 { ... }: {
-  home.homeDirectory = "/Users/max";
+  home.homeDirectory = "/Users/cowmaster";
 
-  services = {
-    # discord-applemusic-rich-presence.enable = true;  # maybe do for other things
-    xdg-open-svc.enable = true;
-  };
+  # services = {
+  #   # discord-applemusic-rich-presence.enable = true;  # maybe do for other things
+  #   # xdg-open-svc.enable = true;
+  # };
 
   programs.fish.shellInit = ''
     # fish_add_path -a ~/Applications/Ghostty.app/Contents/MacOS/
