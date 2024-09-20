@@ -7,6 +7,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   home.packages = with pkgs; with pkgs.nodePackages_latest; [
+    # custom packages
+    (pkgs.callPackage ../pkgs/bins { })
+
     bat
     bat-extras.batman
     curl
@@ -15,7 +18,7 @@
     eza
     fd
     hackrf
-    # geckodriver  # prefer curl 
+    # geckodriver  # prefer curl
     gnumake
     gqrx
     httpie
