@@ -19,8 +19,6 @@
     fd
     # geckodriver  # prefer curl
     gnumake
-    gqrx
-    hackrf
     httpie
     hyperfine
     imagemagick
@@ -35,15 +33,10 @@
     python313
     ripgrep
     starship
-    steam
     texliveFull
     tldr
     unzip
-    vesktop
     wget
-    xclip
-    yazi
-    zathura
     zig
 
     # treesitter, lsps, formatters, and stuff :)
@@ -52,7 +45,7 @@
     cargo
     nil
     nixpkgs-fmt
-    # prettier
+    prettier
     ruff
     rust-analyzer
     shellcheck
@@ -61,5 +54,9 @@
     tree-sitter
     zig
     zls
-  ];
+  ] ++ (lib.optionals pkgs.stdenv.isLinux [
+    gqrx
+    hackrf
+    vesktop
+  ]);
 }
