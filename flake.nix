@@ -7,13 +7,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
-    nixvim = {
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-      url = "github:nix-community/nixvim";
-
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
@@ -25,6 +18,11 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
@@ -32,7 +30,7 @@
     { self
     , nixpkgs
     , nur
-    , nixvim
+    , darwin
     , neovim-nightly
     , home-manager
     , nix-index-database
@@ -54,6 +52,40 @@
         modules = [
           { nixpkgs.overlays = overlays; }
           ./machines/melissa
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+            home-manager.users.cowmaster = {
+              imports = [
+                ./modules/home.nix
+                ./modules/nixos.nix
+                ./modules/pkgs.nix
+                ./modules/fzf.nix
+                ./modules/firefox.nix
+                ./modules/gh.nix
+                ./modules/git
+                ./modules/alacritty.nix
+                ./modules/editorconfig.nix
+                ./modules/kitty.nix
+                ./modules/tmux
+                ./modules/neovim
+                ./modules/shell.nix
+                ./modules/ssh
+                ./modules/fish
+                nix-index-database.hmModules.nix-index
+              ];
+            };
+          }
+        ];
+      };
+
+      nixosConfigurations.bonbon = nixpkgs.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./machines/bonbon
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
