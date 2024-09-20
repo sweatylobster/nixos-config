@@ -7,18 +7,6 @@ function y() {
   rm -f -- "$tmp"
 }
 
-# better-vi-mode creates so many problems
-function zvm_after_init() {
-  for mode in viins vicmd visual; do
-    for o in files branches tags remotes hashes stashes lreflogs each_ref; do
-      eval "zvm_bindkey ${mode} '^g^${o[1]}' fzf-git-$o-widget"
-      eval "zvm_bindkey ${mode} '^g${o[1]}' fzf-git-$o-widget"
-    done
-  done
-  eval "source <(fzf --zsh)"
-  eval "source ${}"
-}
-
 # Dispatchers for common extensions
 alias -s .pdf sioyek
 
