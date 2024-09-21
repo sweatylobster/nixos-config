@@ -1,5 +1,6 @@
-{ ... }: {
-  home.username = "cowmaster";
+{ pkgs, ... }: {
+  # home.username = "cowmaster";
+  home.username = if pkgs.stdenv.isLinux then "cowmaster" else "max";
   home.stateVersion = "24.05";
 
   # Let Home Manager install and manage itself.

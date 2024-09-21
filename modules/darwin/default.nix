@@ -1,5 +1,5 @@
 { ... }: {
-  home.homeDirectory = "/Users/cowmaster";
+  home.homeDirectory = "/Users/max";
 
   # services = {
   #   # discord-applemusic-rich-presence.enable = true;  # maybe do for other things
