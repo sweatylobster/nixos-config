@@ -14,6 +14,6 @@
       hide_window_decorations = true;
       background_opacity = "0.84";
     };
-    theme = "Tokyo Night"; # "tokyo_night_night";
+    themeFile = "tokyo_night_night"; # "Tokyo Night";
   };
 }
