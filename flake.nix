@@ -73,6 +73,7 @@
                 ./modules/neovim
                 ./modules/shell.nix
                 ./modules/sioyek.nix
+                ./modules/zathura.nix
                 ./modules/ssh
                 ./modules/fish
                 nix-index-database.hmModules.nix-index
@@ -108,6 +109,7 @@
                 ./modules/neovim
                 ./modules/shell.nix
                 ./modules/sioyek.nix
+                ./modules/zathura.nix
                 # ./modules/ssh  # also not yet -- need to move around keys.
                 ./modules/fish
                 # ./modules/hammerspoon  # not set up yet
