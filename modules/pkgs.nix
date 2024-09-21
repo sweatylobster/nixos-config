@@ -15,7 +15,6 @@
     curl
     devenv
     entr
-    eza
     fd
     # geckodriver  # prefer curl
     gnumake

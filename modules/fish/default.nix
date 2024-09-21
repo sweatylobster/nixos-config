@@ -41,10 +41,6 @@
 
       lg = "lazygit";
 
-      ls = "eza";
-      ll = "eza --long --header --git --icons=always --all";
-      tree = "eza --tree";
-
       texclean = "fd -e log -e aux -x rm {}";
 
       t = "tmux";
