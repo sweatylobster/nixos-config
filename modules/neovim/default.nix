@@ -86,8 +86,9 @@ in
           http
           ini
           javascript
-          jq
+          just
           json
+          jq
           lua
           make
           markdown
