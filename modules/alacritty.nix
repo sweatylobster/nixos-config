@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -9,7 +9,7 @@
       # favorites:
       # [ DejaVuSansM, FiraMono, Hack, Hasklug, Lilex, MartianMono (size=12), UbuntoMono (size=18),  ]
       font = {
-        size = 12;
+        size = if pkgs.stdenv.isLinux then 12 else 16;
         bold.family = "MartianMono Nerd Font Mono";
         italic.family = "MartianMono Nerd Font Mono";
         normal.family = "MartianMono Nerd Font Mono";
