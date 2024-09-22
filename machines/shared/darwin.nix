@@ -28,9 +28,19 @@
 
   system.stateVersion = 5;
 
+  programs.zsh.enable = true;
+  programs.fish.enable = true;
+
+  environment.shells = with pkgs; [
+    zsh
+    fish
+  ];
+
+
   users.users.max = {
     name = "max";
     home = "/Users/max";
+    shell = pkgs.zsh;
   };
 
   homebrew = {
@@ -56,9 +66,9 @@
   };
 
   # TODO: Figure out what you want
-  # fonts.packages = with pkgs; [
-  #   (nerdfonts.override { fonts = [ "FiraMono" ]; })
-  # ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
+  ];
 
   system = {
 
