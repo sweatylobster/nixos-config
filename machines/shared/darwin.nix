@@ -79,7 +79,7 @@
         autohide = true;
         autohide-delay = 0.0;
         orientation = "bottom";
-        tilesize = 42;
+        tilesize = 54;
         showhidden = true;
         show-recents = true;
         show-process-indicators = true;
@@ -113,10 +113,19 @@
         ShowPathbar = true;
       };
 
-      # loginwindow = {
-      #   GuestEnabled = false; # disable guest user
-      #   SHOWFULLNAME = true; # show full name in login window
-      # };
+      loginwindow = {
+        # GuestEnabled = false; # disable guest user
+        LoginwindowText = "┌（・Σ・）┘≡З";
+        # （；￣︶￣）
+        # (／‵Д′)／~ ╧╧
+        # o(｀^´*);
+        # ⊂((。・o・))⊃
+        # (゜￢゜)
+        # ♫꒰･◡･๑꒱
+        # (╭ರ_⊙)
+        # (゜ロ゜)
+        # SHOWFULLNAME = true; # show full name in login window
+      };
 
       NSGlobalDomain = {
         ApplePressAndHoldEnabled = false;
