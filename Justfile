@@ -15,10 +15,10 @@ rebuild:
   set -euxo pipefail
   case "{{ os() }}" in
     macos)
-      darwin-rebuild switch --flake ~/nixos-config;
+      darwin-rebuild switch --flake ~/nixos-config;;
 
     linux)
-      sudo nixos-rebuild switch --flake ~/nixos-config;
+      sudo nixos-rebuild switch --flake ~/nixos-config;;
 
     *)
       echo "Unsupported operating system"
