@@ -112,6 +112,7 @@
                 ./modules/zathura.nix
                 # ./modules/ssh  # also not yet -- need to move around keys.
                 ./modules/fish
+                ./modules/zsh
                 # ./modules/hammerspoon  # not set up yet
                 nix-index-database.hmModules.nix-index
               ];
