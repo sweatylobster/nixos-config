@@ -6,6 +6,7 @@
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    goreleaser-nur.url = "github:goreleaser/nur";
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -30,21 +31,32 @@
     { self
     , nixpkgs
     , nur
-    , darwin
-    , neovim-nightly
+    , goreleaser-nur
     , home-manager
     , nix-index-database
+    , darwin
     , ...
     }:
     let
       overlays = [
         (final: prev: {
-          nur = import nur {
-            nurpkgs = prev;
-            pkgs = prev;
-          };
+          nur = import nur
+            {
+              nurpkgs = prev;
+              pkgs = prev;
+              repoOverrides = {
+                goreleaser = import goreleaser-nur { pkgs = prev; };
+              };
+            };
         })
       ];
+
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.unix;
+
+      nixpkgsFor = forAllSystems (system: import nixpkgs {
+        inherit system;
+        overlays = overlays;
+      });
     in
     {
       nixosConfigurations.melissa = nixpkgs.lib.nixosSystem {
@@ -111,8 +123,6 @@
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
                 # ./modules/ssh  # also not yet -- need to move around keys.
-                ./modules/fish
-                ./modules/zsh
                 # ./modules/hammerspoon  # not set up yet
                 nix-index-database.hmModules.nix-index
               ];
@@ -120,5 +130,32 @@
           }
         ];
       };
+
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          default = pkgs.mkShellNoCC {
+            buildInputs = with pkgs; [
+              (writeScriptBin "dot-clean" ''
+                nix-collect-garbage -d --delete-older-than 30d
+              '')
+              (writeScriptBin "dot-release" ''
+                git tag -m "$(date +%Y.%m.%d)" "$(date +%Y.%m.%d)"
+                git push --tags
+                goreleaser release --clean
+              '')
+              (writeScriptBin "dot-apply" ''
+                if test $(uname -s) == "Linux"; then
+                  sudo nixos-rebuild switch --flake .#
+                elif test $(uname -s) == "Darwin"; then
+                  nix build "./#darwinConfigurations.$(hostname | cut -f1 -d'.').system"
+                  ./result/sw/bin/darwin-rebuild switch --flake .
+                fi
+              '')
+            ];
+          };
+        });
     };
 }
