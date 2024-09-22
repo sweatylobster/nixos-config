@@ -21,6 +21,7 @@
     httpie
     hyperfine
     imagemagick
+    just
     jq
     lazygit
     nerdfonts
