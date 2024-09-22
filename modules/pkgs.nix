@@ -24,7 +24,6 @@
     just
     jq
     lazygit
-    nerdfonts
     nh
     nix-direnv
     nmap
