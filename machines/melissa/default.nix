@@ -15,7 +15,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
   ];
 
   fonts.fontDir.enable = true;
