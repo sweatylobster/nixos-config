@@ -18,6 +18,7 @@
       window = {
         decorations = "None";
         opacity = 0.84;
+        option_as_alt = "Both";
       };
     };
   };
