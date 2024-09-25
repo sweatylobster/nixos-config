@@ -24,6 +24,7 @@
       texclean = "fd -I -e aux -e log -e fls -e synctex.gz -x rm {}";
 
       t = "tmux";
+      tt = "taskwarrior-tui";
     };
 
     plugins = [

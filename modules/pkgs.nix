@@ -32,6 +32,7 @@
     python313
     ripgrep
     starship
+    taskwarrior-tui
     texliveFull
     tldr
     unzip

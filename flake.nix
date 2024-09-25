@@ -121,6 +121,7 @@
                 ./modules/neovim
                 ./modules/shell.nix
                 ./modules/sioyek.nix
+                ./modules/taskwarrior.nix
                 ./modules/zathura.nix
                 # ./modules/ssh  # also not yet -- need to move around keys.
                 # ./modules/hammerspoon  # not set up yet

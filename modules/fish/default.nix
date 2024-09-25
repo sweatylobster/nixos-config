@@ -45,6 +45,7 @@
 
       t = "tmux";
       ta = "tmux new -A -s default";
+      tt = "taskwarrior-tui";
     };
   };
   xdg.configFile."fish/functions" = {
