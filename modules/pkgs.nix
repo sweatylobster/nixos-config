@@ -6,7 +6,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  home.packages = with pkgs; with pkgs.nodePackages_latest; [
+  home.packages = with pkgs; with pkgs.nodePackages_latest; with pkgs.python312Packages; [
     # custom packages
     (pkgs.callPackage ../pkgs/bins { })
 
@@ -29,7 +29,7 @@
     nmap
     nodejs
     poppler
-    python313
+    python312
     ripgrep
     starship
     taskwarrior-tui
@@ -46,6 +46,7 @@
     nil
     nixpkgs-fmt
     prettier
+    python-lsp-server
     ruff
     rust-analyzer
     shellcheck

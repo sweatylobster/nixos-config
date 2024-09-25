@@ -93,13 +93,13 @@ lspconfig.ts_ls.setup({
 })
 
 for _, lsp in ipairs({
-  "basedpyright",
   "bashls",
   "clangd",
   "cssls",
   "dockerls",
   "jsonls",
   "nil_ls",
+  "pylsp",
   "ruff",
   "rust_analyzer",
   "taplo",
