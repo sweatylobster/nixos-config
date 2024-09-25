@@ -36,6 +36,7 @@ in
       vim-rhubarb
       vim-abolish
       vim-repeat
+      vim-rsi
       vim-eunuch
       vim-sleuth
       vim-speeddating
@@ -49,6 +50,8 @@ in
       oil-nvim
       flash-nvim
       vim-easy-align
+      vimtex
+      markdown-preview-nvim
 
       # coding
       nvim-lspconfig

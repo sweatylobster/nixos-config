@@ -22,6 +22,10 @@ require("user.telescope")
 require("user.git")
 require("auto-hlsearch").setup()
 
+-- PERSONAL
+require("user.vimtex")
+require("user.markdown-preview")
+
 require("neodev").setup() -- can't use lazydev without a lazy-loading package manager?
 require("luasnip").setup({
   -- see: https://github.com/L3MON4D3/LuaSnip/issues/525
