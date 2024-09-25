@@ -39,8 +39,8 @@
     zig
 
     # treesitter, lsps, formatters, and stuff :)
+    basedpyright
     bash-language-server
-    black
     cargo
     nil
     nixpkgs-fmt
