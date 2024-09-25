@@ -1,11 +1,11 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # https://home-manager-options.extranix.com/?query=kitty&release=master
   programs.kitty = {
     enable = true;
     environment = { works = "yes"; };
     font = {
       name = "MartianMono Nerd Font Mono";
-      size = 12;
+      size = if pkgs.stdenv.isLinux then 12 else 16;
     };
     keybindings = { };
     shellIntegration.enableZshIntegration = true;
