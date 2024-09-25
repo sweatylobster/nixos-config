@@ -10,6 +10,7 @@
     # custom packages
     (pkgs.callPackage ../pkgs/bins { })
 
+    age
     bat
     bat-extras.batman
     curl
