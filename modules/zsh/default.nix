@@ -13,6 +13,8 @@
 
     shellAliases = {
 
+      maxvim = "NVIM_APPNAME=maxvim nvim";
+
       n = "nvim";
       # Might have to rethink using these all the time.
       nsf = "nvim +'Telescope find_files'";
