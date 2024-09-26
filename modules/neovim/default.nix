@@ -57,6 +57,7 @@ in
       nvim-lspconfig
       conform-nvim
       nvim-cmp
+      cmp-buffer
       cmp-path
       cmp-cmdline
       cmp-calc
