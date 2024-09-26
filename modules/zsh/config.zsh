@@ -1,12 +1,3 @@
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
-
 # [V]isualize a directory, respecting .gitignore.
 function v() {
   # TODO: Add a way to send options to fd. IDC about fzf opts.
@@ -19,9 +10,6 @@ function v() {
     --bind 'ctrl-e:become($EDITOR {})' \
     --header 'ctrl-e: Open in $EDITOR.'
 }
-
-# Dispatchers for common extensions
-alias -s .pdf sioyek
 
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line

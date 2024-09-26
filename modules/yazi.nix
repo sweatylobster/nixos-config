@@ -1,6 +1,9 @@
 { ... }: {
   programs.yazi = {
     enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+    shellWrapperName = "y";
     settings = {
       log = {
         enabled = false;
