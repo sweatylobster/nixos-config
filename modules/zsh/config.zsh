@@ -7,6 +7,19 @@ function y() {
   rm -f -- "$tmp"
 }
 
+# [V]isualize a directory, respecting .gitignore.
+function v() {
+  # TODO: Add a way to send options to fd. IDC about fzf opts.
+  dir="${1:-$HOME}"
+  fd --type file . --search-path="$dir" --color always |
+    fzf \
+    --multi \
+    --ansi \
+    --preview 'bat -p -f {}' \
+    --bind 'ctrl-e:become($EDITOR {})' \
+    --header 'ctrl-e: Open in $EDITOR.'
+}
+
 # Dispatchers for common extensions
 alias -s .pdf sioyek
 
