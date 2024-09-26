@@ -35,6 +35,7 @@
     nmap
     nodejs
     onefetch
+    pandoc
     poppler
     python312
     ripgrep
