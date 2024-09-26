@@ -11,49 +11,68 @@
     (pkgs.callPackage ../pkgs/bins { })
 
     age
-    bat
     bat-extras.batman
+    comma
     curl
     devenv
     entr
     fd
-    # geckodriver  # prefer curl
     gnumake
+    graphviz # mermaid-killer
+    # geckodriver  # either do in environment.systemPackages, or link to bin
     httpie
+    httpstat
     hyperfine
     imagemagick
-    just
     jq
+    just
     lazygit
+    moreutils
+    ncdu
+    netcat-gnu
     nh
     nix-direnv
     nmap
     nodejs
+    onefetch
     poppler
     python312
     ripgrep
+    scc
     starship
     taskwarrior-tui
     texliveFull
     tldr
+    unixtools.watch
     unzip
     wget
-    zig
+    yarn
 
     # treesitter, lsps, formatters, and stuff :)
     basedpyright
     bash-language-server
     cargo
+    clang-tools
     nil
     nixpkgs-fmt
+    pgformatter
     prettier
     python-lsp-server
     ruff
     rust-analyzer
+    rustc
+    rustfmt
     shellcheck
     shfmt
+    sql-formatter
     stylua
+    sumneko-lua-language-server
+    tailwindcss-language-server
+    taplo
     tree-sitter
+    vscode-langservers-extracted
+    yaml-language-server
+    yamllint
     zig
     zls
   ] ++ (lib.optionals pkgs.stdenv.isLinux [
