@@ -20,6 +20,7 @@
     gnumake
     graphviz # mermaid-killer
     # geckodriver  # either do in environment.systemPackages, or link to bin
+    htmlq
     httpie
     httpstat
     hyperfine
