@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
 
   programs.zsh = {
     enable = true;
@@ -33,28 +33,30 @@
       {
         name = "fzf-git";
         file = "fzf-git.sh";
-        src = pkgs.fetchFromGitHub {
-          owner = "junegunn";
-          repo = "fzf-git.sh";
-          rev = "6a5d4a923b86908abd9545c8646ae5dd44dff607";
-          sha256 = "sha256-Hn28aoXBKE63hNbKfIKdXqhjVf8meBdoE2no5iv0fBQ=";
-        };
+        src = "${pkgs.fzf-git-sh}/share/fzf-git-sh";
       }
       {
-        name = "vi-mode";
+        name = "zsh-vi-mode";
+        file = "zsh-vi-mode.plugin.zsh";
         src = "${pkgs.zsh-vi-mode}/share/zsh-vi-mode";
       }
       {
         name = "zsh-nix-shell";
         file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub
-          {
-            owner = "chisui";
-            repo = "zsh-nix-shell";
-            rev = "v0.5.0";
-            sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
-          };
+        src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
       }
+      # NOTE: Trying to determine the path and compress this plugin.
+      # {
+      #   name = "zsh-nix-shell";
+      #   file = "nix-shell.plugin.zsh";
+      #   src = pkgs.fetchFromGitHub
+      #     {
+      #       owner = "chisui";
+      #       repo = "zsh-nix-shell";
+      #       rev = "v0.5.0";
+      #       sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+      #     };
+      # }
     ];
 
     initExtra = ''
@@ -68,7 +70,8 @@
           done
         done
         eval "source <(fzf --zsh)"
-        eval "source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode"
+        # NOTE: Starship config disables literally everything. What output should I expect to see?
+        # eval "source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh"
       }
 
     '' + builtins.readFile ./config.zsh;
