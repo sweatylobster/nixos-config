@@ -6,7 +6,12 @@
       fish_config theme choose tokyonight
       fish_add_path -p ~/.nix-profile/bin /nix/var/nix/profiles/default/bin
     '';
-    plugins = [ ];
+    plugins = [
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair-fish.src;
+      }
+    ];
     shellAliases = {
 
       # git

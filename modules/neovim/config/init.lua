@@ -33,6 +33,8 @@ require("luasnip").setup({
   delete_check_events = "InsertLeave",
 })
 require("luasnip.loaders.from_vscode").lazy_load()
+require("nvim-autopairs").setup({ check_ts = true })
+require("nvim-ts-autotag").setup({ enable = true })
 require("user.oil")
 require("user.lsp")
 require("user.cmp")
