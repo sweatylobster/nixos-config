@@ -26,8 +26,8 @@ alias -s .pdf sioyek
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
+bindkey '^v' edit-command-line
 
-# bindkey '^v' edit-command-line
 # bindkey '^p' history-search-backward
 # bindkey '^n' history-search-forward
 # bindkey '^e' end-of-line
