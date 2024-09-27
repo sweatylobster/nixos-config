@@ -42,6 +42,7 @@ in
       vim-speeddating
       telescope-nvim
       telescope-github-nvim
+      telescope-zoxide
       auto-hlsearch-nvim
       vim-tmux-navigator
       cloak-nvim

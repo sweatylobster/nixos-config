@@ -51,8 +51,6 @@ telescope.setup({
   },
 })
 
--- telescope.load_extension("zoxide")
-
 local opts = { noremap = true, silent = true }
 
 local builtin = require("telescope.builtin")
@@ -66,4 +64,12 @@ vim.keymap.set("n", "<leader>gf", builtin.git_files, opts)
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, opts)
 vim.keymap.set("n", "<leader>sh", builtin.help_tags, opts)
 vim.keymap.set("n", "<leader>sc", builtin.commands, opts)
+vim.keymap.set("n", "<leader>sd", builtin.diagnostics, opts)
+vim.keymap.set("n", "<leader>st", builtin.treesitter, opts)
+
+telescope.load_extension("zoxide")
+
+vim.keymap.set("n", "<leader>zi", telescope.extensions.zoxide.list, opts)
+
+-- vim.keymap.set("n", "<leader>zi", builtin.commands, opts)
 -- vim.keymap.set("n", "<leader>sc", builtin.commands, opts)
