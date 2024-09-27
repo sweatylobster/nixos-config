@@ -90,13 +90,10 @@
         mru-spaces = false;
         persistent-apps = [
           "/System/Applications/Reminders.app" # i guess
-          # "/Applications/Todoist.app"         # don't have
-          # "/System/Applications/Notes.app"    # just use nvim
           "/System/Applications/Calendar.app"
-          "/Applications/Firefox.app" # NOTE: my addition
+          "/Applications/Firefox.app"
           # "/System/Cryptexes/App/System/Applications/Safari.app"
-          # "/Applications/Ghostty.app"         # don't have
-          "/Applications/iTerm.app"
+          "/Applications/Kitty.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Messages.app"
           "/Applications/Discord.app"
@@ -116,14 +113,14 @@
       loginwindow = {
         # GuestEnabled = false; # disable guest user
         LoginwindowText = "┌（・Σ・）┘≡З";
-        # （；￣︶￣）
-        # (／‵Д′)／~ ╧╧
-        # o(｀^´*);
-        # ⊂((。・o・))⊃
-        # (゜￢゜)
-        # ♫꒰･◡･๑꒱
-        # (╭ರ_⊙)
-        # (゜ロ゜)
+        # "（；￣︶￣）";
+        # "(／‵Д′)／~ ╧╧";
+        # "o(｀^´*);";
+        # "⊂((。・o・))⊃";
+        # "(゜￢゜)";
+        # "♫꒰･◡･๑꒱";
+        # "(╭ರ_⊙)";
+        # "(゜ロ゜)";
         # SHOWFULLNAME = true; # show full name in login window
       };
 
