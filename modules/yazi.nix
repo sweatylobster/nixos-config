@@ -26,33 +26,31 @@
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
-        sioyek = [
-          {
-            run = ''sioyek "$@"'';
-            desc = "sioyek";
-          }
-        ];
-        zathura = [
-          {
-            run = ''zathura "$@"'';
-            desc = "zathura";
-          }
-        ];
+        sioyek = [{ run = ''sioyek "$1"''; desc = "sioyek"; }];
+        # zathura = [{ run = ''zathura "$@"''; desc = "zathura"; }];
       };
       open = {
         prepend_rules = [
           {
             name = "*.pdf";
-            use = "{sioyek, zathura}";
+            use = [
+              "sioyek"
+              # "zathura"
+              "open"
+              "reveal"
+            ];
           }
+          { name = "*.tex"; use = [ "edit" ]; }
         ];
       };
     };
     # yazi = ""; # TOML value
     # theme = ""; # TOML value
     # https://yazi-rs.github.io/docs/configuration/keymap/
-    # keymap = ''
-    # ''; # TOML value
+    keymap = {
+      # manager.prepend_keymap = [
+      # ];
+    };
     plugins = {
       # attribute set of (path or package)
       # foo = ./foo;
