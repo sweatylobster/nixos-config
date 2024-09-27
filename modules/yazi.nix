@@ -24,10 +24,33 @@
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
         image_quality = 50; # 50-90
       };
-      open = { };
+      # https://yazi-rs.github.io/docs/configuration/yazi/#open
+      opener = {
+        sioyek = [
+          {
+            run = ''sioyek "$@"'';
+            desc = "sioyek";
+          }
+        ];
+        zathura = [
+          {
+            run = ''zathura "$@"'';
+            desc = "zathura";
+          }
+        ];
+      };
+      open = {
+        prepend_rules = [
+          {
+            name = "*.pdf";
+            use = "{sioyek, zathura}";
+          }
+        ];
+      };
     };
     # yazi = ""; # TOML value
     # theme = ""; # TOML value
+    # https://yazi-rs.github.io/docs/configuration/keymap/
     # keymap = ''
     # ''; # TOML value
     plugins = {
