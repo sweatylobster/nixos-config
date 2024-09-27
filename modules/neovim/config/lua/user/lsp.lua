@@ -169,7 +169,7 @@ lspconfig.lua_ls.setup({
 })
 
 local float_config = {
-  focusable = false,
+  focusable = true,
   style = "minimal",
   border = "rounded",
   source = "always",
