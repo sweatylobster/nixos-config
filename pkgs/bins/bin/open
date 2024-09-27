@@ -3,6 +3,5 @@ set -eo pipefail
 if test -n "$SSH_TTY"; then
   echo "$@" | nc -c -w1 localhost 2226
 else
-  # shellcheck disable=SC2086
-  /usr/bin/open $*
+  /usr/bin/open "$@"
 fi
