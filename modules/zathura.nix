@@ -7,6 +7,8 @@
       # "<C-d>" = "first-page-column 2:1";
     };
     options = {
+      database = "sqlite";
+
       first-page-column = "1:1";
 
       # catppuccin colors
