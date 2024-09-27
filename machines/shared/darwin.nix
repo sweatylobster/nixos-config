@@ -40,7 +40,7 @@
   users.users.max = {
     name = "max";
     home = "/Users/max";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   homebrew = {
