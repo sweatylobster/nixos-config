@@ -8,7 +8,7 @@ conform.setup({
     lua = { "stylua" },
     markdown = { "prettier" },
     nix = { "nixpkgs_fmt" },
-    python = { "ruff" },
+    python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     rust = { "rustfmt" },
     sh = { "shfmt" },
     sql = { "pg_format", "sql_formatter" },
