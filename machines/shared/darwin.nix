@@ -112,9 +112,9 @@
 
       loginwindow = {
         # GuestEnabled = false; # disable guest user
-        LoginwindowText = "┌（・Σ・）┘≡З";
+        LoginwindowText = "(／‵Д′)／~ ╧╧";
         # "（；￣︶￣）";
-        # "(／‵Д′)／~ ╧╧";
+        # "┌（・Σ・）┘≡З";
         # "o(｀^´*);";
         # "⊂((。・o・))⊃";
         # "(゜￢゜)";
