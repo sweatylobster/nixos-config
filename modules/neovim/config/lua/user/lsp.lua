@@ -99,7 +99,6 @@ for _, lsp in ipairs({
   "dockerls",
   "jsonls",
   "nil_ls",
-  "ruff_lsp",
   "rust_analyzer",
   "taplo",
   "templ",
@@ -163,6 +162,16 @@ lspconfig.lua_ls.setup({
       hint = {
         enable = true,
       },
+    },
+  },
+})
+
+lspconfig.pylsp.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    pylsp = {
+      plugins = { ruff = { enabled = true } },
     },
   },
 })
