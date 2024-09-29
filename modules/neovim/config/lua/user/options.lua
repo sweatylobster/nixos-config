@@ -23,3 +23,4 @@ vim.opt.laststatus = 2
 vim.opt.autoread = true
 vim.opt.wildmenu = true
 vim.opt.grepprg = "rg --vimgrep --smart-case --follow"
+vim.opt.makeprg = "just"
