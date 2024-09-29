@@ -8,7 +8,12 @@
     nur.url = "github:nix-community/NUR";
     goreleaser-nur.url = "github:goreleaser/nur";
 
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+
+    # inputs.nixvim = {
+    #   url = "github:nix-community/nixvim";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
