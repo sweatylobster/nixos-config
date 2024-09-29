@@ -11,7 +11,11 @@
         indent_style = "space";
         indent_size = 2;
       };
-      "*.{py,go}" = {
+      "*.py" = {
+        indent_style = "space";
+        indent_size = 4;
+      };
+      "*.go" = {
         indent_style = "tab";
         indent_size = 4;
       };
