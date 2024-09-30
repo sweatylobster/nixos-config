@@ -60,12 +60,8 @@
     description = "cowmaster";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    # Not allowed to use keyFiles w/o --impure using flake
-    # TODO: Use one and only one ssh key!
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDeab1zM5L6cwXHsjyZaiHJB4vMJQLaJhipfVopxHa/ max@bonbon.attlocal.net"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGHDzR8lPwccTL7EYvZXC0bmemvTI3IPzAPVbf3OmA1J max@bonbon.attlocal.net"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC+HhYjyIVm9NTeH8hnpozSdzNE+4wrlY9VvN2tgFOH1 cowmaster@nixos"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
     ];
   };
 
