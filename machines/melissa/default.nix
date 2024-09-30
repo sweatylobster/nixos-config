@@ -5,6 +5,7 @@
 
   imports = [
     ../shared/linux.nix
+    ./scanner.nix
     ./hardware-configuration.nix
   ];
 
