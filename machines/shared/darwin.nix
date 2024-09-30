@@ -53,7 +53,6 @@
       "hammerspoon"
       # "monodraw" # might buy; ASCII diagrams.
       # "soulver" # might buy; text calculator for dates, measurements, etc.
-      "raycast"
       "whatsapp"
     ];
     brews = [
