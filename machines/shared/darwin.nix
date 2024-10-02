@@ -111,15 +111,15 @@
 
       loginwindow = {
         # GuestEnabled = false; # disable guest user
-        LoginwindowText = "(／‵Д′)／~ ╧╧";
+        LoginwindowText = "o(｀^´*);";
         # "（；￣︶￣）";
-        # "┌（・Σ・）┘≡З";
-        # "o(｀^´*);";
         # "⊂((。・o・))⊃";
         # "(゜￢゜)";
         # "♫꒰･◡･๑꒱";
         # "(╭ರ_⊙)";
         # "(゜ロ゜)";
+        # "┌（・Σ・）┘≡З";
+        # "(／‵Д′)／~ ╧╧";
         # SHOWFULLNAME = true; # show full name in login window
       };
 
