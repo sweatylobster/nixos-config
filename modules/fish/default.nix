@@ -48,7 +48,7 @@
 
       lg = "lazygit";
 
-      texclean = "fd -I -e aux -e log -e fls -e synctex.gz -x rm {}";
+      texclean = "fd -I -e aux -e log -e fls -e fdb_latexmk -e synctex.gz -x rm {}";
 
       t = "tmux";
       ta = "tmux new -A -s default";
