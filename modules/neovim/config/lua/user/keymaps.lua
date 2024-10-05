@@ -10,6 +10,9 @@ vim.g.maplocalleader = " "
 keymap("", "gf", ":edit <cfile><CR>")
 keymap("", "gt", ":tabedit <cfile><CR>")
 
+-- Get into normal mode in the terminal. Often easier than tmux copy-mode.
+keymap("t", "<esc><esc>", "<C-\\><C-n>")
+
 -- MOVEMENTS
 --
 
