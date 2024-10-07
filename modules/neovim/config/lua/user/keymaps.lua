@@ -17,8 +17,8 @@ keymap("t", "<esc><esc>", "<C-\\><C-n>")
 --
 
 -- quickfix movements.
-keymap("n", "co", ":copen<CR>", opts)
-keymap("n", "cc", ":cclose<CR>", opts)
+keymap("n", "<leader>co", ":copen<CR>", opts)
+keymap("n", "<leader>cc", ":cclose<CR>", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 keymap("n", "[q", ":cprev<CR>zz", opts)
 
