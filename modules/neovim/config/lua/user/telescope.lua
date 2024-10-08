@@ -66,6 +66,7 @@ vim.keymap.set("n", "<leader>sh", builtin.help_tags, opts)
 vim.keymap.set("n", "<leader>sc", builtin.commands, opts)
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, opts)
 vim.keymap.set("n", "<leader>st", builtin.treesitter, opts)
+vim.keymap.set("n", "<leader>s?", builtin.oldfiles, opts)
 
 telescope.load_extension("zoxide")
 
