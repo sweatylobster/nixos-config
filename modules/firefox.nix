@@ -18,6 +18,10 @@
         OfferToSaveLogins = false;
         OfferToSaveLoginsDefault = false;
         PasswordManagerEnabled = true;
+        browser.newtabpage.activity-stream.showSearch = false;
+        browser.newtabpage.activity-stream.showSponsoredTopSites = false;
+        browser.newtabpage.activity-stream.feeds.topsites = false;
+        browser.newtabpage.activity-stream.feeds.section.topstories = false;
       };
 
       # https://nur.nix-community.org/repos/rycee/
