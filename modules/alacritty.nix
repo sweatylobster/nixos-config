@@ -22,7 +22,7 @@
         decorations = "None";
         blur = false;
         opacity = 0.84;
-        option_as_alt = "OnlyLeft";
+        option_as_alt = "Both";
       };
     };
   };
