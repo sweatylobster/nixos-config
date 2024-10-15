@@ -33,6 +33,9 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprev<CR>", opts)
 keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
+keymap({ "n", "x", "o" }, "gh", "^")
+keymap({ "n", "x", "o" }, "gl", "$")
+
 -- REGISTERS
 --
 
@@ -82,6 +85,10 @@ keymap("n", "<leader>rw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>"
 
 -- give buffer executable permissions.
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
+
+-- JUNEGUNN
+--
+keymap({ "n", "x" }, "ga", "<Plug>(EasyAlign)")
 
 -- INSERT MODE
 --
