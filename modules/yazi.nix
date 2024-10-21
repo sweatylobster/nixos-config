@@ -17,10 +17,10 @@
       };
       preview = {
         wrap = "no";
-        # tab_size = "";
-        # max_width = "";
-        # max_height = "";
-        image_delay = 40; # don't immediately render.
+        tab_size = 150;
+        max_width = 2000;
+        max_height = 2000;
+        image_delay = 0; # immediately render.
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
         image_quality = 50; # 50-90
       };
