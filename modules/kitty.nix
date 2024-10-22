@@ -5,7 +5,7 @@
     environment = { works = "yes"; };
     font = {
       name = "MartianMono Nerd Font Mono";
-      size = if pkgs.stdenv.isLinux then 12 else 16;
+      size = if pkgs.stdenv.isLinux then 12 else 14;
     };
     keybindings = { };
     shellIntegration.enableZshIntegration = true;
