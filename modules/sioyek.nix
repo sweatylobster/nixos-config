@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs-stable, ... }: {
   programs.sioyek = {
     enable = true;
+    package = pkgs-stable.sioyek;
     config = {
 
       # using the nifty plugin suggestion

@@ -3,7 +3,7 @@
 
   # try out the unstable branch, see what happens :/
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     goreleaser-nur.url = "github:goreleaser/nur";
@@ -35,6 +35,7 @@
   outputs =
     { self
     , nixpkgs
+    , nixpkgs-stable
     , nur
     , goreleaser-nur
     , home-manager
@@ -110,6 +111,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hm-backup";
+            home-manager.extraSpecialArgs = {
+              pkgs-stable = import nixpkgs-stable {
+                system = "aarch64-darwin";
+              };
+            };
             home-manager.users.max = {
               imports = [
                 ./modules/home.nix
