@@ -50,6 +50,12 @@
     keymap = {
       # manager.prepend_keymap = [
       # ];
+      tasks.prepend_keymap = [
+        {
+          on = [ "x" ];
+          run = [ "cancel" ];
+        }
+      ];
     };
     plugins = {
       # attribute set of (path or package)
