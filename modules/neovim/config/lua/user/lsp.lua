@@ -123,7 +123,7 @@ end
 lspconfig.tailwindcss.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "html", "templ", "javascript" },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "html", "templ", "javascript" },
   settings = {
     tailwindCSS = {
       includeLanguages = {

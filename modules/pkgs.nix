@@ -72,6 +72,7 @@
     tailwindcss-language-server
     taplo
     tree-sitter
+    typescript-language-server
     vscode-langservers-extracted
     yaml-language-server
     yamllint
