@@ -39,6 +39,10 @@
       gwc = "git switch -c";
 
       maxvim = "NVIM_APPNAME=maxvim nvim";
+      mvim = "NVIM_APPNAME=maxvim nvim";
+      msf = "mvim +'Telescope find_files'";
+      msg = "mvim +'Telescope live_grep'";
+      mgf = "mvim +'Telescope git_files'";
 
       n = "nvim";
       # Might have to rethink using these all the time.
