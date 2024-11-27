@@ -12,6 +12,7 @@
 
     age
     bat-extras.batman
+    chafa
     comma
     curl
     devenv
@@ -21,6 +22,7 @@
     graphviz # mermaid-killer
     # geckodriver  # either do in environment.systemPackages, or link to bin
     htmlq
+    htop
     httpie
     httpstat
     hyperfine
@@ -45,6 +47,7 @@
     taskwarrior-tui
     texliveFull
     tldr
+    ueberzugpp
     unixtools.watch
     unzip
     wget
