@@ -8,9 +8,9 @@
       tmux-thumbs
       sensible
       yank
-      vim-tmux-navigator
+      # vim-tmux-navigator
     ];
-    extraConfig = builtins.readFile ./tmux.conf;
+    extraConfig = builtins.readFile ./tmux.conf + builtins.readFile ./vim-tmux-navigator.tmux;
   };
 
   programs.fish.interactiveShellInit = ''
