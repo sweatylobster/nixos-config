@@ -27,7 +27,7 @@
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
         sioyek = [{ run = ''sioyek "$1"''; desc = "sioyek"; }];
-        # zathura = [{ run = ''zathura "$@"''; desc = "zathura"; }];
+        zathura = [{ run = ''zathura "$1"''; desc = "zathura"; }];
       };
       open = {
         prepend_rules = [
@@ -35,7 +35,7 @@
             name = "*.pdf";
             use = [
               "sioyek"
-              # "zathura"
+              "zathura"
               "open"
               "reveal"
             ];
