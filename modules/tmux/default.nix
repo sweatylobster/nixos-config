@@ -5,7 +5,6 @@
     terminal = "screen-256color";
     clock24 = true;
     plugins = with pkgs.tmuxPlugins; [
-      tmux-thumbs
       sensible
       yank
       # vim-tmux-navigator
