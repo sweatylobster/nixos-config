@@ -107,7 +107,9 @@ in
           sql
           ssh_config
           terraform
+          tsx
           toml
+          typescript
           vhs
           vim
           vimdoc
