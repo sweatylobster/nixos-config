@@ -4,6 +4,7 @@
     ./zsh
     ./fish
     ./bat.nix
+    ./broot.nix
     ./direnv.nix
     ./starship.nix
     ./yazi.nix
