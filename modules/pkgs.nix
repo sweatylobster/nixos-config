@@ -6,7 +6,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  home.packages = with pkgs; with pkgs.nodePackages_latest; with pkgs.python312Packages; [
+  home.packages = with pkgs; with pkgs.nodePackages_latest; [
     # custom packages
     (pkgs.callPackage ../pkgs/bins { })
 
@@ -62,7 +62,7 @@
     nixpkgs-fmt
     pgformatter
     prettier
-    python-lsp-server
+    python312Packages.python-lsp-server
     ruff
     rust-analyzer
     rustc

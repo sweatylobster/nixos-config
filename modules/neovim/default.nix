@@ -82,6 +82,7 @@ in
           css
           csv
           diff
+          fish
           git_config
           git_rebase
           gitattributes
