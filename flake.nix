@@ -3,7 +3,7 @@
 
   # try out the unstable branch, see what happens :/
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     goreleaser-nur.url = "github:goreleaser/nur";
