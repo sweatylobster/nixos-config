@@ -8,7 +8,7 @@
       size = if pkgs.stdenv.isLinux then 12 else 14;
     };
     keybindings = { };
-    shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableFishIntegration = true;
     settings = {
       enable_audio_bell = false;
       hide_window_decorations = true;
