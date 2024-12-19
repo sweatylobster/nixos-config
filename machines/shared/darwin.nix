@@ -65,8 +65,9 @@
   };
 
   # TODO: Figure out what you want
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
+  fonts.packages = with pkgs.nerd-fonts; [
+    fira-mono
+    martian-mono
   ];
 
   system = {
@@ -83,7 +84,7 @@
         show-recents = true;
         show-process-indicators = true;
         expose-animation-duration = 0.1;
-        expose-group-by-app = true;
+        expose-group-apps = true;
         launchanim = false;
         mineffect = "scale"; # I think I use "genie";
         mru-spaces = false;
