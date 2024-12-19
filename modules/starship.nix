@@ -46,7 +46,7 @@
       haxe.disabled = true;
       helm.disabled = true;
       java.disabled = true;
-      jobs.disabled = true;
+      jobs.disabled = false;
       julia.disabled = true;
       kotlin.disabled = true;
       kubernetes.disabled = true;
