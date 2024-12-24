@@ -15,6 +15,7 @@
     chafa
     comma
     curl
+    datamash
     devenv
     entr
     fd
