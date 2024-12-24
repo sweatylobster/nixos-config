@@ -15,8 +15,10 @@
     hostName = "melissa";
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
+  fonts.packages = with pkgs.nerd-fonts; [
+    fira-mono
+    martian-mono
+    # (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
   ];
 
   fonts.fontDir.enable = true;
