@@ -21,6 +21,7 @@ require("dressing").setup({
 require("user.telescope")
 require("user.git")
 require("auto-hlsearch").setup()
+require("user.flash")
 
 -- PERSONAL
 require("user.vimtex")
