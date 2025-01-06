@@ -57,6 +57,7 @@ in
       # coding
       nvim-lspconfig
       conform-nvim
+      blink-cmp
       nvim-cmp
       cmp-buffer
       cmp-path
