@@ -17,11 +17,6 @@
       # Tiny Beelink (melissa=bee in Greek) NixOS machine
       context.melissa.read=project:melissa
       context.melissa.write=project:melissa
-
-      context.me.read=project:me
-      context.me.write=project:me
-      context.ingenieri.read=project:ingenieri
-      context.ingenieri.write=project:ingenieri
     '';
   };
 }
