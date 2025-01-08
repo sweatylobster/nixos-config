@@ -4,7 +4,8 @@
     enable = true;
     environment = { works = "yes"; };
     font = {
-      name = "MartianMono Nerd Font Mono";
+      # name = "MartianMono Nerd Font Mono";
+      name = "BerkeleyMono";
       size = if pkgs.stdenv.isLinux then 12 else 14;
     };
     keybindings = { };
