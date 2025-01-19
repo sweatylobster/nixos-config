@@ -75,6 +75,7 @@ in
       neogen
       nvim-surround
       treesj
+      yazi-nvim
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [
           awk

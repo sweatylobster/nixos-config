@@ -71,6 +71,3 @@ vim.keymap.set("n", "<leader>s?", builtin.oldfiles, opts)
 telescope.load_extension("zoxide")
 
 vim.keymap.set("n", "<leader>zi", telescope.extensions.zoxide.list, opts)
-
--- vim.keymap.set("n", "<leader>zi", builtin.commands, opts)
--- vim.keymap.set("n", "<leader>sc", builtin.commands, opts)
