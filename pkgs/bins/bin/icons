@@ -24,6 +24,8 @@ switch $argv[1]
         echo 
     case lf ls nnn ranger lsd
         echo 
+    case yazi
+        echo 󰇥
     case elixir mix
         echo 
     case gh gh-dash
