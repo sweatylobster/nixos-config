@@ -31,6 +31,7 @@
     jq
     just
     lazygit
+    miller
     moreutils
     ncdu
     netcat-gnu
