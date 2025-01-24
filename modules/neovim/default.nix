@@ -75,7 +75,10 @@ in
       neogen
       nvim-surround
       treesj
+      quickmath-nvim
+      render-markdown-nvim
       yazi-nvim
+      nvim-lsp-file-operations
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
         with plugins; [
           awk

@@ -3,7 +3,18 @@ local blink = require("blink.cmp")
 local luasnip = require("luasnip")
 local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 
-blink.setup()
+blink.setup({
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer", "markdown" },
+    providers = {
+      markdown = {
+        name = "RenderMarkdown",
+        module = "render-markdown.integ.blink",
+        fallbacks = { "lsp" },
+      },
+    },
+  },
+})
 
 -- cmp.setup({
 --   snippet = {
