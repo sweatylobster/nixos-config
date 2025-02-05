@@ -19,9 +19,10 @@
     devenv
     entr
     fd
+    # geckodriver  # either do in environment.systemPackages, or link to bin
     gnumake
     graphviz # mermaid-killer
-    # geckodriver  # either do in environment.systemPackages, or link to bin
+    hexyl
     htmlq
     htop
     httpie
