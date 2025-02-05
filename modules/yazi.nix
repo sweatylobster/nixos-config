@@ -9,7 +9,7 @@
         enabled = false;
       };
       manager = {
-        ratio = [ 1 4 3 ];
+        ratio = [ 1 3 4 ];
         sort_by = "natural";
         sort_dir_first = true;
         show_hidden = false;
@@ -17,12 +17,12 @@
       };
       preview = {
         wrap = "no";
-        tab_size = 150;
+        tab_size = 2;
         max_width = 2000;
         max_height = 2000;
         image_delay = 0; # immediately render.
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
-        image_quality = 50; # 50-90
+        image_quality = 69; # 50-90
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
