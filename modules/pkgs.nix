@@ -11,7 +11,6 @@
     (pkgs.callPackage ../pkgs/bins { })
 
     age
-    bat-extras.batman
     chafa
     comma
     curl
@@ -19,31 +18,30 @@
     devenv
     entr
     fd
-    # geckodriver  # either do in environment.systemPackages, or link to bin
     gnumake
-    graphviz # mermaid-killer
+    # graphviz # mermaid-killer
     hexyl
     htmlq
     htop
     httpie
-    httpstat
+    # httpstat
     hyperfine
     imagemagick
     jq
     just
     lazygit
-    miller
+    # miller
     moreutils
     ncdu
     netcat-gnu
-    nh
+    # nh
     nix-direnv
     nmap
     nodejs
     onefetch
-    pandoc
+    # pandoc
     poppler
-    python312
+    # python312
     ripgrep
     scc
     starship
@@ -54,10 +52,9 @@
     unixtools.watch
     unzip
     wget
-    yarn
+    # yarn
 
     # treesitter, lsps, formatters, and stuff :)
-    basedpyright
     bash-language-server
     cargo
     clang-tools
