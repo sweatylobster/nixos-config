@@ -2,7 +2,6 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
-    enableZshIntegration = true;
     shellWrapperName = "y";
     settings = {
       log = {
@@ -29,12 +28,12 @@
         sioyek = [{ run = ''sioyek "$1"''; desc = "sioyek"; }];
         zathura = [{ run = ''zathura "$1"''; desc = "zathura"; }];
       };
-      plugin = {
-        append_previewers = [
-          { name = "*"; run = "hexyl"; }
-          { mime = "text/csv"; run = "miller"; }
-        ];
-      };
+      # plugin = {
+      #   append_previewers = [
+      #     { name = "*"; run = "hexyl"; }
+      #     { mime = "text/csv"; run = "miller"; }
+      #   ];
+      # };
       open = {
         prepend_rules = [
           {
@@ -56,17 +55,17 @@
     keymap = {
       # manager.prepend_keymap = [ ];
       tasks.prepend_keymap = [{ on = [ "x" ]; run = [ "cancel" ]; }];
-      manager.prepend_keymap = [
-        { on = [ "1" ]; run = "plugin relative-motions --args=1"; }
-        { on = [ "2" ]; run = "plugin relative-motions --args=2"; }
-        { on = [ "3" ]; run = "plugin relative-motions --args=3"; }
-        { on = [ "4" ]; run = "plugin relative-motions --args=4"; }
-        { on = [ "5" ]; run = "plugin relative-motions --args=5"; }
-        { on = [ "6" ]; run = "plugin relative-motions --args=6"; }
-        { on = [ "7" ]; run = "plugin relative-motions --args=7"; }
-        { on = [ "8" ]; run = "plugin relative-motions --args=8"; }
-        { on = [ "9" ]; run = "plugin relative-motions --args=9"; }
-      ];
+      # manager.prepend_keymap = [
+      #   { on = [ "1" ]; run = "plugin relative-motions --args=1"; }
+      #   { on = [ "2" ]; run = "plugin relative-motions --args=2"; }
+      #   { on = [ "3" ]; run = "plugin relative-motions --args=3"; }
+      #   { on = [ "4" ]; run = "plugin relative-motions --args=4"; }
+      #   { on = [ "5" ]; run = "plugin relative-motions --args=5"; }
+      #   { on = [ "6" ]; run = "plugin relative-motions --args=6"; }
+      #   { on = [ "7" ]; run = "plugin relative-motions --args=7"; }
+      #   { on = [ "8" ]; run = "plugin relative-motions --args=8"; }
+      #   { on = [ "9" ]; run = "plugin relative-motions --args=9"; }
+      # ];
     };
     plugins = {
       # attribute set of (path or package)

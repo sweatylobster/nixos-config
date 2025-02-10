@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -6,6 +6,16 @@
       fish_config theme choose tokyonight
       fish_add_path -p ~/.nix-profile/bin /nix/var/nix/profiles/default/bin
     '';
+    functions = {
+      cdr = {
+        description = "cd into root folder of current repo";
+        body = "cd (git rev-parse --show-toplevel)";
+      };
+      a = {
+        description = "cd into aguila";
+        body = "test -d ~/code/aguila && builtin cd ~/code/aguila";
+      };
+    };
     plugins = [
       {
         name = "autopair";
@@ -58,9 +68,6 @@
       ta = "tmux new -A -s default";
       tt = "taskwarrior-tui";
     };
-  };
-  xdg.configFile."fish/functions" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./functions;
   };
 
   xdg.configFile."fish/themes/tokyonight.theme" = {
