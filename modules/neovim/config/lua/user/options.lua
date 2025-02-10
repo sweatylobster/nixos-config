@@ -24,3 +24,4 @@ vim.opt.autoread = true
 vim.opt.wildmenu = true
 vim.opt.grepprg = "rg --vimgrep --smart-case --follow"
 vim.opt.makeprg = "just"
+vim.opt.conceallevel = 1

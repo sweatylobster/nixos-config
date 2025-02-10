@@ -41,6 +41,7 @@
     onefetch
     # pandoc
     poppler
+    pstree
     # python312
     ripgrep
     scc
