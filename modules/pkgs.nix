@@ -45,6 +45,7 @@
     # python312
     ripgrep
     scc
+    slides
     starship
     taskwarrior-tui
     texliveFull
