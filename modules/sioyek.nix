@@ -1,7 +1,6 @@
 { pkgs, pkgs-stable, ... }: {
   programs.sioyek = {
     enable = true;
-    package = if pkgs.stdenv.isDarwin then pkgs-stable.sioyek else pkgs.sioyek;
     config = {
 
       # using the nifty plugin suggestion
