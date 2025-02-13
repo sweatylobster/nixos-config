@@ -1,22 +1,12 @@
 { pkgs, lib, ... }: {
 
+  nixpkgs.config.allowUnfree = true;
+
+  nix.package = pkgs.nix;
+
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
-
-  nixpkgs.config.allowUnfree = true;
-
-  services.nix-daemon.enable = true;
-
-  # nix version needs to be >= 2.20 to avoid this error that thwarts a build:
-  # `error: profile manifest "$HOME/.local/state/nix/profiles/profile/manifest.json": has unsupported version 3
-  # On unstable, pkgs.nix purportedly points to nix version 2.18.2.
-  # See: https://github.com/NixOS/nix/issues/10628#issuecomment-2170702163
-  #
-  # Manually declare the nix version >= 2.20.
-  # nix.package = pkgs.nixVersions.nix_2_23;
-  # nix.package = pkgs.nixFlakes;
-  nix.package = pkgs.nix;
 
   # Weekly garbage collection
   nix.gc = {
@@ -90,13 +80,12 @@
         mineffect = "scale"; # I think I use "genie";
         mru-spaces = false;
         persistent-apps = [
-          "/System/Applications/Reminders.app" # i guess
           "/System/Applications/Calendar.app"
           "/Applications/Firefox.app"
-          # "/System/Cryptexes/App/System/Applications/Safari.app"
-          "/Applications/Kitty.app"
+          "/Applications/Ghostty.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Messages.app"
+          "/Applications/WhatsApp.app"
           "/Applications/Discord.app"
           "/Applications/Spotify.app"
         ];
