@@ -46,6 +46,7 @@
   homebrew = {
     enable = true;
     casks = [
+      "amethyst"
       # "deckset" # might buy; .md -> presentation slides.
       "discord"
       "font-martian-mono"
