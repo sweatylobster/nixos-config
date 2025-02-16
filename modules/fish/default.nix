@@ -65,8 +65,13 @@
       texclean = "fd -I -e aux -e log -e fls -e fdb_latexmk -e synctex.gz -x rm {}";
 
       t = "tmux";
-      ta = "tmux new -A -s default";
+      tat = "tmux new -A -s default";
+
       tt = "taskwarrior-tui";
+      tc = "task context";
+      tm = "task modify";
+
+      icat = "kitten icat";
     };
   };
 
