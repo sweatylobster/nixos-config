@@ -22,7 +22,6 @@
     # graphviz # mermaid-killer
     hexyl
     htmlq
-    htop
     httpie
     # httpstat
     hyperfine
