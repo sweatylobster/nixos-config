@@ -48,6 +48,7 @@
     starship
     taskwarrior-tui
     texliveFull
+    timewarrior
     tldr
     ueberzugpp
     unixtools.watch
