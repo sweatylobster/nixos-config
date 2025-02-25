@@ -33,8 +33,15 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprev<CR>", opts)
 keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
+-- line movements
 keymap({ "n", "x", "o" }, "gh", "^")
 keymap({ "n", "x", "o" }, "gl", "$")
+
+-- nvim-surround motions
+keymap("o", "ir", "i[")
+keymap("o", "ar", "a[")
+keymap("o", "ia", "i<")
+keymap("o", "aa", "a<")
 
 -- REGISTERS
 --
