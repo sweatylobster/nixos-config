@@ -19,8 +19,8 @@ keymap("t", "<esc><esc>", "<C-\\><C-n>")
 -- quickfix movements.
 keymap("n", "<leader>co", ":copen<CR>", opts)
 keymap("n", "<leader>cc", ":cclose<CR>", opts)
-keymap("n", "]q", ":cnext<CR>zz", opts)
-keymap("n", "[q", ":cprev<CR>zz", opts)
+keymap("n", "]c", ":cnext<CR>zz", opts)
+keymap("n", "[c", ":cprev<CR>zz", opts)
 
 -- tab movements.
 keymap("n", "<leader><tab><tab>", vim.cmd.tabnew, opts)

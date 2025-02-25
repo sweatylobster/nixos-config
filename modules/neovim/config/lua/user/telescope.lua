@@ -1,5 +1,6 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 local select_one_or_multi = function(prompt_bufnr)
   local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
@@ -49,11 +50,20 @@ telescope.setup({
       "--glob=!.git",
     },
   },
+  extensions = {
+    zoxide = {
+      mappings = {
+        ["<M-g>"] = {
+          action = function(selection)
+            builtin.live_grep({ cwd = selection.path })
+          end,
+        },
+      },
+    },
+  },
 })
 
 local opts = { noremap = true, silent = true }
-
-local builtin = require("telescope.builtin")
 
 -- Open Telescope :) -- maybe not the right place
 vim.keymap.set("n", "<leader>t", ":Telescope <CR>", opts)
