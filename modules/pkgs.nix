@@ -1,8 +1,10 @@
 { pkgs, lib, ... }: {
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = (_: true);
+  # NOTE: Removing allow unfree packages due to evaluation warning:
+  # ```evaluation warning: <name> profile: You have set either `nixpkgs.config` \
+  #     or `nixpkgs.overlays` while using `home-manager.useGlobalPkgs`.```
+  # nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfreePredicate = (_: true);
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

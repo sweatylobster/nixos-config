@@ -14,7 +14,7 @@
     options = lib.mkDefault "--delete-older-than 7d";
   };
 
-  nix.settings.trusted-users = [ "root" "max" ];
+  nix.settings.trusted-users = [ "max" ];
 
   system.stateVersion = 5;
 
