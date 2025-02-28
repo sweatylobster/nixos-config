@@ -65,6 +65,43 @@
       });
     in
     {
+      nixosConfigurations.maiden = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./machines/maiden
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+            home-manager.users.cowmaster = {
+              imports = [
+                ./modules/home.nix
+                ./modules/nixos.nix
+                ./modules/pkgs.nix
+                ./modules/fzf.nix
+                ./modules/firefox.nix
+                ./modules/gh.nix
+                ./modules/git
+                ./modules/alacritty.nix
+                ./modules/editorconfig.nix
+                ./modules/kitty.nix
+                ./modules/tmux
+                ./modules/neovim
+                ./modules/shell.nix
+                ./modules/sioyek.nix
+                ./modules/top
+                ./modules/zathura.nix
+                ./modules/ssh
+                ./modules/fish
+                nix-index-database.hmModules.nix-index
+              ];
+            };
+          }
+        ];
+      };
+
       nixosConfigurations.melissa = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

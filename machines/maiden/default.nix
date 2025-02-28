@@ -10,45 +10,42 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    hostName = "melissa";
+    hostName = "maiden";
   };
 
-  fonts.packages = with pkgs.nerd-fonts; [
-    fira-mono
-    martian-mono
-    # (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs.nerd-fonts; [
+      fira-mono
+      martian-mono
+    ];
+  };
 
-  fonts.fontDir.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
-
-    # Enable the X11 windowing system.
     enable = true;
 
     # Enable the GNOME Desktop Environment.
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
 
-    # Set keyboard.
     xkb = {
       layout = "us";
-      variant = "";
-      # remap caps-lock (the most questionable key real-estate) to escape
       options = "caps:escape";
     };
   };
 
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
-    alacritty
+    # alacritty
     # firefox
   ];
 
@@ -59,15 +56,6 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-  # No sleeping!
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
-  '';
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

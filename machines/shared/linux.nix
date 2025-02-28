@@ -4,10 +4,6 @@
     ./tailscale.nix
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
@@ -25,6 +21,8 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
+  services.xserver.xkb.options = "caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
