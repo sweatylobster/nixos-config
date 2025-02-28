@@ -44,6 +44,7 @@
       "hammerspoon"
       # "monodraw" # might buy; ASCII diagrams.
       # "soulver" # might buy; text calculator for dates, measurements, etc.
+      "obsidian"
       "whatsapp"
     ];
     brews = [
@@ -116,7 +117,7 @@
       };
 
       NSGlobalDomain = {
-        ApplePressAndHoldEnabled = false;
+        ApplePressAndHoldEnabled = true;
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
         AppleShowScrollBars = "Always";
