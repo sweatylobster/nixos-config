@@ -77,6 +77,8 @@ vim.keymap.set("n", "<leader>sc", builtin.commands, opts)
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, opts)
 vim.keymap.set("n", "<leader>st", builtin.treesitter, opts)
 vim.keymap.set("n", "<leader>s?", builtin.oldfiles, opts)
+vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, opts)
+vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, opts)
 
 telescope.load_extension("zoxide")
 
