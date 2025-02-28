@@ -2,7 +2,7 @@
 require("user.keymaps")
 require("user.options")
 require("user.autocommands")
-require("cloak").setup()
+require("user.cloak")
 
 -- UI
 require("user.colorscheme")
