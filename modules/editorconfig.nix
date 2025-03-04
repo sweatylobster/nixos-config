@@ -11,7 +11,7 @@
         indent_style = "space";
         indent_size = 2;
       };
-      "*.{py,zig}" = {
+      "*.{py,zig,rs}" = {
         indent_style = "space";
         indent_size = 4;
       };
