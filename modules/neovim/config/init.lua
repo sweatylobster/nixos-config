@@ -26,6 +26,7 @@ require("user.flash")
 -- PERSONAL
 require("user.vimtex")
 require("user.markdown-preview")
+require("user.firenvim")
 
 require("neodev").setup() -- can't use lazydev without a lazy-loading package manager?
 require("luasnip").setup({

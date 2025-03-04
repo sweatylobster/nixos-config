@@ -54,6 +54,9 @@ in
       vimtex
       markdown-preview-nvim
 
+      # questionable
+      firenvim
+
       # coding
       nvim-lspconfig
       conform-nvim
