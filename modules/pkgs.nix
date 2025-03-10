@@ -13,6 +13,7 @@
     (pkgs.callPackage ../pkgs/bins { })
 
     age
+    binwalk
     chafa
     comma
     curl
