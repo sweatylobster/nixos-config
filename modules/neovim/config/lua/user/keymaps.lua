@@ -64,8 +64,8 @@ keymap({ "n", "v" }, "<leader>D", '"_D', opts)
 --
 
 -- center search result.
-keymap("n", "<leader>n", "nzzzv", opts)
-keymap("n", "<leader>N", "Nzzzv", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- stay put when joining.
 keymap("n", "J", "mzJ`z", opts)
