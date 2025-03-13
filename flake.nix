@@ -162,6 +162,7 @@
                 ./modules/fzf.nix
                 # ./modules/firefox.nix  # not yet, i have so many bookmarks!
                 ./modules/gh.nix
+                ./modules/hx.nix
                 ./modules/git
                 ./modules/alacritty.nix
                 ./modules/editorconfig.nix
