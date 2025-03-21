@@ -84,6 +84,8 @@
           "/System/Applications/Calendar.app"
           "/Applications/Firefox.app"
           "/Applications/Ghostty.app"
+          "/Applications/Obsidian.app"
+          "/Applications/Monodraw.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Messages.app"
           "/Applications/WhatsApp.app"
