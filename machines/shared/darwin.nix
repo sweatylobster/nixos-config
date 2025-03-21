@@ -117,7 +117,7 @@
       };
 
       NSGlobalDomain = {
-        ApplePressAndHoldEnabled = true;
+        ApplePressAndHoldEnabled = false;
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
         AppleShowScrollBars = "Always";
