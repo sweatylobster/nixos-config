@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   programs.broot = {
-    enable = false;
+    enable = true;
     enableFishIntegration = true;
     settings = {
-      modal = true;
+      modal = false;
     };
   };
 }
