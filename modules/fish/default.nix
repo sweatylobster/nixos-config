@@ -1,6 +1,11 @@
 { pkgs, ... }: {
   programs.fish = {
     enable = true;
+    shellInit = ''
+      if test -f ~/.localrc.fish
+        source ~/.localrc.fish
+      end
+    '';
     interactiveShellInit = ''
       set fish_greeting
       fish_config theme choose tokyonight
