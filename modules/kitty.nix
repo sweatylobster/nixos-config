@@ -2,7 +2,7 @@
   # https://home-manager-options.extranix.com/?query=kitty&release=master
   programs.kitty = {
     enable = true;
-    package = pkgs-stable.kitty;
+    # package = pkgs-stable.kitty;
     environment = { works = "yes"; };
     font = {
       # name = "MartianMono Nerd Font Mono";
