@@ -37,12 +37,11 @@
     enable = true;
     casks = [
       "amethyst"
-      # "deckset" # might buy; .md -> presentation slides.
       "discord"
       "font-martian-mono"
       # "font-jetbrains-mono-nerd-font"
+      "halloy"
       "hammerspoon"
-      # "monodraw" # might buy; ASCII diagrams.
       # "soulver" # might buy; text calculator for dates, measurements, etc.
       "obsidian"
       "whatsapp"
