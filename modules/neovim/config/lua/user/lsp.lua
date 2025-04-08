@@ -133,6 +133,17 @@ lspconfig.tailwindcss.setup({
   },
 })
 
+lspconfig.tinymist.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "typst" },
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onType",
+    semanticTokens = "disable",
+  },
+})
+
 lspconfig.yamlls.setup({
   capabilities = capabilities,
   on_attach = on_attach,

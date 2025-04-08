@@ -42,7 +42,7 @@
     nodejs
     onefetch
     # pandoc
-    poppler
+    poppler-utils
     pstree
     # python312
     ripgrep
@@ -53,6 +53,7 @@
     texliveFull
     timewarrior
     tldr
+    typst
     ueberzugpp
     unixtools.watch
     unzip
@@ -81,6 +82,8 @@
     taplo
     tree-sitter
     typescript-language-server
+    tinymist
+    websocat # for typst-preview.nvim
     vscode-langservers-extracted
     yaml-language-server
     yamllint

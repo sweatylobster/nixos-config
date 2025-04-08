@@ -19,7 +19,11 @@ in
     defaultEditor = true;
     vimAlias = true;
     vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins; let
+      typst-preview-nvim = (fromGitHub "chomosuke" "typst-preview.nvim" "ddcc71126f910ec83037622bc8d506f91a290ade" "sha256-voqNy2Of/tIlpxbKBcttNC5IILFot9KwfewdNN9dDMc="
+      );
+    in
+    [
       # ui
       tokyonight-nvim
       nvim-web-devicons
@@ -53,6 +57,7 @@ in
       vim-easy-align
       vimtex
       markdown-preview-nvim
+      typst-preview-nvim
 
       # questionable
       firenvim
@@ -119,6 +124,7 @@ in
           tsx
           toml
           typescript
+          typst
           vhs
           vim
           vimdoc

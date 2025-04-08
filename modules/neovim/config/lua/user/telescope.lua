@@ -24,9 +24,6 @@ telescope.setup({
       i = {
         ["<CR>"] = select_one_or_multi,
         ["<C-y>"] = select_one_or_multi,
-        ["<C-h>"] = actions.move_to_top,
-        -- ["<C-m>"] = actions.move_to_middle,
-        ["<C-l>"] = actions.move_to_bottom,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.send_selected_to_qflist,
