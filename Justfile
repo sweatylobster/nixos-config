@@ -1,4 +1,4 @@
-flake-update:
+update:
   #!/usr/bin/env bash
   set -euxo pipefail
   nix flake update
@@ -25,13 +25,24 @@ rebuild:
       exit 1;;
   esac
 
+artifacts:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  # Get the user's hm-backup extension
+  ext=$(rg 'backupFileExtension = "(.+)";' -o -r '$1' | uniq)
+  if test $(echo $ext | wc -l) -eq 1; then
+    fd --unrestricted --type file --extension hm-backup --search-path $HOME --execute rm
+    echo "Removed instances of $ext in $HOME. Try rebuilding now."
+  else
+    echo 'More than one result found, try removing artifacts manually.' && exit 1
+  fi
+
 brew:
   #!/usr/bin/env bash
   set -euxo pipefail
   case "{{ os() }}" in
     macos)
       brew update && brew upgrade;;
-
     *)
       echo "Unsupported operating system"
       exit 1;;
