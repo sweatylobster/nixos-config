@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   # https://github.com/HirschBerge/Public-dots/blob/main/nixos/common/configs/firefox.nix
   programs.firefox = {
     enable = true;
@@ -25,13 +25,13 @@
       };
 
       # https://nur.nix-community.org/repos/rycee/
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        darkreader
-        ublock-origin
-        # behind-the-overlay-revival
-        firenvim
-        vimium-c
-      ];
+      # extensions.packages = with inputs.firefox-addons.packages.aarch64-darwin; [
+      #   darkreader
+      #   ublock-origin
+      #   # behind-the-overlay-revival
+      #   firenvim
+      #   vimium-c
+      # ];
 
       search = {
         engines = {

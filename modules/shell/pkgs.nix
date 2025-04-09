@@ -10,7 +10,7 @@
   # $ nix search wget
   home.packages = with pkgs; with pkgs.nodePackages_latest; [
     # custom packages
-    (pkgs.callPackage ../pkgs/bins { })
+    (pkgs.callPackage ../../pkgs/bins { })
 
     age
     binwalk

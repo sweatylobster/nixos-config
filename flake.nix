@@ -1,10 +1,11 @@
 {
-  description = "CowMaster, LLC.'s very first NixOS flake :)";
+  description = "Max's system configuration, with liberal copying of Carlos Alejandro Becker";
 
-  # try out the unstable branch, see what happens :/
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     nur.url = "github:nix-community/NUR";
 
@@ -25,7 +26,6 @@
 
   };
 
-
   outputs =
     { self
     , nixpkgs
@@ -37,6 +37,7 @@
     , ...
     }:
     let
+
       overlays = [
         (final: prev: {
           nur = import nur
@@ -46,40 +47,41 @@
             };
         })
       ];
+
+      # Convenience function to define both Linux machines "at once".
+      # TODO: Extend this to add the system as well; we can build *all machines* this way.
       forAllLinuxMachines = nixpkgs.lib.genAttrs [ "melissa" "maiden" ];
+
+      # Default home-manager options I'd rather not repeat.
+      myHmDefaults = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "hm-backup";
+      };
+
+      # My home-manager modules for either "max" or "cowmaster".
       myHmModules = [
-        # ./modules/darwin
-
-        # Terminal emulators.
-        # ./modules/alacritty.nix
-        ./modules/kitty.nix
-
-        # Shell binaries and configs.
-        # TODO: ./modules/shell
-        ./modules/fzf.nix
-        ./modules/pkgs.nix
-        ./modules/shell.nix
-        ./modules/taskwarrior.nix
-        ./modules/tmux
-        ./modules/top
-
-        # Editors and configs.
-        # TODO: ./modules/editor
-        ./modules/editorconfig.nix
-        ./modules/hx.nix
-        ./modules/neovim
-
-        # Personal stuff.
-        # TODO: ./modules/identity
-        ./modules/gh.nix
-        ./modules/git
+        # Home manager basics.
         ./modules/home.nix
-        # ./modules/ssh  # not yet -- need to move around keys.
 
         # PDF viewers.
-        # TODO: ./modules/viewers
         ./modules/sioyek.nix
         ./modules/zathura.nix
+
+        # Browserrrrrr...
+        ./modules/firefox.nix
+
+        # Terminal emulators. Why 3? I'm shopping around.
+        ./modules/terminal-emulators
+
+        # Shell applications and standalone binaries.
+        # Daunting directory structure, but there are only two control surfaces:
+        # 1) ./modules/shell/default.nix
+        # 2) ./modules/shell/pkgs.nix
+        ./modules/shell
+
+        # Editors; I use neovim, but admire Helix for including batteries.
+        ./modules/editor
         nix-index-database.hmModules.nix-index
       ];
     in
@@ -91,93 +93,16 @@
             { nixpkgs.overlays = overlays; }
             ./machines/${machine}
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-backup";
+            (myHmDefaults // {
               home-manager.users.cowmaster = {
                 home.username = "cowmaster";
-                home.homeDirectory = "/home/cowmaster";
-                imports = myHmModules ++ [ ./modules/ssh ./modules/firefox.nix ];
+                home.homeDirectory = "/home/cowmaster"; # if pkgs.stdenv.isLinux then "home" else "Users" + "${username}"
+                imports = myHmModules;
               };
-            }
+            })
           ];
         };
       });
-
-      # nixosConfigurations.maiden = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     { nixpkgs.overlays = overlays; }
-      #     ./machines/maiden
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.backupFileExtension = "hm-backup";
-      #       home-manager.users.cowmaster = {
-      #         imports = [
-      #           ./modules/home.nix
-      #           ./modules/nixos.nix
-      #           ./modules/pkgs.nix
-      #           ./modules/fzf.nix
-      #           ./modules/firefox.nix
-      #           ./modules/gh.nix
-      #           ./modules/git
-      #           ./modules/alacritty.nix
-      #           ./modules/editorconfig.nix
-      #           ./modules/kitty.nix
-      #           ./modules/tmux
-      #           ./modules/neovim
-      #           ./modules/shell.nix
-      #           ./modules/sioyek.nix
-      #           ./modules/top
-      #           ./modules/zathura.nix
-      #           ./modules/ssh
-      #           ./modules/fish
-      #           nix-index-database.hmModules.nix-index
-      #         ];
-      #       };
-      #     }
-      #   ];
-      # };
-      #
-      # nixosConfigurations.melissa = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     { nixpkgs.overlays = overlays; }
-      #     ./machines/melissa
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.backupFileExtension = "hm-backup";
-      #       home-manager.users.cowmaster = {
-      #         imports = [
-      #           ./modules/home.nix
-      #           ./modules/nixos.nix
-      #           ./modules/pkgs.nix
-      #           ./modules/fzf.nix
-      #           ./modules/firefox.nix
-      #           ./modules/gh.nix
-      #           ./modules/git
-      #           ./modules/alacritty.nix
-      #           ./modules/editorconfig.nix
-      #           ./modules/kitty.nix
-      #           ./modules/tmux
-      #           ./modules/neovim
-      #           ./modules/shell.nix
-      #           ./modules/sioyek.nix
-      #           ./modules/top
-      #           ./modules/zathura.nix
-      #           ./modules/ssh
-      #           ./modules/fish
-      #           nix-index-database.hmModules.nix-index
-      #         ];
-      #       };
-      #     }
-      #   ];
-      # };
 
       darwinConfigurations.bonbon = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -185,25 +110,14 @@
           { nixpkgs.overlays = overlays; }
           ./machines/bonbon
           home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-backup";
-            home-manager.extraSpecialArgs = {
-              pkgs-stable = import nixpkgs-stable {
-                system = "aarch64-darwin";
-              };
-            };
-            # home-manager.users.${username} = {
-            # let this be a user so we can keep the stuff above dry
+          (myHmDefaults // {
             home-manager.users.max = {
               home.username = "max";
               home.homeDirectory = "/Users/max";
               imports = myHmModules;
             };
-          }
+          })
         ];
       };
-
     };
 }
