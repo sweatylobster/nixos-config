@@ -22,7 +22,6 @@
   fonts.packages = with pkgs.nerd-fonts; [
     fira-mono
     martian-mono
-    # (nerdfonts.override { fonts = [ "FiraMono" "MartianMono" ]; })
   ];
 
   fonts.fontDir.enable = true;
@@ -41,16 +40,12 @@
     xkb = {
       layout = "us";
       variant = "";
-      # remap caps-lock (the most questionable key real-estate) to escape
+      # Remap caps-lock (the most questionable key real-estate) to escape
       options = "caps:escape";
     };
   };
 
-  # Manage terminal and browser by each system. :)
-  environment.systemPackages = with pkgs; [
-    alacritty
-    # firefox
-  ];
+  environment.systemPackages = with pkgs; [ vim wget ];
 
   # Enable autologin for the primary user.
   services.displayManager.autoLogin.enable = true;

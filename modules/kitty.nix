@@ -1,13 +1,12 @@
-{ pkgs, pkgs-stable, ... }: {
+{ ... }: {
   # https://home-manager-options.extranix.com/?query=kitty&release=master
   programs.kitty = {
     enable = true;
-    # package = pkgs-stable.kitty;
     environment = { works = "yes"; };
     font = {
       # name = "MartianMono Nerd Font Mono";
       name = "BerkeleyMono";
-      size = if pkgs.stdenv.isLinux then 12 else 14;
+      size = 14;
     };
     keybindings = { };
     shellIntegration.enableFishIntegration = true;

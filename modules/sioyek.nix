@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }: {
+{ ... }: {
   programs.sioyek = {
     enable = true;
     config = {

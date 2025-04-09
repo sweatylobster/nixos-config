@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # https://github.com/HirschBerge/Public-dots/blob/main/nixos/common/configs/firefox.nix
   programs.firefox = {
     enable = true;
