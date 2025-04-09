@@ -1,11 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.fish = {
     enable = true;
     shellInit = ''
       if test -f ~/.localrc.fish
         source ~/.localrc.fish
       end
-    '';
+    '' + (lib.optionals pkgs.stdenv.isDarwin ''
+      fish_add_path -a /Applications/Ghostty.app/Contents/MacOS/
+      fish_add_path -a /opt/homebrew/bin/
+    '');
     interactiveShellInit = ''
       set fish_greeting
       fish_config theme choose tokyonight

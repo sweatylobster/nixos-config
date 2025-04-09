@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016 # I know single quotes don't expand, thanks :)
+#
+# This could be done with an alias, yeah, but the symlink is nifty.
 set -eo pipefail
-if test -n "$SSH_TTY"; then
-  echo "$@" | nc -c -w1 localhost 2226
-else
-  /usr/bin/open "$@"
-fi
+case $(uname) in
+Darwin) /usr/bin/open "$@" ;;
+Linux) /usr/bin/xdg-open "$@" ;;
+*)
+  echo This open script only matches cases: Darwin, Linux.
+  echo Not sure what your '$(uname)' is, so I can\'t \`open\`.
+  ;;
+esac
