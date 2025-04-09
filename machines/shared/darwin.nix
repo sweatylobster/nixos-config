@@ -35,30 +35,28 @@
 
   homebrew = {
     enable = true;
+    onActivation = {
+      cleanup = "zap"; # rm brews && casks (w/ assoc. files) if not defined below.
+    };
     casks = [
       "amethyst"
       "discord"
-      "font-martian-mono"
-      # "font-jetbrains-mono-nerd-font"
-      "halloy"
-      "hammerspoon"
       # "soulver" # might buy; text calculator for dates, measurements, etc.
+      "halloy" # IRC client made w/ iced.rs
       "obsidian"
+      "spotify"
       "whatsapp"
     ];
     brews = [
-      "m-cli" # expose options for use in `CustomUserPreferences`
+      "m-cli" # exposes options for use in `system.defaults.CustomUserPreferences` downstairs
     ];
-    # NOTE: Today's the only cool one.
-    masApps = {
-      # "Today •" = 2146219664; always fails for some reason
-    };
   };
 
   # TODO: Figure out what you want
   fonts.packages = with pkgs.nerd-fonts; [
     fira-mono
     martian-mono
+    jetbrains-mono
   ];
 
   system = {
@@ -81,7 +79,6 @@
         mru-spaces = false;
         persistent-apps = [
           "/System/Applications/Calendar.app"
-          "/Applications/Firefox.app"
           "/Applications/Ghostty.app"
           "/Applications/Obsidian.app"
           "/Applications/Monodraw.app"
@@ -206,8 +203,8 @@
         #   AutoFillMiscellaneousForms = false;
         #   AutoFillPasswords = false;
         #   "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" = true;
-        #   AlwaysRestoreSessionAtLaunch = 1; # TODO: Maybe disable: 1 -> 0.
-        #   ExcludePrivateWindowWhenRestoringSessionAtLaunch = 1; # TODO: No need for Private Windows: 1 -> 0.
+        #   AlwaysRestoreSessionAtLaunch = 0; # TODO: Maybe disable: 1 -> 0.
+        #   ExcludePrivateWindowWhenRestoringSessionAtLaunch = 0; # TODO: No need for Private Windows: 1 -> 0.
         #   ShowBackgroundImageInFavorites = 0;
         #   ShowFrequentlyVisitedSites = 1;
         #   ShowHighlightsInFavorites = 1;
