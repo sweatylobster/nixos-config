@@ -40,6 +40,7 @@
     };
     casks = [
       "amethyst"
+      "brave-browser"
       "discord"
       # "soulver" # might buy; text calculator for dates, measurements, etc.
       "halloy" # IRC client made w/ iced.rs
