@@ -40,11 +40,11 @@
     nix-direnv
     nmap
     nodejs
+    ocrmypdf
     onefetch
     # pandoc
     poppler-utils
     pstree
-    # python312
     ripgrep
     scc
     slides
@@ -55,10 +55,10 @@
     tldr
     typst
     ueberzugpp
+    unpaper
     unixtools.watch
     unzip
     wget
-    # yarn
 
     # treesitter, lsps, formatters, and stuff :)
     bash-language-server
