@@ -6,6 +6,10 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Slow, but *way* smoother mouse scrolling.
+keymap("", "<ScrollWheelUp>", "<C-y>", opts)
+keymap("", "<ScrollWheelDown>", "<C-e>", opts)
+
 -- Edit non-existent paths.
 keymap("", "gf", ":edit <cfile><CR>")
 keymap("", "gt", ":tabedit <cfile><CR>")
@@ -15,6 +19,10 @@ keymap("t", "<esc><esc>", "<C-\\><C-n>")
 
 -- MOVEMENTS
 --
+
+-- Use j and k to move lines *visually*, rather than vim's lines.
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 
 -- quickfix movements.
 keymap("n", "<leader>co", ":copen<CR>", opts)
@@ -64,8 +72,8 @@ keymap({ "n", "v" }, "<leader>D", '"_D', opts)
 --
 
 -- center search result.
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
+keymap("n", "gn", "nzzzv", opts)
+keymap("n", "gN", "Nzzzv", opts)
 
 -- stay put when joining.
 keymap("n", "J", "mzJ`z", opts)
@@ -74,11 +82,11 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 
--- resize with arrows.
-keymap("n", "<A-Up>", ":resize +2<CR>", opts)
-keymap("n", "<A-Down>", ":resize -2<CR>", opts)
-keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
+-- resize vim-windows with meta-hjkl.
+keymap("n", "<M-k>", ":resize +2<CR>", opts)
+keymap("n", "<M-j>", ":resize -2<CR>", opts)
+keymap("n", "<M-h>", ":vertical resize -2<CR>", opts)
+keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 
 -- insert an empty blank line above, or below.
 keymap("n", "]<Space>", "m`o<Esc>``", opts)
