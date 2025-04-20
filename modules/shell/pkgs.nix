@@ -80,11 +80,11 @@
     sumneko-lua-language-server
     tailwindcss-language-server
     taplo
+    tinymist
     tree-sitter
     typescript-language-server
-    tinymist
-    websocat # for typst-preview.nvim
     vscode-langservers-extracted
+    websocat # for typst-preview.nvim
     yaml-language-server
     yamllint
     zig
