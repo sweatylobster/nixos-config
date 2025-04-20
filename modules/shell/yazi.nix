@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -21,7 +21,7 @@
         max_height = 2000;
         image_delay = 0; # immediately render.
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
-        image_quality = 69; # 50-90
+        image_quality = 50; # 50-90
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
@@ -53,25 +53,32 @@
     # theme = ""; # TOML value
     # https://yazi-rs.github.io/docs/configuration/keymap/
     keymap = {
-      # manager.prepend_keymap = [ ];
+      # TODO: gD to navigate to ~/Documents
+      # TODO: source plugins:
+      # 1. hexyl
+      # 2. miller (on .csv only)
+      # 3. relative-motions
       tasks.prepend_keymap = [{ on = [ "x" ]; run = [ "cancel" ]; }];
-      # manager.prepend_keymap = [
-      #   { on = [ "1" ]; run = "plugin relative-motions --args=1"; }
-      #   { on = [ "2" ]; run = "plugin relative-motions --args=2"; }
-      #   { on = [ "3" ]; run = "plugin relative-motions --args=3"; }
-      #   { on = [ "4" ]; run = "plugin relative-motions --args=4"; }
-      #   { on = [ "5" ]; run = "plugin relative-motions --args=5"; }
-      #   { on = [ "6" ]; run = "plugin relative-motions --args=6"; }
-      #   { on = [ "7" ]; run = "plugin relative-motions --args=7"; }
-      #   { on = [ "8" ]; run = "plugin relative-motions --args=8"; }
-      #   { on = [ "9" ]; run = "plugin relative-motions --args=9"; }
-      # ];
+      manager.prepend_keymap = [
+        # Defaults
+        { on = [ "g" "D" ]; run = "cd ~/Documents"; }
+        { on = [ "!" ]; run = "shell \"$SHELL\" --block"; }
+        # Plugin dependent
+        { on = [ "M" ]; run = "plugin mount"; }
+        { on = [ "F" ]; run = "plugin smart-filter"; }
+      ];
     };
-    plugins = {
-      # attribute set of (path or package)
-      # foo = ./foo;
-      # bar = pkgs.bar
-    };
+    plugins =
+      let
+        yaziPlugins = pkgs.nur.repos.xyenon.yaziPlugins.yazi-rs;
+      in
+      {
+        # attribute set of (path or package)
+        # foo = ./foo;
+        # bar = pkgs.bar;
+        smart-filter = yaziPlugins.smart-filter;
+        mount = yaziPlugins.mount;
+      };
     flavors = {
       # attribute set of (path or package)
       # myflavor = ./myflavor;
