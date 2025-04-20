@@ -34,6 +34,7 @@
       ];
 
       search = {
+        force = true;
         engines = {
           "Nix Packages" = {
             urls = [{
@@ -66,15 +67,14 @@
           };
           "Home Manager Options" = {
             urls = [{
-              template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05";
+              template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.11";
             }];
             icon = "https://nixos.wiki/favicon.png";
             updateInterval = 1000 * 60 * 60 * 24; # daily
             definedAliases = [ "@ho" ];
           };
-          "google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
-        default = "google";
+        default = "duckduckgo";
       };
 
       bookmarks = {
