@@ -5,7 +5,10 @@
 
   imports = [
     ../shared/linux.nix
+    ../shared/hyprland.nix
+    ../shared/keyd.nix
     ../shared/scanner.nix
+    ../shared/steam.nix
     ./hardware-configuration.nix
   ];
 
@@ -31,17 +34,25 @@
 
   # Configure keymap in X11
   services.xserver = {
-    enable = true;
+    enable = false;
 
     # Enable the GNOME Desktop Environment.
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
+  };
 
-    xkb = {
-      layout = "us";
-      options = "caps:escape";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = { # initial_session
+        # command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "cowmaster";
+      };
     };
   };
+
+
 
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
