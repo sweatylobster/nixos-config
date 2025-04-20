@@ -31,7 +31,6 @@
         "size 622 652, class:(clipse)"
         "stayfocused, class:(clipse)"
       ];
-
       bindm = [
         # mouse movements
         "$mod, mouse:272, movewindow"
@@ -44,20 +43,11 @@
         ", Print, exec, grimblast copy area"
         "$mod, V, exec, kitty --class clipse -e clipse"
       ] ++ [
-        # # window resize
-        # "bind = $mod, S, submap, resize"
-        # "submap = resize"
-        # "bind = , right, resizeactive, 10 0"
-        # "bind = , left, resizeactive, -10 0"
-        # "bind = , up, resizeactive, 0 -10"
-        # "bind = , down, resizeactive, 0 10"
-        # "bind = , escape, submap, reset"
-        # "submap = reset"
+        "$mod + ctrl, h, workspace, e-1"
+        "$mod + ctrl, l, workspace, e+1"
+        "$mod, mouse_down, workspace, e-1"
+        "$mod, mouse_up, workspace, e+1"
       ]
-      # TODO: Get the right syntax :)
-      # ] ++ [
-      #   "$mod + ctrl, h, workspace, -1"
-      # ]
       ++ (
         builtins.concatLists (builtins.genList
           (i:
