@@ -6,9 +6,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Slow, but *way* smoother mouse scrolling.
-keymap("", "<ScrollWheelUp>", "<C-y>", opts)
-keymap("", "<ScrollWheelDown>", "<C-e>", opts)
+-- -- Smoother mouse scrolling.
+-- keymap("", "<ScrollWheelUp>", "4<C-y>", opts)
+-- keymap("", "<ScrollWheelDown>", "4<C-e>", opts)
 
 -- Edit non-existent paths.
 keymap("", "gf", ":edit <cfile><CR>")

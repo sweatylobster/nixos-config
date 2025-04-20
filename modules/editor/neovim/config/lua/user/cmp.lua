@@ -1,151 +1,57 @@
-local cmp = require("cmp")
 local blink = require("blink.cmp")
-local luasnip = require("luasnip")
-local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
+-- local luasnip = require("luasnip")
+-- local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 
 blink.setup({
-  sources = {
-    default = { "lsp", "path", "snippets", "buffer", "markdown" },
-    providers = {
-      markdown = {
-        name = "RenderMarkdown",
-        module = "render-markdown.integ.blink",
-        fallbacks = { "lsp" },
-      },
+  appearance = { nerd_font_variant = "mono" },
+  cmdline = {
+    enabled = true,
+    sources = function()
+      local type = vim.fn.getcmdtype()
+      if type == "/" or type == "?" then
+        return { "buffer" }
+      elseif type == ":" then
+        return { "cmdline" }
+      end
+      return {}
+    end,
+  },
+  completion = {
+    keyword = { range = "full" }, -- :h blink-cmp-config-completion | 1859
+    -- TODO: Do I like auto_brackets?
+    accept = { auto_brackets = { enabled = true } },
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 300,
+      treesitter_highlighting = true,
+    },
+    -- TODO: Do I like ghost_text?
+    -- ghost_text = { enabled = true },
+  },
+  keymap = {
+    ["<C-j>"] = { "select_next", "fallback" },
+    ["<C-k>"] = { "select_prev", "fallback" },
+    -- Override default 'cancel' binding; I prefer EOL.
+    ["<C-e>"] = {
+      function()
+        require("blink.cmp")["hide"]()
+        vim.cmd([[norm <C-e>]])
+      end,
+      "hide",
+    },
+    ["<C-space>"] = {
+      ---@diagnostic disable-next-line: redefined-local
+      function(cmp)
+        cmp.show({ providers = { "snippets" } })
+      end,
     },
   },
+  signature = {
+    enabled = true,
+  },
+  -- TODO: Set up a ~/.config/nvim/snippets directory with Nix.
+  -- snippets = { preset = "luasnip" },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+  },
 })
-
--- cmp.setup({
---   snippet = {
---     expand = function(args)
---       luasnip.lsp_expand(args.body)
---     end,
---   },
---   window = {
---     documentation = cmp.config.window.bordered(),
---     completion = {
---       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
---       col_offset = -3,
---       side_padding = 0,
---     },
---   },
---   view = {
---     entries = {
---       name = "custom",
---       selection_order = "top_down",
---     },
---   },
---   completion = {
---     keyword_length = 3,
---   },
---   mapping = cmp.mapping.preset.insert({
---     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
---     ["<C-d>"] = cmp.mapping.scroll_docs(4),
---     ["<C-Space>"] = cmp.mapping.complete({}),
---     ["<C-e>"] = cmp.mapping.abort(),
---     ["<C-y>"] = cmp.mapping.confirm({
---       behavior = cmp.ConfirmBehavior.Insert,
---       select = true,
---     }, { "i", "c" }),
---     ["<Up>"] = cmp.mapping.select_prev_item(cmp_select_opts),
---     ["<Down>"] = cmp.mapping.select_next_item(cmp_select_opts),
---     ["<C-p>"] = cmp.mapping(function()
---       if cmp.visible() then
---         cmp.select_prev_item(cmp_select_opts)
---       else
---         cmp.complete()
---       end
---     end),
---     ["<C-n>"] = cmp.mapping(function()
---       if cmp.visible() then
---         cmp.select_next_item(cmp_select_opts)
---       else
---         cmp.complete()
---       end
---     end),
---     ["<C-l>"] = cmp.mapping(function()
---       if luasnip.expand_or_jumpable() then
---         luasnip.expand_or_jump()
---       end
---     end, { "i", "s" }),
---     ["<C-h>"] = cmp.mapping(function()
---       if luasnip.expand_or_jumpable(-1) then
---         luasnip.expand_or_jump(-1)
---       end
---     end, { "i", "s" }),
---   }),
---   formatting = {
---     fields = { "kind", "abbr", "menu" },
---     format = function(_, item)
---       local icons = require("user.icons").kinds
---       if icons[item.kind] then
---         item.kind = icons[item.kind] .. " " .. item.kind
---       end
---       local strings = vim.split(item.kind, "%s", {
---         trimempty = true,
---       })
---       item.kind = " " .. strings[1] .. " "
---       if #strings > 1 then
---         item.menu = "    (" .. strings[2] .. ")"
---       end
---       return item
---     end,
---   },
---   sources = cmp.config.sources({
---     { name = "nvim_lsp_signature_help" },
---     { name = "nvim_lsp" },
---     {
---       name = "luasnip",
---       keyword_length = 2,
---       priority = 50,
---     },
---   }, {
---     {
---       name = "buffer",
---       keyword_length = 5,
---     },
---     { name = "path" },
---     { name = "emoji" },
---     { name = "treesitter" },
---     { name = "calc" },
---   }),
---   confirm_opts = {
---     behavior = cmp.ConfirmBehavior.Select,
---   },
---   experimental = {
---     native_menu = false,
---     ghost_text = false,
---   },
--- })
---
--- cmp.setup.filetype({ "sql" }, {
---   sources = {
---     { name = "vim-dadbod-completion" },
---     { name = "buffer" },
---   },
--- })
---
--- cmp.setup.cmdline(":", {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = cmp.config.sources({
---     {
---       name = "cmdline",
---       option = {
---         ignore_cmds = { "Man", "!" },
---       },
---     },
---   }, {
---     { name = "path" },
---   }),
--- })
---
--- cmp.setup.cmdline({ "/", "?" }, {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = {
---     { name = "buffer" },
---   },
--- })
-
--- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
--- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
