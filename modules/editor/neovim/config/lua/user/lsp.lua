@@ -1,18 +1,19 @@
-local ms = require("vim.lsp.protocol").Methods
-local cmp_capabilities = require("blink.cmp").get_lsp_capabilities()
 local keymaps = require("lsp_keymaps")
 require("lsp_autocommands").setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, cmp_capabilities)
-capabilities = vim.tbl_deep_extend("force", capabilities, {
+-- local cmp_capabilities = require("blink.cmp").get_lsp_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = vim.tbl_deep_extend("force", capabilities, cmp_capabilities)
+-- capabilities = vim.tbl_deep_extend("force", capabilities, )
+
+local capabilities = require("blink.cmp").get_lsp_capabilities({
   workspace = {
     didChangeWatchedFiles = {
       dynamicRegistration = true, -- needs fswatch on linux
       relativePatternSupport = true,
     },
   },
-})
+}, true)
 
 ---@param client vim.lsp.Client LSP client
 ---@param bufnr number Buffer number
@@ -23,34 +24,6 @@ end
 
 local lspconfig = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    javascript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
-      },
-    },
-    typescript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
-      },
-    },
-  },
-})
 
 for _, lsp in ipairs({
   "bashls",
@@ -79,6 +52,28 @@ for _, lsp in ipairs({ "html", "htmx" }) do
     filetypes = { "html", "templ" },
   })
 end
+
+local tsls_inlay_hints = {
+  includeInlayEnumMemberValueHints = true,
+  includeInlayFunctionLikeReturnTypeHints = true,
+  includeInlayFunctionParameterTypeHints = true,
+  includeInlayParameterNameHints = "all",
+  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  includeInlayPropertyDeclarationTypeHints = true,
+  includeInlayVariableTypeHints = true,
+}
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    javascript = {
+      inlayHints = tsls_inlay_hints,
+    },
+    typescript = {
+      inlayHints = tsls_inlay_hints,
+    },
+  },
+})
 
 lspconfig.tailwindcss.setup({
   on_attach = on_attach,
@@ -165,9 +160,9 @@ vim.diagnostic.config({
   float = float_config,
 })
 
-vim.lsp.handlers[ms.textDocument_hover] = vim.lsp.with(vim.lsp.handlers.hover, float_config)
-vim.lsp.handlers[ms.textDocument_signatureHelp] = vim.lsp.with(vim.lsp.handlers.signature_help, float_config)
-vim.highlight.priorities.semantic_tokens = 95
+vim.lsp.buf.hover(float_config)
+vim.lsp.buf.signature_help(float_config)
+vim.hl.priorities.semantic_tokens = 95
 
 -- set up diagnostic signs
 for name, icon in pairs(require("user.icons").diagnostics) do
