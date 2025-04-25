@@ -6,7 +6,7 @@
     font = {
       # name = "MartianMono Nerd Font Mono";
       name = "BerkeleyMono";
-      size = 14;
+      size = 12;
     };
     keybindings = { };
     shellIntegration.enableFishIntegration = true;
