@@ -79,6 +79,7 @@
         mineffect = "scale"; # I think I use "genie";
         mru-spaces = false;
         persistent-apps = [
+          "/Applications/Safari.app"
           "/System/Applications/Calendar.app"
           "/Applications/Ghostty.app"
           "/Applications/Obsidian.app"
