@@ -22,6 +22,7 @@
     entr
     fd
     gnumake
+    gum
     # graphviz # mermaid-killer
     hexyl
     htmlq
