@@ -30,6 +30,7 @@ in
       nvim-notify
       lualine-nvim
       dressing-nvim
+      transparent-nvim
 
       # basics
       indent-blankline-nvim
