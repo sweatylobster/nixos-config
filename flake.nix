@@ -58,8 +58,8 @@
               imports = [
                 ./modules/home.nix
                 ./modules/librewolf.nix
-                ./modules/sioyek.nix
                 ./modules/hyprland.nix
+                ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/terminal-emulators
                 ./modules/shell
@@ -87,7 +87,6 @@
               imports = [
                 ./modules/home.nix
                 ./modules/librewolf.nix
-                ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/terminal-emulators
                 ./modules/shell
