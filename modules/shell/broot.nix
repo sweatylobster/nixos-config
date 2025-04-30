@@ -3,13 +3,20 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      modal = false;
+      modal = true;
+      initial_mode = "input";
+      quit_on_last_cancel = false;
+      # default_flags = "-gh";
+      special_paths = {
+        "~/.config" = { "show" = "always"; };
+        "~/Library" = { "show" = "never"; };
+        "~/go" = { "show" = "never"; };
+        "~/Applications" = { "show" = "never"; };
+      };
       verbs = [
-        # these don't conflict with vim-tmux-navigator :)
-        { key = "alt-j"; internal = "line_down"; }
-        { key = "alt-k"; internal = "line_up"; }
-        # nifty
         { invocation = "git-root"; shortcut = "gr"; internal = "focus {git-root}"; }
+        { invocation = "home"; key = "ctrl-h"; internal = ":focus ~"; }
+        { invocation = "code"; internal = ":focus ~/code"; }
       ];
     };
   };
