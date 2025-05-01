@@ -44,9 +44,9 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = { # initial_session
-        # command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
-        command = "${pkgs.hyprland}/bin/Hyprland";
+      default_session = {
+        # NOTE: Seeing if this fixes :TypstPreview.
+        command = "dbus-run-session ${pkgs.hyprland}/bin/Hyprland";
         user = "cowmaster";
       };
     };

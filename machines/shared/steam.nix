@@ -8,4 +8,6 @@
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkgs) [ "steam" "steam-original" "steam-unwrapped" "steam-run" ];
+
+  programs.gamemode.enable = true;
 }

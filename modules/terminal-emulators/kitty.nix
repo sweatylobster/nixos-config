@@ -5,7 +5,7 @@
     environment = { works = "yes"; };
     font = {
       # name = "MartianMono Nerd Font Mono";
-      name = "BerkeleyMono";
+      name = "Berkeley Mono Variable";
       size = 12;
     };
     keybindings = { };
