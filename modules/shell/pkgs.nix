@@ -38,7 +38,6 @@
     ncdu
     netcat-gnu
     # nh
-    nix-direnv
     nmap
     nodejs
     ocrmypdf
