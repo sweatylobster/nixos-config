@@ -31,34 +31,32 @@
     ];
   };
 
-
-  # Configure keymap in X11
   services.xserver = {
-    enable = false;
+    enable = true;
+    videoDrivers = [ "nvidia" ];
 
     # Enable the GNOME Desktop Environment.
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = false;
+    displayManager.gdm.enable = false;
   };
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        # NOTE: Seeing if this fixes :TypstPreview.
-        command = "dbus-run-session ${pkgs.hyprland}/bin/Hyprland";
+        command = "Hyprland";
         user = "cowmaster";
       };
     };
   };
-
-
 
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
     # alacritty
     # firefox
   ];
+
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   # Enable autologin for the primary user.
   services.displayManager.autoLogin.enable = true;

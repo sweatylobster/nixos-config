@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 # let
 #   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 # in
@@ -25,30 +25,12 @@
     graphics.enable32Bit = true;
     nvidia = {
       modesetting.enable = true;
-      open = true;
+      open = false;
       # powerManagement.enable = true;
       # powerManagement.finegrained = true;
-      # nvidiaSettings = true;
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # prime = {
-      #   offload = {
-      #     enable = true;
-      #     enableOffloadCmd = true;
-      #   };
-      #   intelBusId = "PCI:0:2:0";
-      #   nvidiaBusId = "PCI:1:0:0";
-      # };
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Trying to fix up framerate: https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
-  # hardware.graphics.enable32Bit = true;
-  # hardware.nvidia.open = true;
-  # hardware.opengl = {
-  #   driSupport32Bit = true; # all these have been renamed
-  #   package = pkgs-unstable.mesa.drivers;
-  #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-  # };
 }
