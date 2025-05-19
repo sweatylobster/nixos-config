@@ -92,7 +92,7 @@
   ] ++ (lib.optionals pkgs.stdenv.isLinux [
     gqrx
     hackrf
-    vesktop # fix discord streaming
+    discord
     dune3d # cad
   ]);
 }
