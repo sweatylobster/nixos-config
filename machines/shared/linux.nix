@@ -22,6 +22,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs.nerd-fonts; [
+      fira-mono
+      martian-mono
+    ];
+  };
+
   services.xserver.xkb.options = "caps:escape";
 
   # Enable CUPS to print documents.
@@ -46,7 +54,7 @@
   # NOTE: Is this a problem?
   security.sudo.extraRules = [
     {
-      users = [ "cowmaster" ];
+      users = [ "jc" "max" "cowmaster" ];
       commands = [
         {
           command = "ALL";
@@ -55,18 +63,6 @@
       ];
     }
   ];
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cowmaster = {
-    isNormalUser = true;
-    description = "cowmaster";
-    extraGroups = [ "lp" "networkmanager" "wheel" "input" ];
-    shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
-    ];
-  };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -80,6 +76,8 @@
       auto-optimise-store = true;
       trusted-users = [
         "root"
+        "jc"
+        "max"
         "cowmaster"
         "@wheel"
       ];

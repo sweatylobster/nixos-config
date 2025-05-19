@@ -71,6 +71,36 @@
         ];
       };
 
+      nixosConfigurations.perrito = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./machines/perrito
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hbk";
+            home-manager.users.jc = {
+              home.username = "jc";
+              home.homeDirectory = "/home/jc";
+              imports = [
+                ./modules/home.nix
+                ./modules/librewolf.nix
+                ./modules/hyprland
+                ./modules/sioyek.nix
+                ./modules/zathura.nix
+                ./modules/terminal-emulators
+                ./modules/shell
+                ./modules/editor
+                nix-index-database.hmModules.nix-index
+              ];
+            };
+          }
+        ];
+      };
+
       darwinConfigurations.bonbon = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [

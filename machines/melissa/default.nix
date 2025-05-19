@@ -19,12 +19,16 @@
     hostName = "melissa";
   };
 
-  fonts.packages = with pkgs.nerd-fonts; [
-    fira-mono
-    martian-mono
-  ];
+  users.users.cowmaster = {
+    isNormalUser = true;
+    description = "cowmaster";
+    extraGroups = [ "lp" "networkmanager" "wheel" "input" ];
+    shell = pkgs.fish;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
+    ];
+  };
 
-  fonts.fontDir.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
