@@ -15,7 +15,7 @@ rebuild:
   set -euxo pipefail
   case "{{ os() }}" in
     macos)
-      darwin-rebuild switch --flake ~/nixos-config --show-trace;;
+      sudo darwin-rebuild switch --flake ~/nixos-config --show-trace;;
 
     linux)
       sudo nixos-rebuild switch --flake ~/nixos-config --show-trace;;

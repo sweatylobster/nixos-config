@@ -83,6 +83,10 @@
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
 
+        # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+        ctrl-alt-h = "workspace prev";
+        ctrl-alt-l = "workspace next";
+
         # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
         alt-shift-1 = "move-node-to-workspace 1";
         alt-shift-2 = "move-node-to-workspace 2";
@@ -185,8 +189,8 @@
           # "o(｀^´*);";
           # "（；￣︶￣）";
           "⊂((。・o・))⊃";
-          # "(゜￢゜)";
-          # "♫꒰･◡･๑꒱";
+        # "(゜￢゜)";
+        # "♫꒰･◡･๑꒱";
         # "(╭ರ_⊙)";
         # "(゜ロ゜)";
         # "┌（・Σ・）┘≡З";
