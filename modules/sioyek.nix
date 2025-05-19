@@ -10,7 +10,7 @@
       custom_background_color = "0.1019 0.1058 0.1490";
       custom_text_color = "0.7529 0.7921 0.9607";
 
-      # v2.0.0; indexes quickly can use >=50MB of memory.
+      # v2.0.0; indexes quickly but can use >=50MB of memory.
       super_fast_search = "1";
 
     };

@@ -26,6 +26,7 @@
     fish
   ];
 
+  system.primaryUser = "max";
 
   users.users.max = {
     name = "max";
@@ -116,6 +117,7 @@
       cleanup = "zap"; # rm brews && casks (w/ assoc. files) if not defined below.
     };
     casks = [
+      "blender"
       "brave-browser"
       "discord"
       "halloy" # IRC client made w/ iced.rs
@@ -182,9 +184,9 @@
         LoginwindowText =
           # "o(｀^´*);";
           # "（；￣︶￣）";
-          # "⊂((。・o・))⊃";
+          "⊂((。・o・))⊃";
           # "(゜￢゜)";
-          "♫꒰･◡･๑꒱";
+          # "♫꒰･◡･๑꒱";
         # "(╭ರ_⊙)";
         # "(゜ロ゜)";
         # "┌（・Σ・）┘≡З";
