@@ -58,6 +58,7 @@
     unpaper
     unixtools.watch
     unzip
+    uv
     wget
 
     # treesitter, lsps, formatters, and stuff :)
