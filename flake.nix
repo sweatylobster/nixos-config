@@ -71,6 +71,36 @@
         ];
       };
 
+      nixosConfigurations.melissa = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./machines/melissa
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hbk";
+            home-manager.users.cowmaster = {
+              home.username = "cowmaster";
+              home.homeDirectory = "/home/cowmaster";
+              imports = [
+                ./modules/home.nix
+                ./modules/librewolf.nix
+                # ./modules/hyprland
+                ./modules/sioyek.nix
+                ./modules/zathura.nix
+                ./modules/terminal-emulators
+                ./modules/shell
+                ./modules/editor
+                nix-index-database.hmModules.nix-index
+              ];
+            };
+          }
+        ];
+      };
+
       nixosConfigurations.perrito = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };

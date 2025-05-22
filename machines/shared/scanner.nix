@@ -8,9 +8,6 @@
     brscan5.enable = true;
   };
 
-  # Allow cowmaster to see scanner.
-  users.users.cowmaster.extraGroups = [ "scanner" "lp" ];
-
   # Pick up scanner connected via USB.
   services.ipp-usb.enable = true;
 
