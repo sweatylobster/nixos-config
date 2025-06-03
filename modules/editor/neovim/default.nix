@@ -26,11 +26,13 @@ in
     [
       # ui
       tokyonight-nvim
+      kanagawa-paper-nvim
+      kanagawa-nvim
+      transparent-nvim
       nvim-web-devicons
       nvim-notify
       lualine-nvim
       dressing-nvim
-      transparent-nvim
 
       # basics
       indent-blankline-nvim
