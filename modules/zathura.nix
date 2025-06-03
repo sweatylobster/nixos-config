@@ -2,14 +2,18 @@
   programs.zathura = {
     enable = true;
     mappings = {
-      D = ''set "first-page-column 1:1"'';
-      "<C-f>" = "toggle_fullscreen";
-      # "<C-d>" = "first-page-column 2:1";
+      r = "reload";
+      p = "print";
+      D = "set \"first-page-column 1:1\"";
+      "<C-d>" = "set \"first-page-column 2:1\"";
     };
     options = {
       database = "sqlite";
 
       first-page-column = "1:1";
+
+      selection-clipboard = "clipboard";
+      scroll-step = 50;
 
       # catppuccin colors
       default-fg = "#CDD6F4";
