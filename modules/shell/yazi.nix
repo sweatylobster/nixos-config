@@ -7,7 +7,7 @@
       log = {
         enabled = false;
       };
-      manager = {
+      mgr = {
         ratio = [ 1 3 4 ];
         sort_by = "natural";
         sort_dir_first = true;
@@ -53,15 +53,19 @@
     # theme = ""; # TOML value
     # https://yazi-rs.github.io/docs/configuration/keymap/
     keymap = {
-      # TODO: gD to navigate to ~/Documents
       # TODO: source plugins:
-      # 1. hexyl
-      # 2. miller (on .csv only)
-      # 3. relative-motions
+      # relative-motions
       tasks.prepend_keymap = [{ on = [ "x" ]; run = [ "cancel" ]; }];
-      manager.prepend_keymap = [
-        # Defaults
+      mgr.prepend_keymap = [
+        # Teleporting
         { on = [ "g" "D" ]; run = "cd ~/Documents"; }
+        { on = [ "g" "Z" ]; run = "cd ~/Documents/personal/zettelkasten"; }
+        { on = [ "g" "S" ]; run = "cd ~/Desktop/batches/00-SETTLEMENTS"; }
+        { on = [ "g" "N" ]; run = "cd ~/nixos-config"; }
+        { on = [ "g" "A" ]; run = "cd ~/code/aguila/src"; }
+        { on = [ "g" "I" ]; run = "cd ~/code/aguila/src/data/files"; }
+        { on = [ "g" "O" ]; run = "cd ~/code/aguila/src/utils/tex/itemize/outputs"; }
+        # Util
         { on = [ "!" ]; run = "shell \"$SHELL\" --block"; }
         # Plugin dependent
         { on = [ "M" ]; run = "plugin mount"; }
