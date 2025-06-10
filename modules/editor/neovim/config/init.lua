@@ -45,3 +45,9 @@ require("nvim-surround").setup()
 require("user.treesitter")
 require("user.conform")
 require("user.neogen")
+require("typst-preview").setup({
+  dependencies_bin = {
+    tinymist = string.format("/etc/profiles/per-user/%s/bin/tinymist", os.getenv("USER")),
+    websocat = string.format("/etc/profiles/per-user/%s/bin/websocat", os.getenv("USER")),
+  },
+})
