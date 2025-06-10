@@ -91,9 +91,10 @@
     zig
     zls
   ] ++ (lib.optionals pkgs.stdenv.isLinux [
-    gqrx
-    hackrf
     discord
     dune3d # cad
+    gqrx
+    hackrf
+    prismlauncher
   ]);
 }
