@@ -17,9 +17,9 @@
       preview = {
         wrap = "no";
         tab_size = 2;
-        max_width = 2000;
-        max_height = 2000;
-        image_delay = 0; # immediately render.
+        max_width = 1000;
+        max_height = 1000;
+        image_delay = 90;
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
         image_quality = 50; # 50-90
       };
@@ -60,6 +60,7 @@
         # Teleporting
         { on = [ "g" "D" ]; run = "cd ~/Documents"; }
         { on = [ "g" "Z" ]; run = "cd ~/Documents/personal/zettelkasten"; }
+        { on = [ "g" "B" ]; run = "cd ~/Desktop/batches"; }
         { on = [ "g" "S" ]; run = "cd ~/Desktop/batches/00-SETTLEMENTS"; }
         { on = [ "g" "N" ]; run = "cd ~/nixos-config"; }
         { on = [ "g" "A" ]; run = "cd ~/code/aguila/src"; }
