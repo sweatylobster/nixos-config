@@ -7,3 +7,6 @@ for _, path in pairs(vim.api.nvim_list_runtime_paths()) do
 end
 
 vim.opt_local.suffixesadd:prepend(".lua")
+
+vim.opt_local.makeprg = "lua"
+vim.opt_local.errorformat = "%A %t%n: %r: %f:%l: %m\\,stack traceback:\\,%f:%l: in %s chunk"
