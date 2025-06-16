@@ -10,6 +10,8 @@ vim.g.maplocalleader = " "
 -- keymap("", "<ScrollWheelUp>", "4<C-y>", opts)
 -- keymap("", "<ScrollWheelDown>", "4<C-e>", opts)
 
+keymap("n", "<leader>bg", ":TransparentToggle<CR>")
+
 -- Edit non-existent paths.
 keymap("", "gf", ":edit <cfile><CR>")
 keymap("", "gt", ":tabedit <cfile><CR>")
