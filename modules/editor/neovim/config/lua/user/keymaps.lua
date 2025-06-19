@@ -56,8 +56,9 @@ keymap("o", "aa", "a<")
 -- REGISTERS
 --
 
--- repeatably replace text.
-keymap("n", "<leader>p", '"_dp', opts)
+-- repeatably replace text:
+-- pasting over visually-selected text does not overwrite the clipboard.
+keymap({ "n", "v" }, "<leader>p", '"_dp', opts)
 
 -- yank current path.
 keymap("n", "<leader>py", ':let @" = expand("%:p")<CR>')
@@ -120,9 +121,6 @@ keymap("i", "?", "?<c-g>u", opts)
 
 -- VISUAL MODE
 --
-
--- pasting over visually-selected text does not overwrite the clipboard.
-keymap("v", "p", '"_dP', opts)
 
 -- stay in visual mode when indenting. (using `.` is absurd.)
 keymap("v", "<", "<gv", opts)
