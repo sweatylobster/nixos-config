@@ -5,7 +5,7 @@
 
   imports = [
     ../shared/linux.nix
-    # ../shared/scanner.nix
+    ../shared/keyd.nix
     ./hardware-configuration.nix
   ];
 
@@ -29,31 +29,20 @@
     ];
   };
 
-
-  # Configure keymap in X11
-  services.xserver = {
-
-    # Enable the X11 windowing system.
-    enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-
-    # Set keyboard.
-    xkb = {
-      layout = "us";
-      variant = "";
-      # Remap caps-lock (the most questionable key real-estate) to escape
-      options = "caps:escape";
-    };
-  };
-
   environment.systemPackages = with pkgs; [ vim wget ];
 
-  # Enable autologin for the primary user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "cowmaster";
+  services = {
+    # Use X11
+    xserver.enable = true;
+    # Enable the GNOME Desktop Environment.
+    desktopManager.gnome.enable = true;
+    # Enable autologin for the primary user.
+    displayManager = {
+      gdm.enable = true;
+      autoLogin.enable = true;
+      autoLogin.user = "cowmaster";
+    };
+  };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
