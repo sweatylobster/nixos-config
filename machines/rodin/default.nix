@@ -12,6 +12,7 @@
       ../shared/keyd.nix
       ../shared/linux.nix
       ../shared/hyprland.nix
+      ../shared/sway.nix
       ../shared/tailscale.nix
     ];
 
@@ -22,22 +23,39 @@
   networking.hostName = "rodin"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  # These need to be moved into a NixOS module:
+  # desktop.gnome.enable = true;
+  # desktop.hyprland.enable = true;
+  # desktop.sway.enable = true;
+  # etc.
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        # command = "set TTY1 (tty); [ \"$TTY1\" = \"/dev/tty1\" ] && exec sway";
+        command = "sway";
+        user = "max";
+      };
+      default_session = initial_session;
+    };
+  };
+
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = false;
+  services = {
+    xserver.enable = false;
     # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager = {
+      gdm.enable = false;
+      autoLogin.enable = true;
+      autoLogin.user = "max";
+    };
+    desktopManager.gnome.enable = false;
   };
 
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "max";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.max = {
@@ -48,17 +66,6 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
     ];
-  };
-
-  # Using Hyprland :)
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "Hyprland";
-        user = "max";
-      };
-    };
   };
 
   services.mpd = {

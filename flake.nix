@@ -122,6 +122,7 @@
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/rmpc.nix
+                ./modules/gammastep.nix
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
