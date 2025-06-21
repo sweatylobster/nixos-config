@@ -53,6 +53,7 @@
         ", Print, exec, grimblast copy area"
         "$mod, V, exec, kitty --class clipse -e clipse"
         "$mod, x, exec, kitty --class htop-float -e htop"
+        "$mod, Q, killactive, "
       ] ++ [
         # workspace movement
         "alt + ctrl, h, workspace, -1"

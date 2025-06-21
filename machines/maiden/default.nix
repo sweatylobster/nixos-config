@@ -1,7 +1,7 @@
 # # Edit this configuration file to define what should be installed on
 # # your system.  Help is available in the configuration.nix(5) man page
 # # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
 
   imports = [
     ../shared/linux.nix
@@ -52,13 +52,20 @@
     };
   };
 
+  nixpkgs.config.nvidia.acceptLicense = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
   # Manage terminal and browser by each system. :)
   environment.systemPackages = with pkgs; [
     # alacritty
     # firefox
   ];
-
-  nixpkgs.config.nvidia.acceptLicense = true;
 
   # Enable autologin for the primary user.
   services.displayManager.autoLogin.enable = true;

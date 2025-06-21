@@ -23,14 +23,6 @@
   hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
-    nvidia = {
-      modesetting.enable = true;
-      open = false;
-      # powerManagement.enable = true;
-      # powerManagement.finegrained = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
   };
 
 }
