@@ -118,11 +118,11 @@
               imports = [
                 ./modules/home.nix
                 ./modules/librewolf.nix
-                ./modules/hyprland
+                ./modules/sway
+                # ./modules/hyprland
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/rmpc.nix
-                ./modules/gammastep.nix
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
