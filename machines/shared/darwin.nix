@@ -128,6 +128,7 @@
       "obsidian"
       "sioyek"
       "spotify"
+      "vlc"
       "whatsapp"
     ];
     brews = [

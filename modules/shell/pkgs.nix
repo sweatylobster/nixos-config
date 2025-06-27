@@ -21,6 +21,7 @@
     devenv
     entr
     fd
+    ffmpeg
     gnumake
     gum
     # graphviz # mermaid-killer
