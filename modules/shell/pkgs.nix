@@ -36,6 +36,7 @@
     lazygit
     # miller
     moreutils
+    mpv
     ncdu
     netcat-gnu
     # nh
@@ -51,7 +52,6 @@
     slides
     starship
     taskwarrior-tui
-    texliveFull
     timewarrior
     tldr
     typst
