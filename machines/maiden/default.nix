@@ -7,7 +7,6 @@
     ../shared/linux.nix
     ../shared/hyprland.nix
     ../shared/keyd.nix
-    ../shared/scanner.nix
     ../shared/steam.nix
     ./hardware-configuration.nix
   ];
