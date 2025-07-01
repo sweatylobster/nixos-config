@@ -58,11 +58,15 @@
       tasks.prepend_keymap = [{ on = [ "x" ]; run = [ "cancel" ]; }];
       mgr.prepend_keymap = [
         # Teleporting
+        { on = [ "g" "N" ]; run = "cd ~/nixos-config"; }
         { on = [ "g" "D" ]; run = "cd ~/Documents"; }
         { on = [ "g" "Z" ]; run = "cd ~/Documents/personal/zettelkasten"; }
+        # `aguila` related directories
         { on = [ "g" "B" ]; run = "cd ~/Desktop/batches"; }
         { on = [ "g" "S" ]; run = "cd ~/Desktop/batches/00-SETTLEMENTS"; }
-        { on = [ "g" "N" ]; run = "cd ~/nixos-config"; }
+        { on = [ "g" "s" ]; run = "cd ~/Desktop/Scans"; }
+        { on = [ "g" "C" ]; run = "cd ~/Library/Mobile Documents/com~apple~CloudDocs"; }
+        # Work-related outputs
         { on = [ "g" "A" ]; run = "cd ~/code/aguila/src"; }
         { on = [ "g" "I" ]; run = "cd ~/code/aguila/src/data/files"; }
         { on = [ "g" "O" ]; run = "cd ~/code/aguila/src/utils/tex/itemize/outputs"; }
