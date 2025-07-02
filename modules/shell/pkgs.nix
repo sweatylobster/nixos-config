@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
 
   # NOTE: Removing allow unfree packages due to evaluation warning:
   # ```evaluation warning: <name> profile: You have set either `nixpkgs.config` \
@@ -8,94 +9,98 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  home.packages = with pkgs; with pkgs.nodePackages_latest; [
-    # custom packages
-    (pkgs.callPackage ../../pkgs/bins { })
+  home.packages =
+    with pkgs;
+    with pkgs.nodePackages_latest;
+    [
+      # custom packages
+      (pkgs.callPackage ../../pkgs/bins { })
 
-    age
-    binwalk
-    chafa
-    comma
-    curl
-    datamash
-    devenv
-    entr
-    fd
-    ffmpeg
-    gnumake
-    gum
-    # graphviz # mermaid-killer
-    hexyl
-    htmlq
-    httpie
-    # httpstat
-    hyperfine
-    imagemagick
-    jq
-    just
-    lazygit
-    # miller
-    moreutils
-    mpv
-    ncdu
-    netcat-gnu
-    # nh
-    nmap
-    nodejs
-    ocrmypdf
-    onefetch
-    # pandoc
-    poppler-utils
-    pstree
-    ripgrep
-    scc
-    slides
-    starship
-    taskwarrior-tui
-    timewarrior
-    tldr
-    typst
-    ueberzugpp
-    unpaper
-    unixtools.watch
-    unzip
-    uv
-    wget
+      age
+      binwalk
+      chafa
+      comma
+      curl
+      datamash
+      devenv
+      entr
+      fd
+      ffmpeg
+      gnumake
+      gum
+      # graphviz # mermaid-killer
+      hexyl
+      htmlq
+      httpie
+      # httpstat
+      hyperfine
+      imagemagick
+      jq
+      just
+      lazygit
+      # miller
+      moreutils
+      mpv
+      ncdu
+      netcat-gnu
+      # nh
+      nmap
+      nodejs
+      ocrmypdf
+      onefetch
+      # pandoc
+      poppler-utils
+      pstree
+      ripgrep
+      scc
+      slides
+      starship
+      taskwarrior-tui
+      timewarrior
+      tldr
+      typst
+      ueberzugpp
+      unpaper
+      unixtools.watch
+      unzip
+      uv
+      wget
 
-    # treesitter, lsps, formatters, and stuff :)
-    bash-language-server
-    cargo
-    clang-tools
-    nil
-    nixpkgs-fmt
-    pgformatter
-    prettier
-    python312Packages.python-lsp-server
-    ruff
-    rust-analyzer
-    rustc
-    rustfmt
-    shellcheck
-    shfmt
-    sql-formatter
-    stylua
-    sumneko-lua-language-server
-    tailwindcss-language-server
-    taplo
-    tinymist
-    tree-sitter
-    typescript-language-server
-    vscode-langservers-extracted
-    websocat # for typst-preview.nvim
-    yaml-language-server
-    yamllint
-    zig
-    zls
-  ] ++ (lib.optionals pkgs.stdenv.isLinux [
-    discord
-    dune3d # cad
-    gqrx
-    hackrf
-    prismlauncher
-  ]);
+      # treesitter, lsps, formatters, and stuff :)
+      bash-language-server
+      cargo
+      clang-tools
+      nil
+      nixpkgs-fmt
+      pgformatter
+      prettier
+      python312Packages.python-lsp-server
+      ruff
+      rust-analyzer
+      rustc
+      rustfmt
+      shellcheck
+      shfmt
+      sql-formatter
+      stylua
+      sumneko-lua-language-server
+      tailwindcss-language-server
+      taplo
+      tinymist
+      tree-sitter
+      typescript-language-server
+      vscode-langservers-extracted
+      websocat # for typst-preview.nvim
+      yaml-language-server
+      yamllint
+      zig
+      zls
+    ]
+    ++ (lib.optionals pkgs.stdenv.isLinux [
+      discord
+      dune3d # cad
+      gqrx
+      hackrf
+      prismlauncher
+    ]);
 }
