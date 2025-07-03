@@ -17,7 +17,6 @@
       (pkgs.callPackage ../../pkgs/bins { })
 
       age
-      binwalk
       chafa
       comma
       curl
@@ -31,30 +30,23 @@
       # graphviz # mermaid-killer
       hexyl
       htmlq
-      httpie
-      # httpstat
       hyperfine
       imagemagick
       jq
       just
       lazygit
-      # miller
       moreutils
       mpv
       ncdu
       netcat-gnu
       # nh
       nmap
-      nodejs
       ocrmypdf
-      onefetch
       # pandoc
       poppler-utils
       pstree
       ripgrep
       scc
-      slides
-      starship
       taskwarrior-tui
       timewarrior
       tldr
@@ -63,7 +55,6 @@
       unpaper
       unixtools.watch
       unzip
-      uv
       wget
 
       # treesitter, lsps, formatters, and stuff :)
@@ -72,7 +63,6 @@
       clang-tools
       nil
       nixpkgs-fmt
-      pgformatter
       prettier
       python312Packages.python-lsp-server
       ruff
@@ -81,17 +71,11 @@
       rustfmt
       shellcheck
       shfmt
-      sql-formatter
       stylua
       sumneko-lua-language-server
-      tailwindcss-language-server
-      taplo
       tinymist
       tree-sitter
-      typescript-language-server
-      vscode-langservers-extracted
       websocat # for typst-preview.nvim
-      yaml-language-server
       yamllint
       zig
       zls
