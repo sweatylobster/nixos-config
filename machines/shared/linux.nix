@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -47,10 +48,13 @@
     #media-session.enable = true;
   };
 
-  # NOTE: Is this a problem?
   security.sudo.extraRules = [
     {
-      users = [ "jc" "max" "cowmaster" ];
+      users = [
+        "jc"
+        "max"
+        "cowmaster"
+      ];
       commands = [
         {
           command = "ALL";
@@ -98,13 +102,11 @@
     unzip
   ];
 
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
 
-  programs.zsh.enable = true;
   programs.fish.enable = true;
 
   services.openssh = {
