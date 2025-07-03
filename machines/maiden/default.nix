@@ -1,12 +1,15 @@
 # # Edit this configuration file to define what should be installed on
 # # your system.  Help is available in the configuration.nix(5) man page
 # # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
 
   imports = [
     ../shared/linux.nix
     ../shared/keyd.nix
     ../shared/steam.nix
+    # ../shared/hyprland.nix
+    # ../shared/nvidia.nix
     ./hardware-configuration.nix
   ];
 
@@ -23,7 +26,12 @@
 
   users.users.max = {
     isNormalUser = true;
-    extraGroups = [ "lp" "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "lp"
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
@@ -40,21 +48,6 @@
       };
       default_session = initial_session;
     };
-  };
-
-  nixpkgs.config.nvidia.acceptLicense = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  # FIXME: Unsure if necessary.
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
   };
 
   # Manage terminal and browser by each system. :)
