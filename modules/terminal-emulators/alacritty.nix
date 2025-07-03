@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.alacritty = {
-    enable = false;
+    enable = true;
     settings = {
 
       # Pick nerd fonts with this :)

@@ -28,17 +28,19 @@
 
       overlays = [
         (final: prev: {
-          nur = import nur
-            {
-              nurpkgs = prev;
-              pkgs = prev;
-            };
+          nur = import nur {
+            nurpkgs = prev;
+            pkgs = prev;
+          };
         })
       ];
 
       # Convenience function to define both Linux machines "at once".
       # TODO: Extend this to add the system as well; we can build *all machines* this way.
-      forAllLinuxMachines = nixpkgs.lib.genAttrs [ "melissa" "maiden" ];
+      forAllLinuxMachines = nixpkgs.lib.genAttrs [
+        "melissa"
+        "maiden"
+      ];
     in
     {
       nixosConfigurations.maiden = nixpkgs.lib.nixosSystem {
@@ -52,16 +54,16 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hbk";
-            home-manager.users.cowmaster = {
-              home.username = "cowmaster";
-              home.homeDirectory = "/home/cowmaster"; # if pkgs.stdenv.isLinux then "home" else "Users" + "${username}"
+            home-manager.users.max = {
+              home.username = "max";
+              home.homeDirectory = "/home/max"; # if pkgs.stdenv.isLinux then "home" else "Users" + "${username}"
               imports = [
                 ./modules/home.nix
                 ./modules/librewolf.nix
-                ./modules/hyprland
+                ./modules/sway
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
-                ./modules/terminal-emulators
+                ./modules/terminal-emulators/alacritty.nix
                 ./modules/shell
                 ./modules/editor
                 nix-index-database.hmModules.nix-index
@@ -99,7 +101,6 @@
           }
         ];
       };
-
 
       nixosConfigurations.rodin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

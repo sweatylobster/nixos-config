@@ -5,7 +5,6 @@
 
   imports = [
     ../shared/linux.nix
-    ../shared/hyprland.nix
     ../shared/keyd.nix
     ../shared/steam.nix
     ./hardware-configuration.nix
@@ -22,9 +21,8 @@
     hostName = "maiden";
   };
 
-  users.users.cowmaster = {
+  users.users.max = {
     isNormalUser = true;
-    description = "cowmaster";
     extraGroups = [ "lp" "networkmanager" "wheel" "input" ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
@@ -32,22 +30,15 @@
     ];
   };
 
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
-
-    # Enable the GNOME Desktop Environment.
-    desktopManager.gnome.enable = false;
-    displayManager.gdm.enable = false;
-  };
-
+  programs.sway.enable = true;
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "Hyprland";
-        user = "cowmaster";
+    settings = rec {
+      initial_session = {
+        command = "sway";
+        user = "max";
       };
+      default_session = initial_session;
     };
   };
 
@@ -60,19 +51,22 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # FIXME: Unsure if necessary.
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
+
   # Manage terminal and browser by each system. :)
-  environment.systemPackages = with pkgs; [
-    # alacritty
-    # firefox
-  ];
+  environment.systemPackages = [ ];
 
   # Enable autologin for the primary user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "cowmaster";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "max";
+  #
+  # # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
