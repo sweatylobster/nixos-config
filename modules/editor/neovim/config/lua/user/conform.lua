@@ -7,7 +7,7 @@ conform.setup({
     json = { "jq" },
     lua = { "stylua" },
     markdown = { "prettier" },
-    nix = { "nixpkgs_fmt" },
+    nix = { "nixfmt" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     rust = { "rustfmt" },
     sh = { "shfmt" },

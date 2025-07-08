@@ -62,7 +62,7 @@
       cargo
       clang-tools
       nil
-      nixpkgs-fmt
+      nixfmt-rfc-style
       prettier
       python312Packages.python-lsp-server
       ruff
