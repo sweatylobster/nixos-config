@@ -1,12 +1,15 @@
 # # Edit this configuration file to define what should be installed on
 # # your system.  Help is available in the configuration.nix(5) man page
 # # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   imports = [
     ../shared/linux.nix
     ../shared/keyd.nix
+    ../shared/tailscale.nix
     ./hardware-configuration.nix
+    # ./printer.nix
   ];
 
   # Bootloader.
@@ -22,14 +25,24 @@
   users.users.cowmaster = {
     isNormalUser = true;
     description = "cowmaster";
-    extraGroups = [ "scanner" "lp" "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "scanner"
+      "lp"
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
     ];
   };
 
-  environment.systemPackages = with pkgs; [ vim wget ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    texliveFull
+  ];
 
   services = {
     # Use X11
@@ -55,7 +68,6 @@
     AllowHybridSleep=no
     AllowSuspendThenHibernate=no
   '';
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
