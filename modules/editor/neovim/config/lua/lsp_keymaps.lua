@@ -19,20 +19,6 @@ local is_v10 = vim.fn.has("nvim-0.10") == 1
 M.on_attach = function(bufnr)
   local builtin = require("telescope.builtin")
 
-  -- deprecated keymaps
-  keymap("gr", function()
-    vim.notify("use grr now")
-  end, bufnr)
-  keymap("gs", function()
-    vim.notify("use <C+s> now")
-  end, bufnr)
-  keymap("<leader>rn", function()
-    vim.notify("use grn now")
-  end, bufnr)
-  keymap("<leader>ca", function()
-    vim.notify("use gra now")
-  end, bufnr)
-
   keymap("gd", builtin.lsp_definitions, bufnr)
   keymap("grr", builtin.lsp_references, bufnr) -- gr
   keymap("<leader>ls", builtin.lsp_document_symbols, bufnr)
