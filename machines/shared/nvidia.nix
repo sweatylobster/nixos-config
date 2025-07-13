@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
 
   nixpkgs.config.nvidia.acceptLicense = true;

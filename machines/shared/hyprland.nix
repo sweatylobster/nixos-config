@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
-, config
-, ...
+{
+  pkgs,
+  inputs,
+  config,
+  ...
 }:
 # let
 #   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
