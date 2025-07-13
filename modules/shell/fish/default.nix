@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs.fish = {
     enable = true;
     shellInit = ''
@@ -19,10 +20,6 @@
         description = "cd into root folder of current repo";
         body = "cd (git rev-parse --show-toplevel)";
       };
-      a = {
-        description = "cd into aguila";
-        body = "test -d ~/code/aguila && builtin cd ~/code/aguila";
-      };
     };
     plugins = [
       {
@@ -32,35 +29,7 @@
     ];
     shellAliases = {
 
-      # git
-      g = "git";
-      gl = "git pull --prune";
-      glg = "git log --graph --decorate --one-line --abbrev-commit";
-      glga = "glg --all";
-      gp = "git push origin HEAD";
-      gpa = "git push origin --all";
-      gd = "git diff";
-      gc = "git commit -s";
-      gca = "git commit -sa";
-      gco = "git checkout";
-      gb = "git branch -v";
-      ga = "git add";
-      gaa = "git add -A";
-      gcm = "git commit -sm";
-      gcam = "git commit -sam";
-      gs = "git status -sb";
-      glnext = "git log --oneline (git describe --tags --abbrev=0 @&)..@";
-      gw = "git switch";
-      gm = "git switch (git main-branch)";
-      gms = "git switch (git main-branch); and git sync";
-      egms = "e; git switch (git main-branch); and git sync";
-      gwc = "git switch -c";
-
-      maxvim = "NVIM_APPNAME=maxvim nvim";
       mvim = "NVIM_APPNAME=maxvim nvim";
-      msf = "mvim +'Telescope find_files'";
-      msg = "mvim +'Telescope live_grep'";
-      mgf = "mvim +'Telescope git_files'";
 
       n = "nvim";
       # Might have to rethink using these all the time.
@@ -78,8 +47,6 @@
       tt = "taskwarrior-tui";
       tc = "task context";
       tm = "task modify";
-
-      icat = "kitten icat";
     };
   };
 
