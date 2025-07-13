@@ -8,8 +8,7 @@
     ../shared/linux.nix
     ../shared/keyd.nix
     ../shared/steam.nix
-    # ../shared/hyprland.nix
-    # ../shared/nvidia.nix
+    ../shared/nvidia.nix
     ./hardware-configuration.nix
   ];
 
@@ -29,6 +28,7 @@
     extraGroups = [
       "lp"
       "networkmanager"
+      "gamemode"
       "wheel"
       "input"
     ];
@@ -43,15 +43,17 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "sway";
+        command = "sway --unsupported-gpu";
         user = "max";
       };
       default_session = initial_session;
     };
   };
 
-  # Manage terminal and browser by each system. :)
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    clipse # clipboard with TUI, history filtering
+  ];
 
   # Enable autologin for the primary user.
   # services.displayManager.autoLogin.enable = true;
