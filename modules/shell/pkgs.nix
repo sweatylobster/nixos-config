@@ -37,6 +37,7 @@
       lazygit
       moreutils
       mpv
+      mupdf
       ncdu
       netcat-gnu
       # nh
@@ -56,6 +57,7 @@
       unixtools.watch
       unzip
       wget
+      xidel
 
       # treesitter, lsps, formatters, and stuff :)
       bash-language-server
@@ -63,6 +65,7 @@
       clang-tools
       nil
       nixfmt-rfc-style
+      pgformatter
       prettier
       python312Packages.python-lsp-server
       ruff
@@ -71,6 +74,7 @@
       rustfmt
       shellcheck
       shfmt
+      sql-formatter
       stylua
       sumneko-lua-language-server
       tinymist
