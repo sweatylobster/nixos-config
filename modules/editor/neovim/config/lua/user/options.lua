@@ -24,5 +24,3 @@ vim.opt.autoread = true
 vim.opt.wildmenu = true
 vim.opt.grepprg = "rg --vimgrep --smart-case --follow"
 vim.opt.conceallevel = 1
-vim.opt.splitright = true
-vim.opt.splitbelow = true
