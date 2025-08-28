@@ -9,6 +9,7 @@
     ../shared/keyd.nix
     ../shared/steam.nix
     ../shared/nvidia.nix
+    ../shared/scanner.nix
     ./hardware-configuration.nix
   ];
 
