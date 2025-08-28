@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
 
+  # https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1229444338
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -19,10 +20,10 @@
     ];
   # https://github.com/ValveSoftware/gamescope/issues/1178
   # Use with `gamescope [OPTS] -e --backend sdl -- %command%`
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
+  # programs.gamescope = {
+  #   enable = true;
+  #   capSysNice = true;
+  # };
 
   programs.gamemode.enable = true;
 }
