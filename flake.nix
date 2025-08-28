@@ -15,14 +15,15 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-stable
-    , nur
-    , home-manager
-    , nix-index-database
-    , darwin
-    , ...
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      nur,
+      home-manager,
+      nix-index-database,
+      darwin,
+      ...
     }@inputs:
     let
 
@@ -66,7 +67,7 @@
                 ./modules/terminal-emulators/alacritty.nix
                 ./modules/shell
                 ./modules/editor
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
               ];
             };
           }
@@ -95,7 +96,7 @@
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
               ];
             };
           }
@@ -127,7 +128,7 @@
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
               ];
             };
           }
@@ -157,7 +158,7 @@
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
               ];
             };
           }
@@ -184,7 +185,7 @@
                 ./modules/terminal-emulators
                 ./modules/shell
                 ./modules/editor
-                nix-index-database.hmModules.nix-index
+                nix-index-database.homeModules.nix-index
               ];
             };
           }
