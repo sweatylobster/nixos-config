@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   # blue light killa
   services.gammastep = {
     enable = true;
@@ -13,7 +14,7 @@
     settings = {
       general = {
         brightness-day = 1.0;
-        brightness-night = 0.20;
+        brightness-night = 0.70;
         fade = 1;
         adjustment-method = "wayland";
       };
