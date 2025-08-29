@@ -32,6 +32,7 @@
       "gamemode"
       "wheel"
       "input"
+      "plugdev"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
@@ -55,6 +56,9 @@
     wl-clipboard
     clipse # clipboard with TUI, history filtering
   ];
+
+  services.udev.packages = [ pkgs.hackrf ];
+  hardware.hackrf.enable = true;
 
   # Enable autologin for the primary user.
   # services.displayManager.autoLogin.enable = true;
