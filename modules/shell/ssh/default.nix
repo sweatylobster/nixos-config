@@ -1,10 +1,12 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.local" ];
-    serverAliveInterval = 60;
+    enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
+        serverAliveInterval = 60;
         identityFile = "~/.ssh/id_ed25519";
         setEnv = {
           TERM = "xterm-256color";
