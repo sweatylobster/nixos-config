@@ -5,14 +5,13 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../shared/keyd.nix
-      ../shared/tailscale.nix
-      ../shared/linux.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../shared/keyd.nix
+    ../shared/tailscale.nix
+    ../shared/linux.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -25,7 +24,11 @@
   users.users.jc = {
     isNormalUser = true;
     description = "jc";
-    extraGroups = [ "lp" "networkmanager" "wheel" ];
+    extraGroups = [
+      "lp"
+      "networkmanager"
+      "wheel"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
     ];
@@ -36,11 +39,11 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "jc";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
