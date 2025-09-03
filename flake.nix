@@ -152,7 +152,6 @@
               imports = [
                 ./modules/home.nix
                 ./modules/librewolf.nix
-                ./modules/hyprland
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/terminal-emulators
