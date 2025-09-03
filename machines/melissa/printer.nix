@@ -14,7 +14,7 @@
         model = "drv:///sample.drv/generpcl.ppd";
       }
     ];
-    ensureDefaultPrinter = "Brother_HL_L2460DW_USB";
+    ensureDefaultPrinter = "Brother_HL_L2460DW";
   };
 
 }
