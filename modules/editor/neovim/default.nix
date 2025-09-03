@@ -43,6 +43,7 @@ in
         nvim-notify
         lualine-nvim
         dressing-nvim
+        nvim-colorizer-lua
 
         # basics
         indent-blankline-nvim
