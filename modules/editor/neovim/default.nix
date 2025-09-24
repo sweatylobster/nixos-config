@@ -66,6 +66,7 @@ in
         cloak-nvim
 
         # personal basics
+        nvim-spectre
         oil-nvim
         flash-nvim
         vim-easy-align
@@ -75,10 +76,17 @@ in
 
         # questionable
         firenvim
+        quickmath-nvim
+        yazi-nvim
 
         # coding
+        # lsp
         nvim-lspconfig
+        cmp-nvim-lsp
+        cmp-nvim-lsp-signature-help
+        nvim-lsp-file-operations
         conform-nvim
+        # completion
         blink-cmp
         nvim-cmp
         cmp-buffer
@@ -86,24 +94,17 @@ in
         cmp-cmdline
         cmp-calc
         cmp-treesitter
-        nvim-autopairs
-        nvim-ts-autotag
-        cmp-nvim-lsp
-        cmp-nvim-lsp-signature-help
-        pkgs.jq-lsp
+        # snippets
         luasnip
         cmp_luasnip
         friendly-snippets
-        neodev-nvim
         neogen
-        nvim-surround
+        # ergonomics
         treesj
-        quickmath-nvim
-        # render-markdown-nvim
-        pyright
-        gopls
-        yazi-nvim
-        nvim-lsp-file-operations
+        nvim-autopairs
+        nvim-surround
+        nvim-ts-autotag
+        neodev-nvim
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (
           plugins: with plugins; [
             awk
@@ -154,7 +155,6 @@ in
         nvim-treesitter-endwise
         other-nvim
         hmts-nvim # treesitter injections for home-manager
-        nvim-spectre
 
         # sql
         vim-dadbod

@@ -63,10 +63,14 @@
       bash-language-server
       cargo
       clang-tools
+      go
+      gopls
+      jq-lsp
       nil
       nixfmt-rfc-style
       pgformatter
       prettier
+      pyright
       python312Packages.python-lsp-server
       ruff
       rust-analyzer
