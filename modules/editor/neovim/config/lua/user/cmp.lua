@@ -29,16 +29,6 @@ blink.setup({
     -- ghost_text = { enabled = true },
   },
   keymap = {
-    ["<C-j>"] = { "select_next", "fallback" },
-    ["<C-k>"] = { "select_prev", "fallback" },
-    -- Override default 'cancel' binding; I prefer EOL.
-    ["<C-e>"] = {
-      function()
-        require("blink.cmp")["hide"]()
-        vim.cmd([[norm <C-e>]])
-      end,
-      "hide",
-    },
     ["<C-space>"] = {
       ---@diagnostic disable-next-line: redefined-local
       function(cmp)

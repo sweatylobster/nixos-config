@@ -90,6 +90,7 @@ in
         nvim-ts-autotag
         cmp-nvim-lsp
         cmp-nvim-lsp-signature-help
+        pkgs.jq-lsp
         luasnip
         cmp_luasnip
         friendly-snippets
@@ -98,7 +99,9 @@ in
         nvim-surround
         treesj
         quickmath-nvim
-        render-markdown-nvim
+        # render-markdown-nvim
+        pyright
+        gopls
         yazi-nvim
         nvim-lsp-file-operations
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (

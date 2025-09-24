@@ -30,8 +30,11 @@ for _, lsp in ipairs({
   "clangd",
   "cssls",
   "dockerls",
+  "gopls",
+  "jqls",
   "jsonls",
   "nil_ls",
+  "pyright",
   "rust_analyzer",
   "taplo",
   "templ",
@@ -163,9 +166,3 @@ vim.diagnostic.config({
 vim.lsp.buf.hover(float_config)
 vim.lsp.buf.signature_help(float_config)
 vim.hl.priorities.semantic_tokens = 95
-
--- set up diagnostic signs
-for name, icon in pairs(require("user.icons").diagnostics) do
-  name = "DiagnosticSign" .. name
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-end
