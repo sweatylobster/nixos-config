@@ -63,8 +63,10 @@
       bash-language-server
       cargo
       clang-tools
+      ghc
       go
       gopls
+      haskell-language-server
       jq-lsp
       nil
       nixfmt-rfc-style

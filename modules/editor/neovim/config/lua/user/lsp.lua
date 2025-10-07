@@ -31,6 +31,7 @@ for _, lsp in ipairs({
   "cssls",
   "dockerls",
   "gopls",
+  "hls",
   "jqls",
   "jsonls",
   "nil_ls",

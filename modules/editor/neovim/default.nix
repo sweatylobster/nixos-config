@@ -119,6 +119,7 @@ in
             gitattributes
             gitcommit
             gitignore
+            haskell
             html
             http
             ini
