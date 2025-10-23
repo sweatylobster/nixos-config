@@ -34,8 +34,8 @@ keymap("n", "[c", ":cprev<CR>zz", opts)
 
 -- tab movements.
 keymap("n", "<leader><tab><tab>", vim.cmd.tabnew, opts)
-keymap("n", "<leader><tab>]", vim.cmd.tabnext, opts)
-keymap("n", "<leader><tab>[", vim.cmd.tabprev, opts)
+keymap("n", "]<tab>", vim.cmd.tabnext, opts)
+keymap("n", "[<tab>", vim.cmd.tabprev, opts)
 keymap("n", "<leader><tab>q", vim.cmd.tabclose, opts)
 
 -- buf movements.
