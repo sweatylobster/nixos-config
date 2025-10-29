@@ -1,17 +1,11 @@
 { pkgs, lib, ... }:
 {
+  imports = [ ./lazygit.nix ];
   home.packages = with pkgs; [
     git-lfs
   ];
   home.file.".ssh/allowed_signers".text =
     "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9";
-  programs.lazygit = {
-    settings = {
-      git = {
-        overrideGpg = true;
-      };
-    };
-  };
   programs.git = {
     enable = true;
     delta.enable = true;
