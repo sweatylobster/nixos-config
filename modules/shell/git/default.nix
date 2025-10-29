@@ -1,8 +1,17 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   home.packages = with pkgs; [
     git-lfs
   ];
-  home.file.".ssh/allowed_signers".text = "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9";
+  home.file.".ssh/allowed_signers".text =
+    "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9";
+  programs.lazygit = {
+    settings = {
+      git = {
+        overrideGpg = true;
+      };
+    };
+  };
   programs.git = {
     enable = true;
     delta.enable = true;
@@ -26,7 +35,9 @@
       gpg.format = "ssh";
       gpg.allowedSignersFile = "~/.ssh/allowed_signers";
       user.signingKey = "~/.ssh/id_ed25519.pub";
-      lfs = { enable = true; };
+      lfs = {
+        enable = true;
+      };
       core = {
         editor = "nvim";
         compression = -1;
@@ -40,9 +51,15 @@
         branch = "auto";
         ui = true;
       };
-      advice = { addEmptyPathspec = false; };
-      apply = { whitespace = "nowarn"; };
-      help = { autocorrect = -1; };
+      advice = {
+        addEmptyPathspec = false;
+      };
+      apply = {
+        whitespace = "nowarn";
+      };
+      help = {
+        autocorrect = -1;
+      };
       grep = {
         extendRegexp = true;
         default = "simple";
@@ -51,12 +68,24 @@
         autoSetupRemote = true;
         default = "simple";
       };
-      submodule = { fetchJobs = 4; };
-      log = { showSignature = false; };
-      format = { signOff = true; };
-      rerere = { enabled = true; };
-      pull = { ff = "only"; };
-      init = { defaultBranch = "main"; };
+      submodule = {
+        fetchJobs = 4;
+      };
+      log = {
+        showSignature = false;
+      };
+      format = {
+        signOff = true;
+      };
+      rerere = {
+        enabled = true;
+      };
+      pull = {
+        ff = "only";
+      };
+      init = {
+        defaultBranch = "main";
+      };
     };
     ignores = lib.splitString "\n" (builtins.readFile ./gitignore_global);
   };

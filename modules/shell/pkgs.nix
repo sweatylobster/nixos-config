@@ -34,7 +34,6 @@
       imagemagick
       jq
       just
-      lazygit
       moreutils
       mpv
       mupdf
