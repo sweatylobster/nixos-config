@@ -6,25 +6,30 @@
   ];
   home.file.".ssh/allowed_signers".text =
     "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9";
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
   programs.git = {
     enable = true;
-    delta.enable = true;
-    userName = "Max de Hoyos";
-    userEmail = "max.dehoyos@gmail.com";
-    aliases = {
-      co = "checkout";
-      count = "shortlong -sn";
-      g = "grep --break --heading --line-number";
-      gi = "grep --break --heading --line-number -i";
-      changed = ''show --pretty="format:" --name-only'';
-      fm = "fetch-merge";
-      please = "push --force-with-lease";
-      commit = "commit -s"; # -s for signoff, make sure you can sign!
-      commend = "commit -s --amend --no-edit";
-      lt = "log --tags --decorate --simplify-by-decoration --oneline";
-      unshallow = "fetch --prune --tags --unshallow";
-    };
-    extraConfig = {
+    settings = {
+      aliases = {
+        co = "checkout";
+        count = "shortlong -sn";
+        g = "grep --break --heading --line-number";
+        gi = "grep --break --heading --line-number -i";
+        changed = ''show --pretty="format:" --name-only'';
+        fm = "fetch-merge";
+        please = "push --force-with-lease";
+        commit = "commit -s"; # -s for signoff, make sure you can sign!
+        commend = "commit -s --amend --no-edit";
+        lt = "log --tags --decorate --simplify-by-decoration --oneline";
+        unshallow = "fetch --prune --tags --unshallow";
+      };
+      user = {
+        name = "Max de Hoyos";
+        email = "max.dehoyos@gmail.com";
+      };
       commit.gpgSign = true;
       gpg.format = "ssh";
       gpg.allowedSignersFile = "~/.ssh/allowed_signers";

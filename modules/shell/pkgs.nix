@@ -81,7 +81,7 @@
       shfmt
       sql-formatter
       stylua
-      sumneko-lua-language-server
+      lua-language-server
       tinymist
       tree-sitter
       websocat # for typst-preview.nvim
