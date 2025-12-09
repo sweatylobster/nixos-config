@@ -35,6 +35,7 @@
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRsgh/gBYgSmvb0wDKSflWna2J+nATtgfbBj4Lv95K9 max.dehoyos@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvYHFYubRAUeVSgTWrY1xnG+LlIsdVUMwB76obtfBW+ frostbite"
     ];
   };
 
