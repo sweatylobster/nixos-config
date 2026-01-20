@@ -121,10 +121,9 @@
       cleanup = "zap"; # rm brews && casks (w/ assoc. files) if not defined below.
     };
     casks = [
-      "blender"
-      "brave-browser"
+      # "brave-browser"
       "discord"
-      "halloy" # IRC client made w/ iced.rs
+      # "halloy" # IRC client made w/ iced.rs
       "obsidian"
       "sioyek"
       "spotify"
@@ -132,7 +131,7 @@
       "whatsapp"
     ];
     brews = [
-      "m-cli" # exposes options for use in `system.defaults.CustomUserPreferences` downstairs
+      # "m-cli" # exposes options for use in `system.defaults.CustomUserPreferences` downstairs
     ];
   };
 
