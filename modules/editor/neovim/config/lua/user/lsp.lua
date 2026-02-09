@@ -41,7 +41,7 @@ for _, lsp in ipairs({
   "templ",
   "terraformls",
   "tflint",
-  "zls",
+  -- "zls",
 }) do
   lspconfig[lsp].setup({
     on_attach = on_attach,

@@ -68,7 +68,7 @@
       haskell-language-server
       jq-lsp
       nil
-      nixfmt-rfc-style
+      nixfmt
       pgformatter
       prettier
       pyright
@@ -87,7 +87,7 @@
       websocat # for typst-preview.nvim
       yamllint
       zig
-      zls
+      # zls
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux [
       discord
