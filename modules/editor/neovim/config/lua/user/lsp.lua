@@ -22,8 +22,8 @@ local on_attach = function(client, bufnr)
   keymaps.on_attach(bufnr)
 end
 
-local lspconfig = require("lspconfig")
-require("lspconfig.ui.windows").default_options.border = "rounded"
+-- local lspconfig = require("lspconfig")
+-- require("lspconfig.ui.windows").default_options.border = "rounded"
 
 for _, lsp in ipairs({
   "bashls",
@@ -43,14 +43,14 @@ for _, lsp in ipairs({
   "tflint",
   -- "zls",
 }) do
-  lspconfig[lsp].setup({
+  vim.lsp.config(lsp, {
     on_attach = on_attach,
     capabilities = capabilities,
   })
 end
 
 for _, lsp in ipairs({ "html", "htmx" }) do
-  lspconfig[lsp].setup({
+  vim.lsp.config(lsp, {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "html", "templ" },
@@ -66,7 +66,7 @@ local tsls_inlay_hints = {
   includeInlayPropertyDeclarationTypeHints = true,
   includeInlayVariableTypeHints = true,
 }
-lspconfig.ts_ls.setup({
+vim.lsp.config("ts_ls", {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -79,7 +79,7 @@ lspconfig.ts_ls.setup({
   },
 })
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "html", "templ", "javascript" },
@@ -92,7 +92,7 @@ lspconfig.tailwindcss.setup({
   },
 })
 
-lspconfig.tinymist.setup({
+vim.lsp.config("tinymist", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "typst" },
@@ -103,7 +103,7 @@ lspconfig.tinymist.setup({
   },
 })
 
-lspconfig.yamlls.setup({
+vim.lsp.config("yamlls", {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -120,7 +120,7 @@ lspconfig.yamlls.setup({
 local runtime_path = vim.split(package.path, ";", {})
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -136,7 +136,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.pylsp.setup({
+vim.lsp.config("pylsp", {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -163,6 +163,33 @@ vim.diagnostic.config({
   severity_sort = true,
   float = float_config,
 })
+
+vim.lsp.enable({
+  "bashls",
+  "clangd",
+  "cssls",
+  "dockerls",
+  "gopls",
+  "hls",
+  "html",
+  "htmx",
+  "jqls",
+  "jsonls",
+  "lua_ls",
+  "nil_ls",
+  "pylsp",
+  "pyright",
+  "rust_analyzer",
+  "taplo",
+  "templ",
+  "terraformls",
+  "tinymist",
+  "tflint",
+  "ts_ls",
+  "tailwindcss",
+  "yamlls",
+})
+
 
 vim.lsp.buf.hover(float_config)
 vim.lsp.buf.signature_help(float_config)
