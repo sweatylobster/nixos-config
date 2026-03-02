@@ -53,7 +53,7 @@
   xdg.configFile."fish/themes/tokyonight.theme" = {
     source = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish_themes/tokyonight_night.theme";
-      sha256 = "sha256-yabv/At93pvL3Kp/H4XGn8YHd5zfsNsOlktj5iUx3AM=";
+      sha256 = "sha256-PhjRnU+hfVtpCOjMRpd0xthpSxMtfddM4ebjByPTNw4=";
     };
   };
 }
