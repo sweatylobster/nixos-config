@@ -1,10 +1,11 @@
-{ ... }: {
+{ ... }:
+{
   programs.sioyek = {
     enable = true;
     config = {
 
       # Start with catppuccin colors.
-      startup_commands = "toggle_custom_color";
+      startup_commands = [ "toggle_custom_color" ];
 
       # The catppuccin colors in question.
       custom_background_color = "0.1019 0.1058 0.1490";
