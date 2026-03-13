@@ -21,9 +21,11 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs.nerd-fonts; [
-      fira-mono
-      martian-mono
+    packages = [
+      pkgs.nerd-fonts.fira-mono
+      pkgs.nerd-fonts.martian-mono
+      pkgs.aileron
+      pkgs.helvetica-neue-lt-std
     ];
   };
 
