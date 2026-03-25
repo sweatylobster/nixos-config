@@ -27,3 +27,19 @@ end, {
   silent = true,
   desc = "Git preview hunk",
 })
+
+vim.keymap.set("n", "]g", function()
+  require("gitsigns").nav_hunk("next", { wrap = false, preview = true })
+end, {
+  noremap = true,
+  silent = true,
+  desc = "gitsigns next hunk",
+})
+
+vim.keymap.set("n", "[g", function()
+  require("gitsigns").nav_hunk("prev", { wrap = false, preview = true })
+end, {
+  noremap = true,
+  silent = true,
+  desc = "gitsigns next hunk",
+})
