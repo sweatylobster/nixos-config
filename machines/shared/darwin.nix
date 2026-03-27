@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
 
   nixpkgs.config.allowUnfree = true;
 
@@ -104,13 +105,31 @@
         alt-shift-semicolon = "mode service";
       };
       mode.service.binding = {
-        r = [ "flatten-workspace-tree" "mode main" ];
-        f = [ "layout floating tiling" "mode main" ];
+        r = [
+          "flatten-workspace-tree"
+          "mode main"
+        ];
+        f = [
+          "layout floating tiling"
+          "mode main"
+        ];
 
-        alt-shift-h = [ "join-with left" "mode main" ];
-        alt-shift-j = [ "join-with down" "mode main" ];
-        alt-shift-k = [ "join-with up" "mode main" ];
-        alt-shift-l = [ "join-with right" "mode main" ];
+        alt-shift-h = [
+          "join-with left"
+          "mode main"
+        ];
+        alt-shift-j = [
+          "join-with down"
+          "mode main"
+        ];
+        alt-shift-k = [
+          "join-with up"
+          "mode main"
+        ];
+        alt-shift-l = [
+          "join-with right"
+          "mode main"
+        ];
       };
     };
   };
@@ -188,8 +207,8 @@
         LoginwindowText =
           # "o(｀^´*);";
           # "（；￣︶￣）";
-          "⊂((。・o・))⊃";
-        # "(゜￢゜)";
+          # "⊂((。・o・))⊃";
+          "(゜￢゜)";
         # "♫꒰･◡･๑꒱";
         # "(╭ರ_⊙)";
         # "(゜ロ゜)";
@@ -223,15 +242,25 @@
           allowApplePersonalizedAdvertising = false;
           # allowIdentifierForAdvertising = false;
         };
-        "com.apple.NetworkBrowser" = { BrowseAllInterfaces = true; };
+        "com.apple.NetworkBrowser" = {
+          BrowseAllInterfaces = true;
+        };
         "com.apple.screensaver" = {
           askForPassword = true;
           askForPasswordDelay = 0;
         };
-        "com.apple.trackpad" = { scaling = 2; }; # TODO: Not sure about these
-        "com.apple.mouse" = { scaling = 2.5; };
-        "com.apple.desktopservices" = { DSDontWriteNetworkStores = false; };
-        "com.apple.LaunchServices" = { LSQuarantine = true; }; # TODO: Default, but not sure what it means
+        "com.apple.trackpad" = {
+          scaling = 2;
+        }; # TODO: Not sure about these
+        "com.apple.mouse" = {
+          scaling = 2.5;
+        };
+        "com.apple.desktopservices" = {
+          DSDontWriteNetworkStores = false;
+        };
+        "com.apple.LaunchServices" = {
+          LSQuarantine = true;
+        }; # TODO: Default, but not sure what it means
         "com.apple.spaces" = {
           spans-displays = true;
         };
@@ -249,7 +278,9 @@
           WebKitDeveloperExtras = true;
         };
         # Prevent Photos from opening automatically when devices are plugged in
-        "com.apple.ImageCapture" = { "disableHotPlug" = true; };
+        "com.apple.ImageCapture" = {
+          "disableHotPlug" = true;
+        };
         "com.apple.dock" = {
           size-immutable = true;
         };
