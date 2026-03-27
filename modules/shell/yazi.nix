@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -8,7 +9,11 @@
         enabled = false;
       };
       mgr = {
-        ratio = [ 1 3 4 ];
+        ratio = [
+          1
+          3
+          4
+        ];
         sort_by = "natural";
         sort_dir_first = true;
         show_hidden = false;
@@ -25,8 +30,18 @@
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
-        sioyek = [{ run = ''sioyek "$1"''; desc = "sioyek"; }];
-        zathura = [{ run = ''zathura "$1"''; desc = "zathura"; }];
+        sioyek = [
+          {
+            run = "sioyek %s";
+            desc = "sioyek";
+          }
+        ];
+        zathura = [
+          {
+            run = "zathura %s";
+            desc = "zathura";
+          }
+        ];
       };
       # plugin = {
       #   append_previewers = [
@@ -37,7 +52,7 @@
       open = {
         prepend_rules = [
           {
-            name = "*.pdf";
+            url = "*.pdf";
             use = [
               "sioyek"
               "zathura"
@@ -45,7 +60,10 @@
               "reveal"
             ];
           }
-          { name = "*.tex"; use = [ "edit" ]; }
+          {
+            url = "*.tex";
+            use = [ "edit" ];
+          }
         ];
       };
     };
@@ -55,26 +73,100 @@
     keymap = {
       # TODO: source plugins:
       # relative-motions
-      tasks.prepend_keymap = [{ on = [ "x" ]; run = [ "cancel" ]; }];
+      tasks.prepend_keymap = [
+        {
+          on = [ "x" ];
+          run = [ "cancel" ];
+        }
+      ];
       mgr.prepend_keymap = [
         # Teleporting
-        { on = [ "g" "N" ]; run = "cd ~/nixos-config"; }
-        { on = [ "g" "D" ]; run = "cd ~/Documents"; }
-        { on = [ "g" "Z" ]; run = "cd ~/Documents/personal/zettelkasten"; }
+        {
+          on = [
+            "g"
+            "N"
+          ];
+          run = "cd ~/nixos-config";
+        }
+        {
+          on = [
+            "g"
+            "D"
+          ];
+          run = "cd ~/Documents";
+        }
+        {
+          on = [
+            "g"
+            "Z"
+          ];
+          run = "cd ~/Documents/personal/zettelkasten";
+        }
         # `aguila` related directories
-        { on = [ "g" "B" ]; run = "cd ~/Desktop/batches"; }
-        { on = [ "g" "S" ]; run = "cd ~/Desktop/batches/00-SETTLEMENTS"; }
-        { on = [ "g" "s" ]; run = "cd ~/Desktop/Scans"; }
-        { on = [ "g" "C" ]; run = "cd ~/Library/Mobile Documents/com~apple~CloudDocs"; }
+        {
+          on = [
+            "g"
+            "B"
+          ];
+          run = "cd ~/Desktop/batches";
+        }
+        {
+          on = [
+            "g"
+            "S"
+          ];
+          run = "cd ~/Desktop/batches/00-SETTLEMENTS";
+        }
+        {
+          on = [
+            "g"
+            "s"
+          ];
+          run = "cd ~/Desktop/Scans";
+        }
+        {
+          on = [
+            "g"
+            "C"
+          ];
+          run = "cd ~/Library/Mobile Documents/com~apple~CloudDocs";
+        }
         # Work-related outputs
-        { on = [ "g" "A" ]; run = "cd ~/code/aguila/src"; }
-        { on = [ "g" "I" ]; run = "cd ~/code/aguila/src/data/files"; }
-        { on = [ "g" "O" ]; run = "cd ~/code/aguila/src/utils/tex/itemize/outputs"; }
+        {
+          on = [
+            "g"
+            "A"
+          ];
+          run = "cd ~/code/aguila/src";
+        }
+        {
+          on = [
+            "g"
+            "I"
+          ];
+          run = "cd ~/code/aguila/src/data/files";
+        }
+        {
+          on = [
+            "g"
+            "O"
+          ];
+          run = "cd ~/code/aguila/src/utils/tex/itemize/outputs";
+        }
         # Util
-        { on = [ "!" ]; run = "shell \"$SHELL\" --block"; }
+        {
+          on = [ "!" ];
+          run = "shell \"$SHELL\" --block";
+        }
         # Plugin dependent
-        { on = [ "M" ]; run = "plugin mount"; }
-        { on = [ "F" ]; run = "plugin smart-filter"; }
+        {
+          on = [ "M" ];
+          run = "plugin mount";
+        }
+        {
+          on = [ "F" ];
+          run = "plugin smart-filter";
+        }
       ];
     };
     plugins =
