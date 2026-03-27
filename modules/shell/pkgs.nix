@@ -25,11 +25,13 @@
       entr
       fd
       ffmpeg
+      ghostscript
       gnumake
       gum
       # graphviz # mermaid-killer
       hexyl
       htmlq
+      httpie
       hyperfine
       imagemagick
       jq
@@ -55,6 +57,7 @@
       unpaper
       unixtools.watch
       unzip
+      uv
       wget
       xidel
 
