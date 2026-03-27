@@ -73,6 +73,7 @@ in
         vimtex
         markdown-preview-nvim
         typst-preview-nvim
+        nvim-fzf
 
         # questionable
         firenvim
