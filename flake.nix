@@ -74,6 +74,37 @@
         ];
       };
 
+
+      nixosConfigurations.bartleby = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          { nixpkgs.overlays = overlays; }
+          ./machines/bartleby
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hbk";
+            home-manager.users.max = {
+              home.username = "max";
+              home.homeDirectory = "/home/max";
+              imports = [
+                ./modules/home.nix
+                ./modules/librewolf.nix
+                ./modules/sway
+                ./modules/sioyek.nix
+                ./modules/zathura.nix
+                ./modules/terminal-emulators/alacritty.nix
+                ./modules/shell
+                ./modules/editor
+                nix-index-database.homeModules.nix-index
+              ];
+            };
+          }
+        ];
+      };
+
       nixosConfigurations.melissa = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
