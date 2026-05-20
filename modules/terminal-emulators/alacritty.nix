@@ -6,6 +6,7 @@
 
       # Pick nerd fonts with this :)
       # fc-list | rg 'NerdFonts/.+..f: (\w+ Nerd Font Mono)' -o -r '$1' | sort | uniq | fzf --cycle --reverse
+      general.import = [ ./themes/noctalia.toml ];
 
       # favorites:
       # [ DejaVuSansM, FiraMono, Hack, Hasklug, Lilex, MartianMono (size=12), UbuntoMono (size=18),  ]
