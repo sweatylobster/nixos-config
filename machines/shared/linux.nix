@@ -104,11 +104,6 @@
     unzip
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
   programs.fish.enable = true;
 
   services.openssh = {
