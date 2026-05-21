@@ -12,6 +12,8 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/hyprland";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -62,6 +64,7 @@
                 ./modules/home.nix
                 ./modules/librewolf.nix
                 ./modules/sway
+                # ./modules/noctalia.nix
                 ./modules/sioyek.nix
                 ./modules/zathura.nix
                 ./modules/terminal-emulators/alacritty.nix
