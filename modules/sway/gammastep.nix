@@ -9,12 +9,12 @@
     tray = true;
     temperature = {
       day = 6500;
-      night = 1000;
+      night = 2200;
     };
     settings = {
       general = {
         brightness-day = 1.0;
-        brightness-night = 0.70;
+        brightness-night = 0.84;
         fade = 1;
         adjustment-method = "wayland";
       };
