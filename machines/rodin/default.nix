@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ home, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -12,7 +12,6 @@
       ../shared/keyd.nix
       ../shared/linux.nix
       ../shared/hyprland.nix
-      ../shared/sway.nix
       ../shared/tailscale.nix
     ];
 
@@ -28,6 +27,7 @@
   # desktop.hyprland.enable = true;
   # desktop.sway.enable = true;
   # etc.
+  programs.sway.enable = true;
   services.greetd = {
     enable = true;
     settings = rec {
@@ -70,7 +70,6 @@
 
   services.mpd = {
     enable = true;
-    # musicDirectory = "${home.homeDirectory}/Music/";
     musicDirectory = "/home/max/Music/";
   };
 
