@@ -136,6 +136,7 @@ in
             markdown
             markdown_inline
             nix
+            odin
             python
             query
             regex

@@ -43,6 +43,7 @@
       # nh
       nmap
       ocrmypdf
+      odin
       # pandoc
       poppler-utils
       pstree
@@ -71,6 +72,7 @@
       jq-lsp
       nil
       nixfmt
+      ols
       pgformatter
       prettier
       pyright

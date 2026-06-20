@@ -35,6 +35,7 @@ for _, lsp in ipairs({
   "jqls",
   "jsonls",
   "nil_ls",
+  "ols",
   "pyright",
   "rust_analyzer",
   "taplo",
@@ -177,6 +178,7 @@ vim.lsp.enable({
   "jsonls",
   "lua_ls",
   "nil_ls",
+  "ols",
   "pylsp",
   "pyright",
   "rust_analyzer",
@@ -189,7 +191,6 @@ vim.lsp.enable({
   "tailwindcss",
   "yamlls",
 })
-
 
 vim.lsp.buf.hover(float_config)
 vim.lsp.buf.signature_help(float_config)
