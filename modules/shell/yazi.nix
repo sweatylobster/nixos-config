@@ -30,6 +30,19 @@
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
+        tmuxh = [
+          {
+            run = "tmux split-window -h -c '#{pane_current_path}' nvim %s";
+            desc = "`nvim` tmux vsplit (%)";
+          }
+        ];
+        tmuxv = [
+          {
+            run = "tmux split-window -v -c '#{pane_current_path}' nvim %s";
+            desc = "`nvim` tmux hsplit";
+
+          }
+        ];
         sioyek = [
           {
             run = "sioyek %s";
@@ -50,6 +63,7 @@
       #   ];
       # };
       open = {
+        append_rules = [ ];
         prepend_rules = [
           {
             url = "*.pdf";
@@ -58,6 +72,14 @@
               "zathura"
               "open"
               "reveal"
+            ];
+          }
+          {
+            mime = "text/*";
+            use = [
+              "edit"
+              "tmuxv"
+              "tmuxh"
             ];
           }
           {
@@ -80,6 +102,34 @@
         }
       ];
       mgr.prepend_keymap = [
+        {
+          on = [
+            "b"
+            "h"
+          ];
+          run = "shell -- tmux split-window -h -c '#{pane_current_path}' nvim %s";
+        }
+        {
+          on = [
+            "b"
+            "v"
+          ];
+          run = "shell -- tmux split-window -v -c '#{pane_current_path}' nvim %s";
+        }
+        {
+          on = [
+            "b"
+            "%"
+          ];
+          run = "shell -- tmux split-window -h -c '#{pane_current_path}' nvim %s";
+        }
+        {
+          on = [
+            "b"
+            ''"''
+          ];
+          run = "shell -- tmux split-window -v -c '#{pane_current_path}' nvim %s";
+        }
         # Teleporting
         {
           on = [
