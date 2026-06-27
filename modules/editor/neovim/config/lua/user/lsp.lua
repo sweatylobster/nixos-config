@@ -1,10 +1,10 @@
+-- Make runtime files discoverable to `lua_ls`
+local runtime_path = vim.split(package.path, ";", {})
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
 local keymaps = require("lsp_keymaps")
 require("lsp_autocommands").setup()
-
--- local cmp_capabilities = require("blink.cmp").get_lsp_capabilities()
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = vim.tbl_deep_extend("force", capabilities, cmp_capabilities)
--- capabilities = vim.tbl_deep_extend("force", capabilities, )
 
 local capabilities = require("blink.cmp").get_lsp_capabilities({
   workspace = {
@@ -15,183 +15,69 @@ local capabilities = require("blink.cmp").get_lsp_capabilities({
   },
 }, true)
 
----@param client vim.lsp.Client LSP client
----@param bufnr number Buffer number
 ---@diagnostic disable: unused-local
 local on_attach = function(client, bufnr)
   keymaps.on_attach(bufnr)
 end
 
--- local lspconfig = require("lspconfig")
--- require("lspconfig.ui.windows").default_options.border = "rounded"
-
-for _, lsp in ipairs({
-  "bashls",
-  "clangd",
-  "cssls",
-  "dockerls",
-  "gopls",
-  "hls",
-  "jqls",
-  "jsonls",
-  "nil_ls",
-  "ols",
-  "pyright",
-  "rust_analyzer",
-  "taplo",
-  "templ",
-  "terraformls",
-  "tflint",
-  -- "zls",
-}) do
-  vim.lsp.config(lsp, {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  })
+local function mkLSP(name, filetypes, settings)
+  return { name = name, filetypes = filetypes, settings = settings, }
 end
 
-for _, lsp in ipairs({ "html", "htmx" }) do
-  vim.lsp.config(lsp, {
-    capabilities = capabilities,
+local SERVERS = {
+  mkLSP("bashls", { "sh", "bash" }, {}),
+  mkLSP("clangd", { "c" }, {}),
+  mkLSP("html", { "htm", "html", "templ" }, {}),
+  mkLSP("htmx", { "html", "templ" }, {}),
+  mkLSP("jqls", { "jq" }, {}),
+  mkLSP("lua_ls", { "lua" },
+    { Lua = { completion = { callSnippet = "Replace", }, telemetry = { enable = false }, hint = { enable = true, }, }, }),
+  mkLSP("nil_ls", { "nix" }, {}),
+  mkLSP("ols", { "odin" }, {}),
+  mkLSP("pylsp", { "py" }, { pylsp = { plugins = { ruff = { enabled = true } }, }, }),
+  mkLSP("pyright", { "py" }, {}),
+  mkLSP("rust_analyzer", { "rs" }, {}),
+  mkLSP("tinymist", { "typ", "typst" }, { formatterMode = "typstyle", exportPdf = "onType", semanticTokens = "disable", }),
+}
+
+for i, lsp in ipairs(SERVERS) do
+  -- print(i, lsp.name, vim.inspect(lsp.filetypes), vim.inspect(lsp.settings))
+  -- mkConfig(lsp.name, lsp.filetypes, lsp.settings)
+  vim.lsp.config(lsp.name, {
     on_attach = on_attach,
-    filetypes = { "html", "templ" },
+    capabilities = capabilities,
+    filetypes = lsp.filetypes,
+    settings = lsp.settings,
   })
+  vim.lsp.enable(lsp.name)
 end
 
-local tsls_inlay_hints = {
-  includeInlayEnumMemberValueHints = true,
-  includeInlayFunctionLikeReturnTypeHints = true,
-  includeInlayFunctionParameterTypeHints = true,
-  includeInlayParameterNameHints = "all",
-  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-  includeInlayPropertyDeclarationTypeHints = true,
-  includeInlayVariableTypeHints = true,
-}
-vim.lsp.config("ts_ls", {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    javascript = {
-      inlayHints = tsls_inlay_hints,
-    },
-    typescript = {
-      inlayHints = tsls_inlay_hints,
-    },
-  },
-})
+local function get_float_config()
+  return {
+    focusable = true,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  }
+end
 
-vim.lsp.config("tailwindcss", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "html", "templ", "javascript" },
-  settings = {
-    tailwindCSS = {
-      includeLanguages = {
-        templ = "html",
-      },
-    },
-  },
-})
+local function get_diagnostic_config(float_config)
+  return {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+    float = float_config,
+  }
+end
 
-vim.lsp.config("tinymist", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "typst" },
-  settings = {
-    formatterMode = "typstyle",
-    exportPdf = "onType",
-    semanticTokens = "disable",
-  },
-})
+local fx = get_float_config()
+local dx = get_diagnostic_config(fx)
 
-vim.lsp.config("yamlls", {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    yaml = {
-      schemaStore = {
-        url = "https://www.schemastore.org/api/json/catalog.json",
-        enable = true,
-      },
-    },
-  },
-})
+vim.diagnostic.config(dx)
 
--- Make runtime files discoverable to the server
-local runtime_path = vim.split(package.path, ";", {})
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-vim.lsp.config("lua_ls", {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace",
-      },
-      telemetry = { enable = false },
-      hint = {
-        enable = true,
-      },
-    },
-  },
-})
-
-vim.lsp.config("pylsp", {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    pylsp = {
-      plugins = { ruff = { enabled = true } },
-    },
-  },
-})
-
-local float_config = {
-  focusable = true,
-  style = "minimal",
-  border = "rounded",
-  source = "always",
-  header = "",
-  prefix = "",
-}
-
--- setup diagnostics
-vim.diagnostic.config({
-  underline = true,
-  update_in_insert = false,
-  virtual_text = false, --{ spacing = 4, prefix = "●" },
-  severity_sort = true,
-  float = float_config,
-})
-
-vim.lsp.enable({
-  "bashls",
-  "clangd",
-  "cssls",
-  "dockerls",
-  "gopls",
-  "hls",
-  "html",
-  "htmx",
-  "jqls",
-  "jsonls",
-  "lua_ls",
-  "nil_ls",
-  "ols",
-  "pylsp",
-  "pyright",
-  "rust_analyzer",
-  "taplo",
-  "templ",
-  "terraformls",
-  "tinymist",
-  "tflint",
-  "ts_ls",
-  "tailwindcss",
-  "yamlls",
-})
-
-vim.lsp.buf.hover(float_config)
-vim.lsp.buf.signature_help(float_config)
+vim.lsp.buf.hover(fx)
+vim.lsp.buf.signature_help(fx)
 vim.hl.priorities.semantic_tokens = 95
