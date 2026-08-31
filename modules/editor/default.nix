@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./neovim
+    ./neovim.nix
     ./editorconfig.nix
     ./helix.nix
   ];
