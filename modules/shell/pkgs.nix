@@ -20,17 +20,14 @@
       comma
       curl
       datamash
-      devenv
       entr
       fd
       ffmpeg
       ghostscript
       gnumake
       gum
-      # graphviz # mermaid-killer
       hexyl
       htmlq
-      httpie
       hyperfine
       imagemagick
       jq
@@ -38,23 +35,20 @@
       moreutils
       mpv
       mupdf
-      ncdu
-      netcat-gnu
-      # nh
+      # ncdu
+      # netcat-gnu
       nmap
-      ocrmypdf
+      # ocrmypdf
       odin
       # pandoc
       poppler-utils
-      pstree
+      # pstree
       ripgrep
-      scc
       taskwarrior-tui
       timewarrior
       tldr
       typst
       ueberzugpp
-      unpaper
       unixtools.watch
       unzip
       uv
@@ -73,9 +67,7 @@
       nil
       nixfmt
       ols
-      pgformatter
       prettier
-      pyright
       python312Packages.python-lsp-server
       ruff
       rust-analyzer
@@ -83,15 +75,13 @@
       rustfmt
       shellcheck
       shfmt
-      sql-formatter
       stylua
       lua-language-server
       tinymist
       tree-sitter
-      websocat # for typst-preview.nvim
-      yamllint
+      ty
       zig
-      # zls
+      zls
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux [
       discord
