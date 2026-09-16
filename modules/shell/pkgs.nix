@@ -53,7 +53,7 @@
       unzip
       uv
       wget
-      xidel
+      # xidel
 
       # treesitter, lsps, formatters, and stuff :)
       bash-language-server
@@ -83,7 +83,7 @@
       zig
       zls
     ]
-    ++ (lib.optionals pkgs.stdenv.isLinux [
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       discord
       dune3d # cad
       gqrx

@@ -11,7 +11,7 @@
       # favorites:
       # [ DejaVuSansM, FiraMono, Hack, Hasklug, Lilex, MartianMono (size=12), UbuntoMono (size=18),  ]
       font = {
-        size = if pkgs.stdenv.isLinux then 12 else 16;
+        size = if pkgs.stdenv.hostPlatform.isLinux then 12 else 16;
         normal = {
           family = "MartianMono Nerd Font Mono";
           style = "Regular";
