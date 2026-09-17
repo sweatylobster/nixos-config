@@ -77,7 +77,6 @@
         ];
       };
 
-
       nixosConfigurations.bartleby = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -213,7 +212,6 @@
               home.homeDirectory = "/Users/max";
               imports = [
                 ./modules/home.nix
-                ./modules/librewolf.nix
                 ./modules/zathura.nix
                 ./modules/terminal-emulators
                 ./modules/shell
