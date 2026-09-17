@@ -1,37 +1,29 @@
-{ ... }: {
+{ ... }:
+{
   programs.swayimg = {
     enable = true;
-    settings = {
-      "keys.gallery" = {
-        "Shift+asciicircum" = "first_file";
-        "Shift+dollar" = "last_file";
-        "h" = "step_left";
-        "j" = "step_down";
-        "k" = "step_up";
-        "l" = "step_right";
-        "Shift+J" = "page_down";
-        "Shift+K" = "page_up";
-      };
-      "keys.viewer" = {
-        # Zoom out and in
-        "Ctrl+o" = "zoom -10";
-        "Ctrl+i" = "zoom +10";
-        # Vi-movements
-        "h" = "step_left 10";
-        "j" = "step_down 10";
-        "k" = "step_up 10";
-        "l" = "step_right 10";
-        # For convenience when zooming (don't have to release ctrl)
-        "Ctrl+h" = "step_left 10";
-        "Ctrl+j" = "step_down 10";
-        "Ctrl+k" = "step_up 10";
-        "Ctrl+l" = "step_right 10";
-        # Paging
-        "Shift+J" = "next_file";
-        "Shift+K" = "prev_file";
-        # Complement default config
-        "Shift+space" = "prev_file";
-      };
-    };
+    initLua = ''
+      swayimg.gallery.on_key("h", function() swayimg.gallery.select("left") end)
+      swayimg.gallery.on_key("j", function() swayimg.gallery.select("down") end)
+      swayimg.gallery.on_key("k", function() swayimg.gallery.select("up") end)
+      swayimg.gallery.on_key("l", function() swayimg.gallery.select("right") end)
+
+      local function nudge(dx, dy)
+        local pos = swayimg.viewer.get_position()
+        swayimg.viewer.set_abs_position(pos.x+dx, pos.y+dy)
+      end
+
+
+      swayimg.viewer.on_key("h", function() nudge(80,   0) end)
+      swayimg.viewer.on_key("j", function() nudge(0,  -80) end)
+      swayimg.viewer.on_key("k", function() nudge(0,   80) end)
+      swayimg.viewer.on_key("l", function() nudge(-80,  0) end)
+
+      swayimg.viewer.on_key("Shift+j", function() swayimg.viewer.open("next") end)
+      swayimg.viewer.on_key("Shift+k", function() swayimg.viewer.open("prev") end)
+
+      swayimg.viewer.on_key("Shift+greater", function() swayimg.viewer.open("next_dir") end)
+      swayimg.viewer.on_key("Shift+less", function() swayimg.viewer.open("prev_dir") end)
+    '';
   };
 }
