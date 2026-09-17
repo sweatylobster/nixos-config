@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Install tmux with some plugins.
   programs.tmux = {
     enable = true;
@@ -9,7 +10,7 @@
       yank
       # vim-tmux-navigator
     ];
-    extraConfig = builtins.readFile ./tmux.conf + builtins.readFile ./vim-tmux-navigator.tmux;
+    extraConfig = builtins.readFile ./tmux.conf;
   };
 
   programs.fish.interactiveShellInit = ''
