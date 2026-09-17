@@ -26,7 +26,7 @@
         max_height = 1000;
         image_delay = 90;
         image_filter = "nearest"; # [ nearest triangle catmull-rom gaussian lanczos3 ]
-        image_quality = 50; # 50-90
+        image_quality = 90; # 50-90
       };
       # https://yazi-rs.github.io/docs/configuration/yazi/#open
       opener = {
