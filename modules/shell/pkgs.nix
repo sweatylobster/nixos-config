@@ -83,6 +83,9 @@
       zig
       zls
     ]
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+      texliveFull
+    ])
     ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       discord
       dune3d # cad
