@@ -8,6 +8,7 @@
     ../shared/linux.nix
     ../shared/keyd.nix
     ../shared/tailscale.nix
+    ../shared/scanner.nix
     ./hardware-configuration.nix
     # ./printer.nix
   ];
